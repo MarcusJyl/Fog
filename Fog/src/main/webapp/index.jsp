@@ -46,8 +46,9 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
+        Ønskes der tag med rejsning?
     <label class="container">Ja
-        <input type="checkbox" checked="checked">
+        <input type="checkbox" id="myCheckTag" onclick="myFunctionTag()">
         <span class="checkmark"></span>
     </label>
     </div>
@@ -56,7 +57,7 @@
 
 <div class="form-group col-lg-5"></div>
 <div class="form-group col-lg-2">
-    <select required class="form-control number-input" id="sel4" name="bottom">
+    <select required class="form-control number-input" id="sel4" style="display: none" name="bottom">
         <option value="" disabled selected>Hældning af tag</option>
         <c:forEach var="i" items="${DimensionsFacade.getSlope()}" varStatus="Count">
             <option value="${Count.index+1}">
@@ -69,7 +70,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel4" name="bottom">
+        <select required class="form-control number-input" id="sel5" style="display: none" name="bottom">
             <option value="" disabled selected>Vælg tagtype</option>
             <c:forEach var="i" items="${DimensionsFacade.getAllRoof()}" varStatus="Count">
                 <option value="${Count.index+1}">
@@ -81,8 +82,9 @@
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
+        Ønskes der skur til carporten?
     <label class="container">Ja
-        <input type="checkbox" checked="checked">
+        <input type="checkbox" id="myCheckSkur" onclick="myFunctionSkur()">
         <span class="checkmark"></span>
     </label>
     </div>
@@ -91,7 +93,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel5" name="bottom">
+        <select required class="form-control number-input" id="sel6" style="display: none" name="bottom">
             <option value="" disabled selected>Længde af skur</option>
             <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                 <option value="${Count.index+1}">
@@ -104,7 +106,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel6" name="bottom">
+        <select required class="form-control number-input" id="sel7" style="display: none" name="bottom">
             <option value="" disabled selected>Bredde af skur</option>
             <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                 <option value="${Count.index+1}">
@@ -117,7 +119,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel7" name="bottom">
+        <select required class="form-control number-input" id="sel8" style="display: none" name="bottom">
             <option value="" disabled selected>Beklædning på skur</option>
             <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
                 <option value="${Count.index+1}">
@@ -131,7 +133,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel8" name="bottom">
+        <select required class="form-control number-input" id="sel9" style="display: none" name="bottom">
             <option value="" disabled selected>Gulvtype til skur</option>
             <c:forEach var="i" items="${DimensionsFacade.getAllFlooring()}" varStatus="Count">
                 <option value="${Count.index+1}">
