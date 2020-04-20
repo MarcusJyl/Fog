@@ -1,0 +1,15 @@
+.number-input {
+    border: 1px solid black;
+}
+
+select:required:invalid {
+    color: gray;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+option {
+    color: black;
+}
