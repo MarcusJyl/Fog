@@ -3,11 +3,20 @@
 <%@include file="Includes/Header.inc" %>
 <%@ page import="FunctionLayer.DimensionsFacade" %>
 
+<script>
+    function saveToStorage(name, id) {
+        localStorage.setItem(name, id);
+        console.log(localStorage.getItem(name))
+    }
+    
+</script>
+
+
 <h1> HEY </h1>
 <div class="row">
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel1" name="bottom">
+        <select required class="form-control number-input" id="height" name="height" onchange="saveToStorage('height', document.getElementById('height').value)" onload="myFunction()">
             <option value="" disabled selected>Højde</option>
                     <c:forEach var="i" items="${DimensionsFacade.getHeight()}" varStatus="Count">
                         <option value="${Count.index+1}">
@@ -143,6 +152,13 @@
         </select>
     </div>
 </div>
+
+<script>
+    document.getElementById("height").selectedIndex = localStorage.getItem("height");
+    console.log(localStorage.getItem('height'))
+</script>
+
+
 <%@include file="Includes/Footer.inc" %>
 
 
