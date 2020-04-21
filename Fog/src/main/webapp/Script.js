@@ -57,7 +57,7 @@ function loadInput(id, checkbox) {
     for (var i = 0; i < id.length; i++) {
         dropdowns.push(document.getElementById(id[i]));
     }
-    if (document.getElementById("myCheckTag").checked) {
+    if (document.getElementById(checkbox).checked) {
         for (var i = 0; i < dropdowns.length; i++) {
             dropdowns[i].style.display = "block";
         }
