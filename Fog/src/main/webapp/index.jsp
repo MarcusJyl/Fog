@@ -88,6 +88,9 @@
     </div>
 
     <div class="form-group col-lg-5"></div>
+
+
+
     <div class="form-group col-lg-5"></div>
 
     <div class="form-group col-lg-2">
@@ -188,9 +191,17 @@
     <input type="hidden" id="widthSetterWidth" name="widthSetterWidth" value="${v.id}">
 </form>
 
-
-<script>loadInput(["slope", "roofType"], 'myCheckTag')</script>
-<script>loadInput(["shedLength", "shedWidth", "shedWood", "shedFloor"], 'myCheckSkur')</script>
 <script>load()</script>
+
+<script>loadInput("slope",  'myCheckTag')</script>
+<script>loadInput("roofType",  'myCheckTag')</script>
+<script>loadInput("shedLength",  'myCheckSkur')</script>
+<script>loadInput("shedWidth",  'myCheckSkur')</script>
+<script>loadInput("shedWood",  'myCheckSkur')</script>
+<script>loadInput("shedFloor",  'myCheckSkur')</script>
+
+
+<%--<script>loadInput(["shedLength", "shedWidth", "shedWood", "shedFloor"], 'myCheckSkur')</script>--%>
+
 
 <%@include file="Includes/Footer.inc" %>

@@ -53,20 +53,13 @@ function load() {
 }
 
 function loadInput(id, checkbox) {
-    var dropdowns = [];
-    for (var i = 0; i < id.length; i++) {
-        dropdowns.push(document.getElementById(id[i]));
-    }
+    let dropdown = document.getElementById(id);
+
     if (document.getElementById(checkbox).checked) {
-        for (var i = 0; i < dropdowns.length; i++) {
-            dropdowns[i].style.display = "block";
-        }
+        dropdown.style.display = "block";
     } else {
-        for (var i = 0; i < dropdowns.length; i++) {
-            dropdowns[i].style.display = "none";
-        }
+        dropdown.style.display = "none";
     }
 }
-
 
 
