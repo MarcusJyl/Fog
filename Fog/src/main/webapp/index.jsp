@@ -3,20 +3,11 @@
 <%@include file="Includes/Header.inc" %>
 <%@ page import="FunctionLayer.DimensionsFacade" %>
 
-<script>
-    function saveToStorage(name, id) {
-        localStorage.setItem(name, id);
-        console.log(localStorage.getItem(name))
-    }
-    
-</script>
-
-
 <h1> HEY </h1>
 <div class="row">
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="height" name="height" onchange="saveToStorage('height', document.getElementById('height').value)" onload="myFunction()">
+        <select required class="form-control number-input" id="height" name="height" onchange="saveToStorage('height', document.getElementById('height').value)">
             <option value="" disabled selected>Højde</option>
                     <c:forEach var="i" items="${DimensionsFacade.getHeight()}" varStatus="Count">
                         <option value="${Count.index+1}">
@@ -29,7 +20,8 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel2" name="bottom">
+
+            <select required class="form-control number-input" id="width" name="width" onchange="saveToStorage('width', document.getElementById('width').value)">
             <option value="" disabled selected>Bredde</option>
                     <c:forEach var="i" items="${DimensionsFacade.getWidth()}" varStatus="Count">
                         <option value="${Count.index+1}">
@@ -42,7 +34,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel3" name="bottom">
+        <select required class="form-control number-input" id="length" name="length" onchange="saveToStorage('length', document.getElementById('length').value)">
             <option value="" disabled selected>Længde</option>
                     <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                         <option value="${Count.index+1}">
@@ -66,7 +58,7 @@
 
 <div class="form-group col-lg-5"></div>
 <div class="form-group col-lg-2">
-    <select required class="form-control number-input" id="sel4" style="display: none" name="bottom">
+    <select required class="form-control number-input" id="slope" name="slope" onchange="saveToStorage('length', document.getElementById('slope').value)">
         <option value="" disabled selected>Hældning af tag</option>
         <c:forEach var="i" items="${DimensionsFacade.getSlope()}" varStatus="Count">
             <option value="${Count.index+1}">
@@ -79,7 +71,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel5" style="display: none" name="bottom">
+        <select required class="form-control number-input" id="roofType" name="roofType" onchange="saveToStorage('roofType', document.getElementById('roofType').value)">
             <option value="" disabled selected>Vælg tagtype</option>
             <c:forEach var="i" items="${DimensionsFacade.getAllRoof()}" varStatus="Count">
                 <option value="${Count.index+1}">
@@ -88,8 +80,10 @@
             </c:forEach>
         </select>
     </div>
+
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-5"></div>
+
     <div class="form-group col-lg-2">
         Ønskes der skur til carporten?
     <label class="container">Ja
@@ -102,7 +96,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel6" style="display: none" name="bottom">
+        <select required class="form-control number-input" id="shedLength" name="shedLength" onchange="saveToStorage('shedLength', document.getElementById('shedLength').value)">
             <option value="" disabled selected>Længde af skur</option>
             <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                 <option value="${Count.index+1}">
@@ -115,7 +109,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel7" style="display: none" name="bottom">
+        <select required class="form-control number-input" id="shedWidth" name="shedWidth" onchange="saveToStorage('shedWidth', document.getElementById('shedWidth').value)">
             <option value="" disabled selected>Bredde af skur</option>
             <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                 <option value="${Count.index+1}">
@@ -128,7 +122,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel8" style="display: none" name="bottom">
+        <select required class="form-control number-input" id="shedWood" name="shedLength" onchange="saveToStorage('shedWood', document.getElementById('shedWood').value)">
             <option value="" disabled selected>Beklædning på skur</option>
             <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
                 <option value="${Count.index+1}">
@@ -142,7 +136,7 @@
 
     <div class="form-group col-lg-5"></div>
     <div class="form-group col-lg-2">
-        <select required class="form-control number-input" id="sel9" style="display: none" name="bottom">
+        <select required class="form-control number-input" id="shedFloor" name="shedFloor" onchange="saveToStorage('shedFloor', document.getElementById('shedFloor').value)">
             <option value="" disabled selected>Gulvtype til skur</option>
             <c:forEach var="i" items="${DimensionsFacade.getAllFlooring()}" varStatus="Count">
                 <option value="${Count.index+1}">
@@ -153,10 +147,9 @@
     </div>
 </div>
 
-<script>
-    document.getElementById("height").selectedIndex = localStorage.getItem("height");
-    console.log(localStorage.getItem('height'))
-</script>
+<script>loadInput(["slope","roofType"], 'myCheckTag')</script>
+<script>loadInput(["shedLength", "shedWidth", "shedWood", "shedFloor"], 'myCheckSkur')</script>
+<script>load()</script>
 
 
 <%@include file="Includes/Footer.inc" %>
