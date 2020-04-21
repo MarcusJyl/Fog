@@ -150,3 +150,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/maven,macos,windows,java-web,intellij# Created by .ignore support plugin (hsz.mobi)
+
+.idea/misc.xml
+
+.idea/artifacts/Fog_war_exploded.xml
+
+Fog/.idea/compiler.xml
