@@ -3,6 +3,7 @@
 <%@include file="Includes/Header.inc" %>
 <%@ page import="FunctionLayer.DimensionsFacade" %>
 
+
 <h1> HEY </h1>
 <div class="row">
     <div class="form-group col-lg-5"></div>
@@ -111,7 +112,7 @@
     <div class="form-group col-lg-2">
         <select required class="form-control number-input" id="shedWidth" name="shedWidth" onchange="saveToStorage('shedWidth', document.getElementById('shedWidth').value)">
             <option value="" disabled selected>Bredde af skur</option>
-            <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
+            <c:forEach var="i" items="${DimensionsFacade.getShedWidth(document.getElementById('width'))}" varStatus="Count">
                 <option value="${Count.index+1}">
                         ${i}
                 </option>
@@ -150,7 +151,6 @@
 <script>loadInput(["slope","roofType"], 'myCheckTag')</script>
 <script>loadInput(["shedLength", "shedWidth", "shedWood", "shedFloor"], 'myCheckSkur')</script>
 <script>load()</script>
-
 
 <%@include file="Includes/Footer.inc" %>
 
