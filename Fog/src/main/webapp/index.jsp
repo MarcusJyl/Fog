@@ -145,8 +145,8 @@
     </div>
     <div class="form-group col-lg-5 mt-5">
 
-        <svg width="500" height="500">
-            <rect width="500" height="500" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
+        <svg width="100%" height="100%">
+            <rect width="100%" height="100%" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
         </svg>
 
     </div>
