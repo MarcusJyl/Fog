@@ -12,7 +12,7 @@ abstract class Command {
     private static void initCommands() {
         commands = new HashMap<>();
         commands.put( "widthSetter", new WidthSetter() );
-//        commands.put( "register", new Register() );
+        commands.put( "draw", new Drawing() );
     }
 
     static Command from( HttpServletRequest request ) {

@@ -62,4 +62,9 @@ function loadInput(id, checkbox) {
     }
 }
 
+function draw(servlet) {
+    document.getElementById("target").value = servlet;
+    document.getElementById('widthSetter').submit();
+}
+
 

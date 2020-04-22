@@ -8,7 +8,7 @@
     <div class="form-group col-lg-2 mt-5">
         <div class="form-group mt-4">
             <select required class="form-control number-input" id="height" name="height"
-                    onchange="saveToStorage('height', document.getElementById('height').value)">
+                    onchange="saveToStorage('height', document.getElementById('height').value); draw('draw')">
                 <option value="" disabled selected>Højde</option>
                 <c:forEach var="i" items="${DimensionsFacade.getHeight()}" varStatus="Count">
                     <option value="${Count.index+1}">
@@ -163,13 +163,12 @@
         document.getElementById('widthSetter').submit();
         // console.log(document.getElementById('width').options[e.selectedIndex].value)
 
-
     }
 </script>
 
 <form action="FrontController" method="post" id="widthSetter">
-    <input type="hidden" name="taget" value="widthSetter">
-    <input type="hidden" id="widthSetterWidth" name="widthSetterWidth" value="${v.id}">
+    <input type="hidden" id="target" name="taget" value="widthSetter">
+    <input type="hidden" id="widthSetterWidth" name="widthSetterWidth" value="">
 </form>
 
 <script>load()</script>
@@ -181,8 +180,6 @@
 <script>loadInput("shedWood", 'myCheckSkur')</script>
 <script>loadInput("shedFloor", 'myCheckSkur')</script>
 
-
-<%--<script>loadInput(["shedLength", "shedWidth", "shedWood", "shedFloor"], 'myCheckSkur')</script>--%>
 
 
 <%@include file="Includes/Footer.inc" %>
