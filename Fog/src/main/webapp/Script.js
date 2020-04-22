@@ -63,8 +63,16 @@ function loadInput(id, checkbox) {
 }
 
 function draw(servlet) {
+    var widthElement = document.getElementById("width");
+    var width = widthElement.options[widthElement.selectedIndex].text;
+    document.getElementById('senderWidth').value = width;
+
+    var lengthElement = document.getElementById("length");
+    var length = lengthElement.options[lengthElement.selectedIndex].text;
+    document.getElementById('senderLength').value = length;
+
     document.getElementById("target").value = servlet;
-    document.getElementById('widthSetter').submit();
+    document.getElementById('valueSender').submit();
 }
 
 

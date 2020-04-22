@@ -10,7 +10,7 @@ public class WidthSetter extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        int maxWidth = Integer.parseInt(request.getParameter("widthSetterWidth"));
+        int maxWidth = Integer.parseInt(request.getParameter("senderWidth"));
 
         HttpSession session = request.getSession();
 

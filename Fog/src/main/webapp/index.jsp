@@ -8,7 +8,7 @@
     <div class="form-group col-lg-2 mt-5">
         <div class="form-group mt-4">
             <select required class="form-control number-input" id="height" name="height"
-                    onchange="saveToStorage('height', document.getElementById('height').value); draw('draw')">
+                    onchange="saveToStorage('height', document.getElementById('height').value)">
                 <option value="" disabled selected>Højde</option>
                 <c:forEach var="i" items="${DimensionsFacade.getHeight()}" varStatus="Count">
                     <option value="${Count.index+1}">
@@ -20,7 +20,7 @@
 
         <div class="form-group mt-4">
             <select required class="form-control number-input" id="width" name="width"
-                    onchange="saveToStorage('width', document.getElementById('width').value); setWidth()">
+                    onchange="saveToStorage('width', document.getElementById('width').value); draw('draw')">
                 <option value="" disabled selected>Bredde</option>
                 <c:forEach var="i" items="${DimensionsFacade.getWidth()}" varStatus="Count">
                     <option value="${Count.index+1}">
@@ -32,7 +32,7 @@
 
         <div class="form-group mt-4">
             <select required class="form-control number-input" id="length" name="length"
-                    onchange="saveToStorage('length', document.getElementById('length').value)">
+                    onchange="saveToStorage('length', document.getElementById('length').value); draw('draw')">
                 <option value="" disabled selected>Længde</option>
                 <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                     <option value="${Count.index+1}">
@@ -145,9 +145,7 @@
     </div>
     <div class="form-group col-lg-5 mt-5">
 
-        <svg width="100%" height="100%">
-            <rect width="100%" height="100%" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)" />
-        </svg>
+        ${requestScope.svgdrawing}
 
     </div>
 
@@ -155,20 +153,10 @@
 </div>
 
 
-<script>
-    function setWidth() {
-        var widthElement = document.getElementById("width");
-        var width = widthElement.options[widthElement.selectedIndex].text;
-        document.getElementById('widthSetterWidth').value = width;
-        document.getElementById('widthSetter').submit();
-        // console.log(document.getElementById('width').options[e.selectedIndex].value)
-
-    }
-</script>
-
-<form action="FrontController" method="post" id="widthSetter">
+<form action="FrontController" method="post" id="valueSender">
     <input type="hidden" id="target" name="taget" value="widthSetter">
-    <input type="hidden" id="widthSetterWidth" name="widthSetterWidth" value="">
+    <input type="hidden" id="senderWidth" name="senderWidth" value="">
+    <input type="hidden" id="senderLength" name="senderLength" value="">
 </form>
 
 <script>load()</script>
