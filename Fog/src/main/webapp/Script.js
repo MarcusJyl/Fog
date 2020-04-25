@@ -49,7 +49,6 @@ function load() {
     document.getElementById("shedFloor").selectedIndex = localStorage.getItem("shedFloor");
     document.getElementById("myCheckSkur").checked = JSON.parse(localStorage.getItem("myCheckSkur"));
     document.getElementById("myCheckTag").checked = JSON.parse(localStorage.getItem("myCheckTag"));
-
 }
 
 function loadInput(id, checkbox) {
