@@ -2,6 +2,9 @@ package CarportBerninger;
 
 public class Carport {
 
+    private Spær spær;
+
+
     private boolean fladtTag;
     private boolean withShed;
     private int length;
@@ -20,7 +23,7 @@ public class Carport {
         this.fladtTag = fladtTag;
         this.withShed = true;
 
-        this.antalSpær = bergenAntalAfSpær(fladtTag);
+        this.antalSpær = new Spær(length,fladtTag, StaticValues.dictensBetweenSpær).getAntalSpær();
     }
 
     public Carport(int length, int width, int heigth, boolean fladtTag) {
@@ -30,14 +33,6 @@ public class Carport {
         this.fladtTag = fladtTag;
         this.withShed = false;
 
-        this.antalSpær = bergenAntalAfSpær(fladtTag);
-    }
-
-    private int bergenAntalAfSpær(boolean erTagetFladt) {
-        if (!this.fladtTag) {
-            return (this.length / 70) - 2;
-        }
-        return 0;
     }
 
 }
