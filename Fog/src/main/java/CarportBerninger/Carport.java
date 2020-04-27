@@ -20,9 +20,7 @@ public class Carport {
         this.fladtTag = fladtTag;
         this.withShed = true;
 
-        if (!this.fladtTag){
-            antalSpær = (this.length / 70) - 2;
-        }
+        this.antalSpær = bergenAntalAfSpær(fladtTag);
     }
 
     public Carport(int length, int width, int heigth, boolean fladtTag) {
@@ -32,9 +30,14 @@ public class Carport {
         this.fladtTag = fladtTag;
         this.withShed = false;
 
-        if (!this.fladtTag){
-            antalSpær = (this.length / 70) - 2;
+        this.antalSpær = bergenAntalAfSpær(fladtTag);
+    }
+
+    private int bergenAntalAfSpær(boolean erTagetFladt) {
+        if (!this.fladtTag) {
+            return (this.length / 70) - 2;
         }
+        return 0;
     }
 
 }
