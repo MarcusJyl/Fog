@@ -32,6 +32,26 @@ function myFunctionSkur() {
     }
 }
 
+function myFunctionCoating() {
+    var checkboxCoating = document.getElementById("myCheckBacking");
+    localStorage.setItem('myCheckBacking', checkboxCoating.checked);
+    var dropdown10 = document.getElementById("rightCheck");
+    var dropdown11 = document.getElementById("leftCheck");
+    var dropdown12 = document.getElementById("backCheck");
+    var dropdown13 = document.getElementById("backingWood");
+    if (checkboxCoating.checked){
+        dropdown10.style.display = "block";
+        dropdown11.style.display = "block";
+        dropdown12.style.display = "block";
+        dropdown13.style.display = "block";
+    } else {
+        dropdown10.style.display = "none";
+        dropdown11.style.display = "none";
+        dropdown12.style.display = "none";
+        dropdown13.style.display = "none";
+    }
+}
+
 function saveToStorage(name, id) {
     localStorage.setItem(name, id);
     console.log(localStorage.getItem(name))

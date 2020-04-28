@@ -9,22 +9,23 @@
         <div class="form-group mt-5">
             Ønskes der beklædning på siderne af carporten?
             <label class="container">Ja
-                <input type="checkbox" id="myCheckBacking" onclick="myFunctionSkur()">
+                <input type="checkbox" id="myCheckBacking" onclick="myFunctionCoating()">
                 <span class="checkmark"></span>
             </label>
         </div>
 
+
         <div class="form-group mt-5">
             <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="rightCheck">
+                <input type="checkbox" class="form-check-input" id="rightCheck" name="rightCheck">
                 <label class="form-check-label" for="rightCheck">Højre</label>
             </div>
             <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="leftCheck">
+                <input type="checkbox" class="form-check-input" id="leftCheck" name="leftCheck">
                 <label class="form-check-label" for="leftCheck">Venstre</label>
             </div>
             <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="backCheck">
+                <input type="checkbox" class="form-check-input" id="backCheck" name="backCheck">
                 <label class="form-check-label" for="backCheck">Bagvæggen</label>
             </div>
         </div>
