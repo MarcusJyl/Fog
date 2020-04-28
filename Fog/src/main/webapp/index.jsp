@@ -4,7 +4,43 @@
 <%@ page import="FunctionLayer.DimensionsFacade" %>
 
 <div class="row">
-    <div class="form-group col-lg-5 mt-5"></div>
+
+    <div class="form-group col-lg-5 mt-5">
+        <div class="form-group mt-5">
+            Ønskes der beklædning på siderne af carporten?
+            <label class="container">Ja
+                <input type="checkbox" id="myCheckBacking" onclick="myFunctionSkur()">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+        <div class="form-group mt-5">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rightCheck">
+                <label class="form-check-label" for="rightCheck">Højre</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="leftCheck">
+                <label class="form-check-label" for="leftCheck">Venstre</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="backCheck">
+                <label class="form-check-label" for="backCheck">Bagvæggen</label>
+            </div>
+        </div>
+
+        <div class="form-group mt-5">
+            <select required class="form-control number-input" id="backingWood" name="backingWood">
+            <option value="" disabled selected>Beklædning til sider</option>
+            <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
+                <option value="${Count.index+1}">
+                        ${i}
+                </option>
+            </c:forEach>
+            </select>
+        </div>
+    </div>
+
     <div class="form-group col-lg-2 mt-5">
         <div class="form-group mt-4">
             Højde
@@ -145,43 +181,8 @@
         </div>
     </div>
 
-    <div class="form-group col-lg-5 mt-5">
-        <div class="form-group mt-5">
-            Ønskes der beklædning på siderne af carporten?
-            <label class="container">Ja
-                <input type="checkbox" id="myCheckBacking" onclick="myFunctionSkur()">
-                <span class="checkmark"></span>
-            </label>
-        </div>
 
-        <div class="form-group mt-5">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="rightCheck">
-                <label class="form-check-label" for="rightCheck">Højre</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="leftCheck">
-                <label class="form-check-label" for="leftCheck">Venstre</label>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="backCheck">
-                <label class="form-check-label" for="backCheck">Bagvæggen</label>
-            </div>
-        </div>
 
-        <div class="form-group mt-5">
-            <select required class="form-control number-input" id="backingWood" name="backingWood"
-            <option value="" disabled selected>Beklædning til sider</option>
-            <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
-                <option value="${Count.index+1}">
-                        ${i}
-                </option>
-            </c:forEach>
-            </select>
-        </div>
-    </div>
-
-    <%--
                 <div class="form-group col-lg-5 mt-5">
 
                     ${requestScope.svgdrawing}
@@ -206,7 +207,7 @@
             <script>loadInput("shedWidth", 'myCheckSkur')</script>
             <script>loadInput("shedWood", 'myCheckSkur')</script>
             <script>loadInput("shedFloor", 'myCheckSkur')</script>
-    --%>
+
 
 
     <%@include file="Includes/Footer.inc" %>

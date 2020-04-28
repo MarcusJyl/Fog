@@ -1,5 +1,6 @@
 package CarportBerninger;
 
+import CarportBerninger.Materials.BearingPostVerShed;
 import junit.framework.TestCase;
 
 public class BearingPostVerShedTest extends TestCase {
