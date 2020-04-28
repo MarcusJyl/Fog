@@ -9,7 +9,7 @@
         <div class="form-group mt-5">
             Ønskes der beklædning på siderne af carporten?
             <label class="container">Ja
-                <input type="checkbox" id="myCheckBacking" onclick="myFunctionCoating()">
+                <input type="checkbox" id="myCheckBacking" onclick="myFunctionCoating()" >
                 <span class="checkmark"></span>
             </label>
         </div>
@@ -208,6 +208,10 @@
             <script>loadInput("shedWidth", 'myCheckSkur')</script>
             <script>loadInput("shedWood", 'myCheckSkur')</script>
             <script>loadInput("shedFloor", 'myCheckSkur')</script>
+            <script>loadInput("rightCheck", 'myCheckCoating')</script>
+            <script>loadInput("leftCheck", 'myCheckCoating')</script>
+            <script>loadInput("backCheck", 'myCheckCoating')</script>
+            <script>loadInput("backingWood", 'myCheckCoating')</script>
 
 
 

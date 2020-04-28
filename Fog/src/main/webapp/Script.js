@@ -67,8 +67,13 @@ function load() {
     document.getElementById("shedWidth").selectedIndex = localStorage.getItem("shedWidth");
     document.getElementById("shedWood").selectedIndex = localStorage.getItem("shedWood");
     document.getElementById("shedFloor").selectedIndex = localStorage.getItem("shedFloor");
+    document.getElementById("leftCheck").selectedIndex = localStorage.getItem("leftCheck");
+    document.getElementById("rightCheck").selectedIndex = localStorage.getItem("rightCheck");
+    document.getElementById("backCheck").selectedIndex = localStorage.getItem("backCheck");
+    document.getElementById("backingWood").selectedIndex = localStorage.getItem("backingCheck");
     document.getElementById("myCheckSkur").checked = JSON.parse(localStorage.getItem("myCheckSkur"));
     document.getElementById("myCheckTag").checked = JSON.parse(localStorage.getItem("myCheckTag"));
+    document.getElementById("myCheckBacking").checked = JSON.parse(localStorage.getItem("myCheckBacking"));
 }
 
 function loadInput(id, checkbox) {
