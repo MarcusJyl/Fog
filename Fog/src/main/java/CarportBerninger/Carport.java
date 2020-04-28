@@ -1,5 +1,7 @@
 package CarportBerninger;
 
+import CarportBerninger.Materials.*;
+
 public class Carport {
 
     private Spær spær;
@@ -13,10 +15,12 @@ public class Carport {
     private int shedWidth;
     private int shedLength;
 
-    //matirialse
+    //materialise
     private int antalSpær;
     private BearingPostVerCarport bearingPosts; //Vertical
-    private double vindskeder;
+    private Vindskeder vindskeder;
+    private Stern sternSidder;
+    private Stern sternEnder;
 
     public Carport(int length, int width, int heigth, int shedWidth, int shedLength, boolean fladtTag, int degrees) {
         this.length = length;
@@ -29,7 +33,9 @@ public class Carport {
 
         this.antalSpær = new Spær(length,fladtTag, StaticValues.dictensBetweenSpær).getAntalSpær();
         this.bearingPosts = new BearingPostVerCarport(length, shedLength, heigth);
-        this.vindskeder = new Vindskeder(width, degrees).getLength();
+        this.vindskeder = new Vindskeder(width, degrees);
+        this.sternSidder = new Stern(length,shedLength);
+        this.sternEnder = new Stern(fladtTag,shedLength);
     }
 //
 //    public Carport(int length, int width, int heigth, boolean fladtTag) {

@@ -1,6 +1,12 @@
-package CarportBerninger;
+package CarportBerninger.Materials;
 
-public class BearingPostVerShed {
+import CarportBerninger.StaticValues;
+import CarportBerninger.Util.Wood;
+import CarportBerninger.Util.WoodReturn;
+
+public class BearingPostVerShed extends Wood {
+
+    private int vareNr = StaticValues.BearingPostVerShedVareNr;
     private final double distance = StaticValues.bærendeStolpeMinAfstand;
 
     private int numberOfPosts;
@@ -28,5 +34,15 @@ public class BearingPostVerShed {
     }
     public int getHeigth() {
         return heigth;
+    }
+
+    @Override
+    public int getVareNr() {
+        return vareNr;
+    }
+
+    @Override
+    public WoodReturn getAmount() {
+        return new WoodReturn(heigth, numberOfPosts);
     }
 }
