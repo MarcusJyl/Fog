@@ -11,48 +11,48 @@ USE inventory;
 DROP TABLE IF EXISTS height;
 CREATE TABLE height (
   id int(11) NOT NULL AUTO_INCREMENT,
-  heightint(11) NOT NULL,
+  height int(11) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS length;
 CREATE TABLE length (
   id int(11) NOT NULL AUTO_INCREMENT,
-  lengthint(11) NOT NULL,
+  length int(11) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS width;
 CREATE TABLE width (
   id int(11) NOT NULL AUTO_INCREMENT,
-  widthint(11) NOT NULL,
+  width int(11) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS slope;
 CREATE TABLE slope(
- idint(11) NOT NULL AUTO_INCREMENT,
+ idi nt(11) NOT NULL AUTO_INCREMENT,
  slope int(11) NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS roof_type;
 CREATE TABLE roof_type(
- idint(11) NOT NULL AUTO_INCREMENT,
+ id int(11) NOT NULL AUTO_INCREMENT,
  name VARCHAR (100) NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS roof_color;
 CREATE TABLE roof_color(
- idint(11) NOT NULL AUTO_INCREMENT,
+ id int(11) NOT NULL AUTO_INCREMENT,
  color VARCHAR (100) NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS roof;
 CREATE TABLE roof(
- idint(11) NOT NULL AUTO_INCREMENT,
+ id int(11) NOT NULL AUTO_INCREMENT,
  type_id int(11) NOT NULL,
  color_id int (11) NOT NULL,
     PRIMARY KEY (id),
@@ -64,28 +64,28 @@ CREATE TABLE roof(
 DROP TABLE IF EXISTS skur_length;
 CREATE TABLE skur_length (
   id int(11) NOT NULL AUTO_INCREMENT,
-  skur_lengthint(11) NOT NULL,
+  skur_length int(11) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS skur_width;
 CREATE TABLE skur_width (
   id int(11) NOT NULL AUTO_INCREMENT,
-  skur_widthint(11) NOT NULL,
+  skur_width int(11) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 DROP table if exists beklædning;
 create table beklædning (
  id int(11) NOT NULl AUTO_INCREMENT,
- beklædning_typeVARCHAR(100) NOT NULL,
+ beklædning_type VARCHAR(100) NOT NULL,
  PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 DROP table if exists floor;
 create table floor (
  id int(11) NOT NULl AUTO_INCREMENT,
- floor_typeVARCHAR(100) NOT NULL,
+ floor_type VARCHAR(100) NOT NULL,
  PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
