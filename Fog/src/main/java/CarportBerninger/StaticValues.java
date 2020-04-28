@@ -19,6 +19,9 @@ public class StaticValues {
     public static int VindskederVareNr = 10140518;
     public static int BearingPostVerCarportVareNr = 10140358;
     public static int BearingPostVerShedVareNr = 56456665;
+    public static int RemVareNr = 1234567;
+    public static int LøsholterVareNr = 474748754;
+
 
 
 

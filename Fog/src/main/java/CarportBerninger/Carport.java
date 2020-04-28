@@ -21,6 +21,11 @@ public class Carport {
     private Vindskeder vindskeder;
     private Stern sternSidder;
     private Stern sternEnder;
+    private Løsholter løsholterWidth;
+    private Løsholter løsholterHeight;
+    private Rem rem;
+
+
 
     public Carport(int length, int width, int heigth, int shedWidth, int shedLength, boolean fladtTag, int degrees) {
         this.length = length;
@@ -36,6 +41,9 @@ public class Carport {
         this.vindskeder = new Vindskeder(width, degrees);
         this.sternSidder = new Stern(length,shedLength);
         this.sternEnder = new Stern(fladtTag,shedLength);
+        this.løsholterWidth = new Løsholter(shedLength);
+        this.løsholterHeight = new Løsholter(shedWidth);
+        this.rem = new Rem(length);
     }
 //
 //    public Carport(int length, int width, int heigth, boolean fladtTag) {
