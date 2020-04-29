@@ -1,20 +1,18 @@
-package PresentationLayer;
+package PresentationLayer.Admin;
 
 import FunctionLayer.LoginSampleException;
+import PresentationLayer.Command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-public class WidthSetter extends Command {
+public class InsertWidth extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        String width = request.getParameter("width");
 
-        int maxWidth = Integer.parseInt(request.getParameter("senderWidth"));
-
-        HttpSession session = request.getSession();
-
-        session.setAttribute("maxWidth", maxWidth);
+        int i = Integer.parseInt(width);
+        DBAccess.AdminFunctions.InsertWidth(i);
 
         return "../index";
     }

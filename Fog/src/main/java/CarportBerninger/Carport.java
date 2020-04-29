@@ -24,6 +24,7 @@ public class Carport {
     private Løsholter løsholterWidth;
     private Løsholter løsholterHeight;
     private Rem rem;
+    private BrætPåVindskeder brætPåVindskeder;
 
 
 
@@ -44,6 +45,7 @@ public class Carport {
         this.løsholterWidth = new Løsholter(shedLength);
         this.løsholterHeight = new Løsholter(shedWidth);
         this.rem = new Rem(length);
+        this.brætPåVindskeder = new BrætPåVindskeder(width, degrees);
     }
 //
 //    public Carport(int length, int width, int heigth, boolean fladtTag) {

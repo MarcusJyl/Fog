@@ -1,11 +1,15 @@
 package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
+import PresentationLayer.Admin.ReturnBasicMeasurements;
+import PresentationLayer.Admin.ReturnRoofsAndFloors;
+import PresentationLayer.Admin.ReturnShed;
+
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-abstract class Command {
+public abstract class Command {
 
     private static HashMap<String, Command> commands;
 
@@ -13,6 +17,9 @@ abstract class Command {
         commands = new HashMap<>();
         commands.put( "widthSetter", new WidthSetter() );
         commands.put( "draw", new Drawing() );
+        commands.put("returnBasicMeasurements", new ReturnBasicMeasurements());
+        commands.put("returnShed", new ReturnShed());
+        commands.put("returnRoofsAndFloors", new ReturnRoofsAndFloors());
     }
 
     static Command from( HttpServletRequest request ) {
@@ -23,7 +30,7 @@ abstract class Command {
         return commands.getOrDefault(TagetName, new UnknownCommand() );   // unknowncommand er default.
     }
 
-    abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
+    public abstract String execute(HttpServletRequest request, HttpServletResponse response)
             throws LoginSampleException;
 
 }

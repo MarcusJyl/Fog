@@ -1,4 +1,4 @@
-package CarportBerninger;
+package CarportBerninger.Materials;
 
 import CarportBerninger.Materials.BearingPostVerShed;
 import junit.framework.TestCase;
