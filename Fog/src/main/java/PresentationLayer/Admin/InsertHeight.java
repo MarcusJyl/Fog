@@ -16,7 +16,7 @@ public class InsertHeight extends Command {
         int i = Integer.parseInt(height);
         DBAccess.AdminFunctions.InsertHeight(i);
 
-        return "../index";
+        return "../admin/index";
 
     }
 }

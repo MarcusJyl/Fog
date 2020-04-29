@@ -15,7 +15,7 @@
         <th>Fjern Værdi</th>
     </tr>
     <tr>
-        <td><form action="FrontController" method="POST">
+        <td><form action="FrontController" method="post">
             <label for="fbekladning">Tilføj ny beklædning:</label><br>
             <input type="text" id="fbekladning" name="bekladning" value="">
             <input type="hidden" name="taget" value="insertBekladning">

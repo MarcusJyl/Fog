@@ -14,6 +14,6 @@ public class InsertLength extends Command {
         int i = Integer.parseInt(length);
         DBAccess.AdminFunctions.InsertLength(i);
 
-        return "../index";
+        return "../admin/index";
     }
 }

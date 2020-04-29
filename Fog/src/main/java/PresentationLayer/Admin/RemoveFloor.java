@@ -13,6 +13,6 @@ public class RemoveFloor extends Command {
 
         DBAccess.AdminFunctions.RemoveFloor(floor);
 
-        return "../index";
+        return "../admin/index";
     }
 }

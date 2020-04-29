@@ -13,6 +13,6 @@ public class RemoveSlope extends Command {
         int i = Integer.parseInt(slope);
         DBAccess.AdminFunctions.RemoveSlope(i);
 
-        return "../index";
+        return "../admin/index";
     }
 }

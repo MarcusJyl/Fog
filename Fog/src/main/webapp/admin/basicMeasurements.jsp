@@ -4,6 +4,9 @@
 <%@include file="../Includes/Header.inc" %>
 <%@ page import="FunctionLayer.DimensionsFacade" %>
 
+<head>
+    <link rel="stylesheet" href="admin/Style.css">
+</head>
 
 <table>
     <tr>

@@ -14,6 +14,6 @@ public class InsertShedWidth extends Command {
         int i = Integer.parseInt(width);
         DBAccess.AdminFunctions.InsertShedWidth(i);
 
-        return "../index";
+        return "../admin/index";
     }
 }

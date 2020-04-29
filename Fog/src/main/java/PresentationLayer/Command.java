@@ -1,9 +1,8 @@
 package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
-import PresentationLayer.Admin.ReturnBasicMeasurements;
-import PresentationLayer.Admin.ReturnRoofsAndFloors;
-import PresentationLayer.Admin.ReturnShed;
+import PresentationLayer.Admin.*;
+
 
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +16,26 @@ public abstract class Command {
         commands = new HashMap<>();
         commands.put( "widthSetter", new WidthSetter() );
         commands.put( "draw", new Drawing() );
+        commands.put("insertHeight", new InsertHeight());
+        commands.put("insertLength", new InsertLength());
+        commands.put("insertWidth", new InsertWidth());
+        commands.put("insertSlope", new InsertSlope());
+        commands.put("insertShedWidth", new InsertShedWidth());
+        commands.put("insertShedLength", new InsertShedLength());
+        commands.put("insertBekladning", new InsertBekladning());
+        commands.put("insertFloor", new InsertFloor());
+        commands.put("insertColor", new InsertColor());
+        commands.put("insertRoof", new InsertRoof());
+        commands.put("removeRoof", new RemoveRoof());
+        commands.put("removeColor", new RemoveColor());
+        commands.put("removeFloor", new RemoveFloor());
+        commands.put("removeBekladning" , new RemoveBekladning());
+        commands.put("removeHeight", new RemoveHeight());
+        commands.put("removeLength", new RemoveLength());
+        commands.put("removeSlope", new RemoveSlope());
+        commands.put("removeWidth", new RemoveWidth());
+        commands.put("removeShedLength", new RemoveShedLength());
+        commands.put("removeShedWidth", new RemoveShedWidth());
         commands.put("returnBasicMeasurements", new ReturnBasicMeasurements());
         commands.put("returnShed", new ReturnShed());
         commands.put("returnRoofsAndFloors", new ReturnRoofsAndFloors());
@@ -24,6 +43,7 @@ public abstract class Command {
 
     static Command from( HttpServletRequest request ) {
         String TagetName = request.getParameter( "taget" );
+        System.out.println(TagetName);
         if ( commands == null ) {
             initCommands();
         }

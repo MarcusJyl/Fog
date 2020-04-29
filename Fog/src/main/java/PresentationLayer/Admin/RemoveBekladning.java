@@ -14,6 +14,6 @@ public class RemoveBekladning extends Command {
 
         DBAccess.AdminFunctions.RemoveBekladning(bekladning);
 
-        return "../index";
+        return "../admin/index";
     }
 }

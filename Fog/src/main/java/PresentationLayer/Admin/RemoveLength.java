@@ -13,6 +13,6 @@ public class RemoveLength extends Command {
         int i = Integer.parseInt(length);
         DBAccess.AdminFunctions.RemoveLength(i);
 
-        return "../index";
+        return "../admin/index";
     }
 }

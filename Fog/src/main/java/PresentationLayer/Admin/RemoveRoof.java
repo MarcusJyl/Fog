@@ -13,6 +13,6 @@ public class RemoveRoof extends Command {
 
         DBAccess.AdminFunctions.RemoveRoof(roof);
 
-        return "../index";
+        return "../admin/index";
     }
 }
