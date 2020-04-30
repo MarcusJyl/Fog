@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ReturnBasicMeasurements extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        return "../admin/basicMeasurements";
+        return "basicMeasurements";
     }
 }
 

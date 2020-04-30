@@ -9,6 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 public class ReturnRoofsAndFloors extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        return "../admin/RoofsAndFloors";
+        return "RoofsAndFloors";
     }
 }

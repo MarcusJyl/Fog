@@ -4,7 +4,7 @@
 DROP database if exists inventory;
 CREATE DATABASE  IF NOT EXISTS inventory;
 
-SET GLOBAL time_zone = '+00:00';
+SET GLOBAL time_zone = '+01:00';
 
 USE inventory;
 
@@ -92,12 +92,12 @@ create table floor (
 DROP table if exists wallCladding;
 create table wallCladding (
  id int(11) NOT NULl AUTO_INCREMENT,
- rightSide BOOL(1),
- leftSide BOOL(1),
- backing BOOL(1),
+ rightSide BOOL,
+ leftSide BOOL,
+ backing BOOL,
  material_id int(11),
  PRIMARY KEY (id),
- FOREIGN KEY (material_id) beklædning(id)
+ FOREIGN KEY (material_id) references beklædning(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
