@@ -13,6 +13,6 @@ public class InsertRoof extends Command {
 
         DBAccess.AdminFunctions.InsertRoof(roof);
 
-        return "../admin/index";
+        return "Start";
     }
 }

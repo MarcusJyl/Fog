@@ -13,6 +13,6 @@ public class RemoveColor extends Command {
 
         DBAccess.AdminFunctions.RemoveColor(color);
 
-        return "../admin/index";
+        return "Start";
     }
 }

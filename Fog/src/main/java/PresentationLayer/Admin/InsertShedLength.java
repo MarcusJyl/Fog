@@ -13,7 +13,7 @@ public class InsertShedLength extends Command {
         int i = Integer.parseInt(length);
         DBAccess.AdminFunctions.InsertShedLength(i);
 
-        return "../admin/index";
+        return "Start";
 
     }
 }

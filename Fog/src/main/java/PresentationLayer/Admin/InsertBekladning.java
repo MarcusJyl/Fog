@@ -12,7 +12,6 @@ public class InsertBekladning extends Command {
         String bekladning = request.getParameter("bekladning");
 
         DBAccess.AdminFunctions.InsertBekladning(bekladning);
-        System.out.println("sdasdadssdasd");
-        return "../admin/index";
+        return "Start";
     }
 }

@@ -21,6 +21,7 @@ public class StaticValues {
     public static int BearingPostVerShedVareNr = 56456665;
     public static int RemVareNr = 1234567;
     public static int LøsholterVareNr = 474748754;
+    public static int beklædningAfGavleVareNr = 4567854;
 
 
 

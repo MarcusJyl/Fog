@@ -13,6 +13,6 @@ public class InsertFloor extends Command {
 
         DBAccess.AdminFunctions.InsertFloor(floor);
 
-        return "../admin/index";
+        return "Start";
     }
 }

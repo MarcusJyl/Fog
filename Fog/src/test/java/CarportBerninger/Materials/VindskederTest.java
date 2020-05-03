@@ -7,6 +7,6 @@ public class VindskederTest extends TestCase {
     public void testGetLength() {
         Vindskeder vindskeder = new Vindskeder(360,20);
 
-        assertEquals(169.14, vindskeder.getLength());
+        assertEquals(191.55, vindskeder.getLength());
     }
 }

@@ -11,9 +11,12 @@ public class Vindskeder extends Wood {
     private int antal = 4;
 
     public Vindskeder(int width, int degrees) {
-        double radians = Math.toRadians(180 - 90 - degrees);
+        double radians = Math.toRadians(180 - degrees - degrees);
+        double radians2 = Math.toRadians(degrees);
         double widthHalf = width / 2;
-        length = Math.round((Math.sin(radians)*widthHalf)*100);
+
+
+        length = Math.round(((Math.sin(radians2)*width)/Math.sin(radians))*100);
         length /= 100;
     }
 

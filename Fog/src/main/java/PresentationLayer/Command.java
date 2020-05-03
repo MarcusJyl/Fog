@@ -39,6 +39,7 @@ public abstract class Command {
         commands.put("returnBasicMeasurements", new ReturnBasicMeasurements());
         commands.put("returnShed", new ReturnShed());
         commands.put("returnRoofsAndFloors", new ReturnRoofsAndFloors());
+        commands.put("adminSide", new AdminSide());
     }
 
     static Command from( HttpServletRequest request ) {

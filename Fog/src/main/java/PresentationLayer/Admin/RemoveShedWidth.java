@@ -14,6 +14,6 @@ public class RemoveShedWidth extends Command {
         int i = Integer.parseInt(width);
         DBAccess.AdminFunctions.RemoveShedWidth(i);
 
-        return "../admin/index";
+        return "Start";
     }
 }

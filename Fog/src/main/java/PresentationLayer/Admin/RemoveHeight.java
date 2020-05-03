@@ -14,6 +14,6 @@ public class RemoveHeight extends Command {
         int i = Integer.parseInt(height);
         DBAccess.AdminFunctions.RemoveHeight(i);
 
-        return "../admin/index";
+        return "Start";
     }
 }

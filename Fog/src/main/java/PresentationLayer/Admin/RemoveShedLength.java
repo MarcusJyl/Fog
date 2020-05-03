@@ -13,6 +13,6 @@ public class RemoveShedLength extends Command {
         int i = Integer.parseInt(length);
         DBAccess.AdminFunctions.RemoveShedLength(i);
 
-        return "../admin/index";
+        return "Start";
     }
 }

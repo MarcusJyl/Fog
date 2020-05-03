@@ -14,6 +14,6 @@ public class InsertWidth extends Command {
         int i = Integer.parseInt(width);
         DBAccess.AdminFunctions.InsertWidth(i);
 
-        return "../admin/index";
+        return "Start";
     }
 }

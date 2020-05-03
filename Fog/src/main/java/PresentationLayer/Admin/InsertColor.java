@@ -13,5 +13,5 @@ public class InsertColor extends Command {
 
         DBAccess.AdminFunctions.InsertColor(color);
 
-        return "../admin/index";    }
+        return "Start";    }
 }

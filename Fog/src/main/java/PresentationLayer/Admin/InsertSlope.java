@@ -14,6 +14,6 @@ public class InsertSlope extends Command {
         int i = Integer.parseInt(slope);
         DBAccess.AdminFunctions.InsertSlope(i);
 
-        return "../admin/index";
+        return "Start";
     }
 }

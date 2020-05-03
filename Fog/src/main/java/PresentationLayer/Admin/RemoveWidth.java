@@ -13,6 +13,6 @@ public class RemoveWidth extends Command {
         int i = Integer.parseInt(width);
         DBAccess.AdminFunctions.RemoveWidth(i);
 
-        return "../admin/index";
+        return "Start";
     }
 }
