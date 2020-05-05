@@ -6,7 +6,7 @@
 <div class="row">
 
     <div class="col-12 text-center">
-        <a href="https://www.fog.dk">
+        <a href="https://www.johannesfog.dk">
             <img src="images/nav.png">
         </a>
     </div>

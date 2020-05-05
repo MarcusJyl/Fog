@@ -100,6 +100,89 @@ create table wallCladding (
  FOREIGN KEY (material_id) references beklædning(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
+DROP table if exists produkt_træ;
+create table produkt_træ (
+ id int(11) NOT NULl AUTO_INCREMENT,
+ træ_type VARCHAR(100) NOT NULL,
+ træ_længde int(11) NOT NULL,
+ træ_bredde int(11) NOT NULL,
+ træ_højde int(11) NOT NULL,
+ meterpris FLOAT NOT NULL,
+ produktnummer INT(11) NOT NULL,
+ PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP table if exists produkt_tagpakken;
+create table produkt_tagpakken (
+ id int(11) NOT NULl AUTO_INCREMENT,
+ tag_produkt VARCHAR(100) NOT NULL,
+ pris VARCHAR(100) NOT NULL,
+ produktnummer INT(11) NOT NULL,
+ PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP table if exists produkt_beslag_skruer;
+create table produkt_beslag_skruer (
+ id int(11) NOT NULl AUTO_INCREMENT,
+ produkt VARCHAR(100) NOT NULL,
+ pris FLOAT NOT NULL,
+ produktnummer INT(11) NOT NULL,
+ PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Vindskeder på rejsning",480, 25, 2.5, 0.0, 54852365);
+ insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Sternbrædder til carport siderne",600, 25, 2.5, 0.0, 54475869);
+insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Sternbrædder til skur siderne",540, 25, 2.5, 0.0, 54857125);
+insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Færdigskåret byg-selv spær",0, 15, 2.5, 0.0, 54475869);
+ insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Stolper",300, 9.7, 9.7, 0.0, 54124569);
+ insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Spærtræ carport",480, 19.5, 4.5, 0.0, 54541258);
+  insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Spærtræ skur",480, 19.5, 4.5, 0.0, 54456325);
+  insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Løsholter i siderne skur",240, 9.5, 4.5, 0.0, 54635712);
+  insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Løhholter i galv skur",360, 9.5, 4.5, 0.0, 54985214);
+  insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Vand bræt vindskeder",480, 10, 1.9, 0.0, 54753156);
+  insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Beklædning af gavl",240, 10, 1.9, 0.0, 54845621);
+  insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Beklædning af skur",210, 10, 1.9, 0.0, 54684251);
+ insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Bræt til tagfodslægte",540, 5, 2.5, 0.0, 54874526);
+ insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Taglægte z bagside af dør",540, 7.3, 3.8, 0.0, 54635874);
+ insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Taglægte på spær",540, 7.3, 3.8, 0.0, 54425893);
+ insert into produkt_træ(træ_type, træ_længde, træ_bredde,
+ træ_højde, meterpris, produktnummer) values("Taglægte rygsten",420, 7.3, 3.8, 0.0, 54258369);
+
+ insert into produkt_tagpakken(tag_produkt, pris, produktnummer) values("B&C dobbelt -s sort", 0.0, 21548935);
+ insert into produkt_tagpakken(tag_produkt, pris, produktnummer) values("B&C Rygsten sort", 0.0, 21587412);
+ insert into produkt_tagpakken(tag_produkt, pris, produktnummer) values("B&C Toplægte holder", 0.0, 21587463);
+ insert into produkt_tagpakken(tag_produkt, pris, produktnummer) values("B&C rygstensbeslag", 0.0, 21698214);
+ insert into produkt_tagpakken(tag_produkt, pris, produktnummer) values("B&C tagstens bindere & nakkekroge", 0.0, 21985214);
+
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("Universal 190mm højre", 0.0, 74589632);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("Universal 190mm venstre", 0.0, 74587412);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("Stalddørsgreb 50x75", 0.0, 74874125);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("T-hængsel 390mm", 0.0, 74589647);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("Vinkelslag", 0.0, 74582514);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("4.5 x 60mm skruer 200stk", 0.0, 74587436);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("5.0 x 40mm beslagskruer 250stk", 0.0, 74654321);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("5.0 x 100mm skruer 100stk", 0.0, 74987654);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("Bræddebolt 10 x 120mm", 0.0, 74321654);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("Firkantskiver 40x40x11mm", 0.0, 74583641);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("4.5 x 70mm skruer 200stk", 0.0, 74946135);
+ insert into produkt_beslag_skruer(produkt, pris, produktnummer) values("4.5 x 50mm skruer 350stk", 0.0, 74321987);
+
+
 
 insert into floor(floor_type)values("betongulv");
 insert into floor(floor_type)values("trægulv");
