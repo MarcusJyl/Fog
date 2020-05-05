@@ -25,7 +25,9 @@ public class Carport {
     private Løsholter løsholterHeight;
     private Rem rem;
     private BrætPåVindskeder brætPåVindskeder;
-
+    private BeklædningAfGavle beklædningAfGavle;
+    private BrætTilTagfodslægte brætTilTagfodslægte;
+    private BeklædningAfSkur beklædningAfSkur;
 
 
     public Carport(int length, int width, int heigth, int shedWidth, int shedLength, boolean fladtTag, int degrees) {
@@ -46,6 +48,11 @@ public class Carport {
         this.løsholterHeight = new Løsholter(shedWidth);
         this.rem = new Rem(length);
         this.brætPåVindskeder = new BrætPåVindskeder(width, degrees);
+        this.beklædningAfGavle = new BeklædningAfGavle(width, degrees);
+        this.brætTilTagfodslægte = new BrætTilTagfodslægte(length);
+
+
+        this.beklædningAfSkur = new BeklædningAfSkur(shedLength, shedWidth, heigth);
     }
 //
 //    public Carport(int length, int width, int heigth, boolean fladtTag) {

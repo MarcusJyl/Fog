@@ -6,7 +6,7 @@ import CarportBerninger.Util.WoodReturn;
 
 public class Vindskeder extends Wood {
 
-    private int vareNr = StaticValues.VindskederVareNr;
+    private int[] vareNr = StaticValues.VindskederVareNr;
     private double length;
     private int antal = 4;
 
@@ -33,7 +33,7 @@ public class Vindskeder extends Wood {
     }
 
     @Override
-    public int getVareNr() {
+    public int[] getVareNr() {
         return vareNr;
     }
 

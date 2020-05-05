@@ -6,7 +6,7 @@ import CarportBerninger.Util.WoodReturn;
 
 public class BearingPostVerShed extends Wood {
 
-    private int vareNr = StaticValues.BearingPostVerShedVareNr;
+    private int[] vareNr = StaticValues.BearingPostVerShedVareNr;
     private final double distance = StaticValues.bærendeStolpeMinAfstand;
 
     private int numberOfPosts;
@@ -37,7 +37,7 @@ public class BearingPostVerShed extends Wood {
     }
 
     @Override
-    public int getVareNr() {
+    public int[] getVareNr() {
         return vareNr;
     }
 

@@ -6,9 +6,10 @@ import CarportBerninger.Util.WoodReturn;
 
 public class BeklædningAfGavle extends Wood {
 
-    private int vareNr = StaticValues.beklædningAfGavleVareNr;
+    private int[] vareNr = StaticValues.beklædningAfGavleVareNr;
     //todo gør så bredden her er hente fra vare nummeret.
     private double WoodWidth = 10;
+    private double overlab = StaticValues.beklædningsOverlab;
 
     private int amount;
     private double length;
@@ -23,7 +24,7 @@ public class BeklædningAfGavle extends Wood {
         this.length /= 100;
 
 
-        this.width -= (WoodWidth / 2);
+        this.width -= ((WoodWidth - overlab) / 2);
 
         while (this.width > 0) {
             double tempLength = (Math.sin(radians) * this.width) / Math.sin(radians2);
@@ -32,7 +33,7 @@ public class BeklædningAfGavle extends Wood {
             } else {
                 tempAmount += 0.5;
             }
-            this.width -= WoodWidth;
+            this.width -= (WoodWidth - overlab);
         }
         amount =(int) ((tempAmount - 1) * 2);
     }
@@ -52,7 +53,7 @@ public class BeklædningAfGavle extends Wood {
     }
 
     @Override
-    public int getVareNr() {
+    public int[] getVareNr() {
         return vareNr;
     }
 }

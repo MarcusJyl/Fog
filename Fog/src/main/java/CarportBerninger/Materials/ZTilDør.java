@@ -4,14 +4,14 @@ import CarportBerninger.StaticValues;
 import CarportBerninger.Util.Wood;
 import CarportBerninger.Util.WoodReturn;
 
-public class Løsholter extends Wood {
+public class ZTilDør extends Wood {
 
-    private int[] vareNr = StaticValues.LøsholterVareNr;
-    private int amount = 4;
-    private int length;
+    private int[] vareNr = StaticValues.ZTilDør;
 
-    public Løsholter(int length) {
-        this.length = length;
+    private int length = 540;
+    private int amount = 1;
+
+    public ZTilDør() {
     }
 
     @Override
@@ -21,6 +21,6 @@ public class Løsholter extends Wood {
 
     @Override
     public int[] getVareNr() {
-        return vareNr;
+            return vareNr;
     }
 }

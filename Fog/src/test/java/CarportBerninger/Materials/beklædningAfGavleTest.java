@@ -14,12 +14,12 @@ public class beklædningAfGavleTest extends TestCase {
     public void testGetAntal() {
         BeklædningAfGavle gavle = new BeklædningAfGavle(360,20);
 
-        assertEquals(27.0, gavle.getAntal(),0.1);
+        assertEquals(39, gavle.getAntal(),0.1);
     }
 
     public void testGetAmount() {
         BeklædningAfGavle gavle = new BeklædningAfGavle(360,20);
-        WoodReturn woodReturn = new WoodReturn(65.51, 27);
+        WoodReturn woodReturn = new WoodReturn(65.51, 39);
         assertEquals(woodReturn.getAmount(), gavle.getAmount().getAmount());
         assertEquals(woodReturn.getLength(), gavle.getAmount().getLength());
     }

@@ -6,7 +6,7 @@ import CarportBerninger.Util.WoodReturn;
 
 public class Stern extends Wood {
 
-    private int vareNr = StaticValues.SternVareNr;
+    private int[] vareNr = StaticValues.SternVareNr;
     private int sternLength;
     private int amount;
 
@@ -30,7 +30,7 @@ public class Stern extends Wood {
     }
 
     @Override
-    public int getVareNr() {
+    public int[] getVareNr() {
         return vareNr;
     }
 

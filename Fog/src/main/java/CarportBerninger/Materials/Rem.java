@@ -6,7 +6,7 @@ import CarportBerninger.Util.WoodReturn;
 
 public class Rem extends Wood {
 
-    private int vareNr = StaticValues.RemVareNr;
+    private int[] vareNr = StaticValues.RemVareNr;
     private int amout = 2;
     private int length;
 
@@ -20,7 +20,7 @@ public class Rem extends Wood {
     }
 
     @Override
-    public int getVareNr() {
+    public int[] getVareNr() {
         return vareNr;
     }
 }
