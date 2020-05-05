@@ -27,6 +27,8 @@ public class StaticValues {
     public static int[] beklædningAfGavleVareNr = {4567854};
     public static int[] beklædningAfSkurVareNr = {456785};
     public static int[] ZTilDør = {456788};
+    public static int[] Taglægte = {456788};
+    public static int[] Toplægte = {456789};
 
 
 

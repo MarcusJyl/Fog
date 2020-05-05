@@ -1,5 +1,6 @@
 package CarportBerninger.Materials;
 
+import CarportBerninger.Materials.Wood.BrætPåVindskeder;
 import junit.framework.TestCase;
 
 public class BrætPåVindskederTest extends TestCase {

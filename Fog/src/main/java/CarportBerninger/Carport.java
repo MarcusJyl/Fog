@@ -1,6 +1,6 @@
 package CarportBerninger;
 
-import CarportBerninger.Materials.*;
+import CarportBerninger.Materials.Wood.*;
 
 public class Carport {
 
@@ -28,6 +28,7 @@ public class Carport {
     private BeklædningAfGavle beklædningAfGavle;
     private BrætTilTagfodslægte brætTilTagfodslægte;
     private BeklædningAfSkur beklædningAfSkur;
+    private Taglægte taglægte;
 
 
     public Carport(int length, int width, int heigth, int shedWidth, int shedLength, boolean fladtTag, int degrees) {
@@ -50,6 +51,7 @@ public class Carport {
         this.brætPåVindskeder = new BrætPåVindskeder(width, degrees);
         this.beklædningAfGavle = new BeklædningAfGavle(width, degrees);
         this.brætTilTagfodslægte = new BrætTilTagfodslægte(length);
+        this.taglægte = new Taglægte(width, degrees, length);
 
 
         this.beklædningAfSkur = new BeklædningAfSkur(shedLength, shedWidth, heigth);

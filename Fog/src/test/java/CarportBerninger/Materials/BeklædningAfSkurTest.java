@@ -1,5 +1,6 @@
 package CarportBerninger.Materials;
 
+import CarportBerninger.Materials.Wood.BeklædningAfSkur;
 import junit.framework.TestCase;
 
 public class BeklædningAfSkurTest extends TestCase {

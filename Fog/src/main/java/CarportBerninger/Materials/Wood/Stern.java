@@ -1,4 +1,4 @@
-package CarportBerninger.Materials;
+package CarportBerninger.Materials.Wood;
 
 import CarportBerninger.StaticValues;
 import CarportBerninger.Util.Wood;
