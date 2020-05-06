@@ -40,6 +40,8 @@ public abstract class Command {
         commands.put("returnShed", new ReturnShed());
         commands.put("returnRoofsAndFloors", new ReturnRoofsAndFloors());
         commands.put("adminSide", new AdminSide());
+        commands.put("returnMeterPris", new ReturnMeterPrice());
+        commands.put("priceSetter", new PriceSetter());
     }
 
     static Command from( HttpServletRequest request ) {

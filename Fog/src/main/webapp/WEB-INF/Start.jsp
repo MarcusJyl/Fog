@@ -34,6 +34,13 @@
         </form></td>
     </tr>
     <tr>
+        <td><form action="FrontController" method="post">
+            <label>Rediger meter priser:</label><br>
+            <input type="hidden" name="taget" value="returnMeterPris">
+            <input type="submit" value="Submit">
+        </form></td>
+    </tr>
+    <tr>
 </table>
 
 
