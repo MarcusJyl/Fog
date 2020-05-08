@@ -214,7 +214,7 @@
     </div>
 
 
-    <div class="form-group col-6 mt-5 bg-light">
+    <div class="form-group col-6 pt-5  bg-light">
 
         ${requestScope.svgdrawing}
 
