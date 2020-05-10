@@ -1,0 +1,28 @@
+package CarportBerninger.Materials.Roof;
+
+import CarportBerninger.Util.ItemsByNumber;
+
+import java.util.ArrayList;
+
+public class ToplægteHolder extends ItemsByNumber {
+
+    private ArrayList<Integer> vareNr;
+    private int amount;
+
+    public ToplægteHolder(int length) {
+        int tempLength = length;
+        tempLength += 100 - (tempLength%100);
+
+        this.amount = (int) Math.ceil(tempLength/100);
+    }
+
+    @Override
+    public int getAmount() {
+        return amount;
+    }
+
+    @Override
+    public ArrayList<Integer> getVareNr() {
+        return vareNr;
+    }
+}

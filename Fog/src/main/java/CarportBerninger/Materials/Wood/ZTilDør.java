@@ -4,9 +4,11 @@ import CarportBerninger.StaticValues;
 import CarportBerninger.Util.Wood;
 import CarportBerninger.Util.WoodReturn;
 
+import java.util.ArrayList;
+
 public class ZTilDør extends Wood {
 
-    private int[] vareNr = StaticValues.ZTilDør;
+    private ArrayList<Integer> vareNr = StaticValues.ZTilDør;
 
     private int length = 540;
     private int amount = 1;
@@ -20,7 +22,7 @@ public class ZTilDør extends Wood {
     }
 
     @Override
-    public int[] getVareNr() {
+    public ArrayList<Integer> getVareNr() {
             return vareNr;
     }
 }

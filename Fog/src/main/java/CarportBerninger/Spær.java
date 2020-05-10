@@ -1,10 +1,16 @@
 package CarportBerninger;
 
-public class Spær {
+import CarportBerninger.Util.ItemsByNumber;
 
+import java.util.ArrayList;
+
+public class Spær extends ItemsByNumber {
+
+    private ArrayList<Integer> vareNr = StaticValues.spær;
+    private int distanceBetween = StaticValues.dictensBetweenSpær;
     private int antalSpær;
 
-    public Spær(int length, boolean fladRoof, int distanceBetween ) {
+    public Spær(int length, boolean fladRoof) {
         if (!fladRoof) {
             antalSpær= (length / distanceBetween) - 2;
         } else {
@@ -13,7 +19,13 @@ public class Spær {
 
     }
 
-   public int getAntalSpær(){
+    @Override
+    public int getAmount() {
         return antalSpær;
-   }
+    }
+
+    @Override
+    public ArrayList<Integer> getVareNr() {
+        return vareNr;
+    }
 }

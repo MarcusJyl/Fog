@@ -301,18 +301,18 @@ public class AdminFunctions {
         ArrayList<WoodWhitPrice> allHeight = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM inventory.produkt_træ;";
+            String SQL = "SELECT * FROM inventory.produktnumber inner JOIN inventory.produkt_træ ON produktnumber.id=produkt_træ.id inner JOIN inventory.produkt ON produktnumber.produktId=produkt.produktId;";
             PreparedStatement preparedStatement = con.prepareStatement(SQL);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
                 int bredde = rs.getInt("træ_bredde");
                 int lægde = rs.getInt("træ_længde");
-                int højde = rs.getInt("træ_højde");
-                int produktnummer = rs.getInt("produktnummer");
+                int dypde = rs.getInt("træ_dypde");
+                int produktnummer = rs.getInt("produktNumber");
                 double meterpris = rs.getDouble("meterpris");
-                String type = rs.getString("træ_type");
-                WoodWhitPrice tempWood = new WoodWhitPrice(id, type, bredde, lægde, højde, meterpris, produktnummer);
+                String produktNavn = rs.getString("produktName");
+                WoodWhitPrice tempWood = new WoodWhitPrice(id, bredde, lægde, dypde, meterpris, produktnummer, produktNavn);
                 allHeight.add(tempWood);
             }
             return allHeight;

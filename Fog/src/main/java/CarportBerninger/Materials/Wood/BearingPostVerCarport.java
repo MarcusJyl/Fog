@@ -5,9 +5,11 @@ import CarportBerninger.StaticValues;
 import CarportBerninger.Util.Wood;
 import CarportBerninger.Util.WoodReturn;
 
+import java.util.ArrayList;
+
 public class BearingPostVerCarport extends Wood {
 
-    private int[] vareNr = StaticValues.BearingPostVerCarportVareNr;
+    private ArrayList<Integer> vareNr = StaticValues.BearingPostVerCarportVareNr;
     private final double distance = StaticValues.bærendeStolpeMinAfstand;
 
     private int numberOfPosts;
@@ -28,7 +30,7 @@ public class BearingPostVerCarport extends Wood {
     }
 
     @Override
-    public int[] getVareNr() {
+    public ArrayList<Integer> getVareNr() {
         return vareNr;
     }
 
