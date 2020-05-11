@@ -4,14 +4,20 @@ import CarportBerninger.StaticValues;
 import CarportBerninger.Util.Wood;
 import CarportBerninger.Util.WoodReturn;
 
+import java.util.ArrayList;
+
 public class Rem extends Wood {
 
-    private int[] vareNr = StaticValues.RemVareNr;
+    private ArrayList<Integer> vareNr = StaticValues.RemCarportVareNr;
     private int amout = 2;
     private int length;
 
     public Rem(int length) {
         this.length = length;
+    }
+
+    public Rem(int length, int shedLength) {
+        this.length = length - shedLength;
     }
 
     @Override
@@ -20,7 +26,8 @@ public class Rem extends Wood {
     }
 
     @Override
-    public int[] getVareNr() {
+    public ArrayList<Integer> getVareNr() {
         return vareNr;
     }
 }
+

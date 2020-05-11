@@ -4,9 +4,11 @@ import CarportBerninger.StaticValues;
 import CarportBerninger.Util.Wood;
 import CarportBerninger.Util.WoodReturn;
 
+import java.util.ArrayList;
+
 public class BeklædningAfSkur extends Wood {
 
-    private int[] vareNr = StaticValues.beklædningAfSkurVareNr;
+    private ArrayList<Integer> vareNr = StaticValues.beklædningAfSkurVareNr;
     //todo gør så bredden her er hente fra vare nummeret.
     private double woodWidth = 10;
     private double overlab = StaticValues.beklædningsOverlab;
@@ -29,7 +31,7 @@ public class BeklædningAfSkur extends Wood {
     }
 
     @Override
-    public int[] getVareNr() {
+    public ArrayList<Integer> getVareNr() {
         return vareNr;
     }
 }

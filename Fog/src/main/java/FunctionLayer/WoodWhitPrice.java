@@ -3,7 +3,7 @@ package FunctionLayer;
 public class WoodWhitPrice {
 
     private int id;
-    private String træType;
+    private String name;
     private int bredde;
     private int lægde;
     private int højde;
@@ -14,8 +14,8 @@ public class WoodWhitPrice {
         return id;
     }
 
-    public String getTræType() {
-        return træType;
+    public String getName() {
+        return name;
     }
 
     public int getBredde() {
@@ -38,9 +38,9 @@ public class WoodWhitPrice {
         return produktnummer;
     }
 
-    public WoodWhitPrice(int id, String træType, int bredde, int lægde, int højde, double meterPris, int produktnummer) {
+    public WoodWhitPrice(int id, int bredde, int lægde, int højde, double meterPris, int produktnummer, String name) {
         this.id = id;
-        this.træType = træType;
+        this.name = name;
         this.bredde = bredde;
         this.lægde = lægde;
         this.højde = højde;

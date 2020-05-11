@@ -11,12 +11,13 @@
 <table>
     <tr>
         <th>ID</th>
-        <th>Træ type</th>
+        <th>Type</th>
+        <th>Vare nummer</th>
         <th>Længde (cm)</th>
         <th>Bredde (mm)</th>
         <th>Dybde (mm)</th>
         <th>Meterpris (kr/m)</th>
-        <th>Vare nummer</th>
+
     </tr>
 
     <c:forEach var="i" items="${AdminFacade.getAllWood()}" varStatus="Count">
@@ -25,7 +26,10 @@
                     ${i.getId()}
             </td>
             <td>
-                    ${i.getTræType()}
+                    ${i.getName()}
+            </td>
+            <td>
+                    ${i.getProduktnummer()}
             </td>
             <td>
                     ${i.getLægde()}
@@ -37,12 +41,9 @@
                     ${i.getHøjde()}
             </td>
             <td style="width: 8%">
-                <input class="form-control" type="number" value="${i.getMeterPris()}" id="${i.getId()}" onchange="updateDB(${i.getId()}, document.getElementById(${i.getId()}).value)">
+                <input class="form-control" type="number" value="${i.getMeterPris()}" id="${i.getId()}"
+                       onchange="updateDB(${i.getId()}, document.getElementById(${i.getId()}).value)">
             </td>
-            <td>
-                    ${i.getProduktnummer()}
-            </td>
-
         </tr>
     </c:forEach>
 </table>

@@ -6,9 +6,9 @@ import junit.framework.TestCase;
 public class BearingPostVerCarportTest extends TestCase {
 
     public void testGetNumberOfPosts() {
-        BearingPostVerCarport bearing = new BearingPostVerCarport(500,200,200);
+        BearingPostVerCarport bearing = new BearingPostVerCarport(500,0,200);
 
-        assertEquals(4, bearing.getNumberOfPosts());
+        assertEquals(6, bearing.getNumberOfPosts());
     }
 
     public void testGetHeigth() {

@@ -4,24 +4,27 @@ import CarportBerninger.StaticValues;
 import CarportBerninger.Util.Wood;
 import CarportBerninger.Util.WoodReturn;
 
+import java.util.ArrayList;
+
 public class BearingPostVerShed extends Wood {
 
-    private int[] vareNr = StaticValues.BearingPostVerShedVareNr;
+    private ArrayList<Integer> vareNr = StaticValues.BearingPostVerShedVareNr;
     private final double distance = StaticValues.bærendeStolpeMinAfstand;
 
     private int numberOfPosts;
     private int heigth;
 
-    public BearingPostVerShed(int length, int shedLength, int heigth, int width) {
+    public BearingPostVerShed( int shedLength, int heigth, int width) {
         this.heigth = heigth + 90;
-        int acualLength = length - shedLength;
 
-        int tempNumPosts = (int)((acualLength-(acualLength % distance)) / distance);
-        if (tempNumPosts <= StaticValues.bærendeStolpeMinAntalISkuretLængde) {
-            numberOfPosts = StaticValues.bærendeStolpeMinAntalISkuretLængde;
-        } else {
-            numberOfPosts = tempNumPosts;
+        numberOfPosts = 1;
+        int q = 2;
+        while(shedLength > StaticValues.bredeForEkstrabærendeStolpe * q){
+            q++;
         }
+        numberOfPosts *= q;
+
+
         int i = 2;
         while(width > StaticValues.bredeForEkstrabærendeStolpe * i){
             i++;
@@ -37,7 +40,7 @@ public class BearingPostVerShed extends Wood {
     }
 
     @Override
-    public int[] getVareNr() {
+    public ArrayList<Integer> getVareNr() {
         return vareNr;
     }
 
