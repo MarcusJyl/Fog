@@ -16,6 +16,7 @@ public class Drawing extends Command {
         int krydsY = rem + 4;
         int krydsX = length - 55;
         int stolpe = width - 35;
+        double lineWidth = 4.5;
 
 
         HttpSession session = request.getSession();
@@ -27,10 +28,13 @@ public class Drawing extends Command {
         Svg svgInnerDrawing = new Svg(900, 800, "0,0,900,800",0,0);
         svg.addRect(0, 0, width, length);
         //Remme
-        svg.addRect(0, 35, 4, length);
-        svg.addRect(0, rem, 4, length);
+        svg.addRect(0, 35, lineWidth, length);
+        svg.addRect(0, rem, lineWidth, length);
         //Spær
-        svg.addSpær(0,width,4);
+        for (int x = 0; x < length ; x+=55) {
+            svg.addRect(x,0, width, lineWidth);
+        }
+        svg.addSpær(0,0,width,4);
         svg.addRect(length, 0,  width,4);
         //Kryds
         svg.addCross(55, 35, krydsX, krydsY);
