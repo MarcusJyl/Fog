@@ -17,11 +17,11 @@ public class Svg {
     private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #ffffff\" />";
     private final String crossTemplate = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000; stroke-dasharray: 5 5;\" />";
 
-<<<<<<< HEAD
+
     public Svg(int width, int height, String viewbox, int x, int y, int x2, int y2) {
         this.width1 = width;
         this.height1 = height;
-=======
+
 
         this.viewbox = viewbox;
         this.x = x;
