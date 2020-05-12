@@ -46,7 +46,6 @@ public abstract class Command {
 
     static Command from( HttpServletRequest request ) {
         String TagetName = request.getParameter( "taget" );
-        System.out.println(TagetName);
         if ( commands == null ) {
             initCommands();
         }

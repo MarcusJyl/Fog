@@ -126,6 +126,34 @@ public class Carport {
         return roof;
     }
 
+    public boolean isFladtTag() {
+        return fladtTag;
+    }
+
+    public boolean isWithShed() {
+        return withShed;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeigth() {
+        return heigth;
+    }
+
+    public int getShedWidth() {
+        return shedWidth;
+    }
+
+    public int getShedLength() {
+        return shedLength;
+    }
+
     @Override
     public String toString() {
         return "Carport{" +

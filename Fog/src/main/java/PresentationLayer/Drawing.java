@@ -28,7 +28,7 @@ public class Drawing extends Command {
         Svg svg = new Svg(800, 600, "0,0,800,600", 0, 0, 0, 0);
         svg.addRect(0, 0, width, length);
         //Remme
-        svg.addRect(0, 35, 4, length);
+        svg.addRect(0, 35, 4.5, length);
         svg.addRect(0, rem, 4, length);
         //Spær
         svg.addRect(0,0,width,4);

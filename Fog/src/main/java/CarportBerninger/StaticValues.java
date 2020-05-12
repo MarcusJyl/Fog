@@ -42,19 +42,19 @@ public class StaticValues {
     public static ArrayList<Integer> Løsholter1VareNr =  MaterialsListFunc.getVareNr(8);
     public static ArrayList<Integer> Løsholter2VareNr =  MaterialsListFunc.getVareNr(9);
     //10
-    public static ArrayList<Integer> BrætPåVindskeder =  MaterialsListFunc.getVareNr(1);
+    public static ArrayList<Integer> BrætPåVindskeder =  MaterialsListFunc.getVareNr(10);
     //11
-    public static ArrayList<Integer> beklædningAfGavleVareNr =  MaterialsListFunc.getVareNr(1);
+    public static ArrayList<Integer> beklædningAfGavleVareNr =  MaterialsListFunc.getVareNr(11);
     //12
-    public static ArrayList<Integer> beklædningAfSkurVareNr =  MaterialsListFunc.getVareNr(1);
+    public static ArrayList<Integer> beklædningAfSkurVareNr =  MaterialsListFunc.getVareNr(12);
     //14
-    public static ArrayList<Integer> ZTilDør =  MaterialsListFunc.getVareNr(1);
+    public static ArrayList<Integer> ZTilDør =  MaterialsListFunc.getVareNr(14);
     //13
-    public static ArrayList<Integer> BrætTilTagfodslægte =  MaterialsListFunc.getVareNr(1);
+    public static ArrayList<Integer> BrætTilTagfodslægte =  MaterialsListFunc.getVareNr(13);
     //15
-    public static ArrayList<Integer> Taglægte =  MaterialsListFunc.getVareNr(1);
+    public static ArrayList<Integer> Taglægte =  MaterialsListFunc.getVareNr(15);
     //16
-    public static ArrayList<Integer> Toplægte =  MaterialsListFunc.getVareNr(1);
+    public static ArrayList<Integer> Toplægte =  MaterialsListFunc.getVareNr(16);
     public static ArrayList<Integer> Tagsten =  MaterialsListFunc.getVareNr(1);
     public static ArrayList<Integer> rygsten =  MaterialsListFunc.getVareNr(1);
     public static ArrayList<Integer> nakkekrog =  MaterialsListFunc.getVareNr(1);

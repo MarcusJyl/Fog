@@ -14,8 +14,8 @@ public class Svg {
     private StringBuilder svg = new StringBuilder();
 
     private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
-    private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />";
-    private final String crossTemplate = "<line x=\"%d\" y=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000; stroke-dasharray: 5 5;\" />";
+    private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />";
+    private final String crossTemplate = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000; stroke-dasharray: 5 5;\" />";
 
     public Svg(int width, int height, String viewbox, int x, int y, int x2, int y2) {
         this.width = width;
@@ -28,11 +28,12 @@ public class Svg {
         svg.append(String.format(headerTemplate, height, width, viewbox));
     }
 
-    public void addRect(int x, int y, int height, int width){
+    public void addRect(int x, int y, double height, int width){
         svg.append(String.format(rectTemplate, x, y, height, width));
     }
 
     public void addCross(int x, int y, int x2, int y2){
+        System.out.println(String.format(crossTemplate, x, y, x2, y2));
         svg.append(String.format(crossTemplate, x, y, x2, y2));
     }
 

@@ -20,7 +20,6 @@ public class DimensionsFacade {
         return Datamapper.GetWidth();
     }
     public static ArrayList<Integer> getWidthWhitMax(int max){
-        System.out.println("dasdasdasd");
         return Datamapper.GetWidth();
     }
 
