@@ -18,21 +18,20 @@ public class Drawing extends Command {
         int stolpe = width - 35;
 
 
-
-
         HttpSession session = request.getSession();
 
         session.setAttribute("maxWidth", width);
 
 
-        Svg svg = new Svg(800, 600, "0,0,800,600", 0, 0, 0, 0);
+        Svg svg = new Svg(800, 600, "0,0,800,600", 0, 0);
+        Svg svgInnerDrawing = new Svg(900, 800, "0,0,900,800",0,0);
         svg.addRect(0, 0, width, length);
         //Remme
-        svg.addRect(0, 35, 4.5, length);
+        svg.addRect(0, 35, 4, length);
         svg.addRect(0, rem, 4, length);
         //Spær
-        svg.addRect(0,0,width,4);
-        svg.addRect(length, 0, width, 4);
+        svg.addSpær(0,width,4);
+        svg.addRect(length, 0,  width,4);
         //Kryds
         svg.addCross(55, 35, krydsX, krydsY);
         svg.addCross(55, krydsY, krydsX, 35);
@@ -42,9 +41,9 @@ public class Drawing extends Command {
 
 
 
-
-
         request.setAttribute("svgdrawing", svg.toString());
         return "../index";
     }
+
+
 }
