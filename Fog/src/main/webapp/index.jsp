@@ -229,6 +229,8 @@
     <input type="hidden" id="target" name="taget" value="widthSetter">
     <input type="hidden" id="senderWidth" name="senderWidth" value="">
     <input type="hidden" id="senderLength" name="senderLength" value="">
+    <input type="hidden" id="senderWidthShed" name="senderWidthShed" value="">
+    <input type="hidden" id="senderLengthShed" name="senderLengthShed" value="">
 </form>
 
 <script>load()</script>

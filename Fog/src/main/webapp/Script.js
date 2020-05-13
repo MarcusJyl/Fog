@@ -95,6 +95,14 @@ function draw(servlet) {
     var length = lengthElement.options[lengthElement.selectedIndex].text;
     document.getElementById('senderLength').value = length;
 
+    var widthElementShed = document.getElementById("shedWidth");
+    var shedWidth = widthElementShed.options[widthElementShed.selectedIndex].text;
+    document.getElementById('senderWidthShed').value = shedWidth;
+
+    var lengthElementShed = document.getElementById("shedLength");
+    var shedLength = lengthElementShed.options[lengthElementShed.selectedIndex].text;
+    document.getElementById('senderLengthShed').value = shedLength;
+
     document.getElementById("target").value = servlet;
     document.getElementById('valueSender').submit();
 }
