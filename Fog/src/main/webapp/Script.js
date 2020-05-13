@@ -95,6 +95,10 @@ function draw(servlet) {
     var length = lengthElement.options[lengthElement.selectedIndex].text;
     document.getElementById('senderLength').value = length;
 
+    var heightElement = document.getElementById("height");
+    var height = heightElement.options[heightElement.selectedIndex].text;
+    document.getElementById('senderHeight').value = height;
+
     var widthElementShed = document.getElementById("shedWidth");
     var shedWidth = widthElementShed.options[widthElementShed.selectedIndex].text;
     document.getElementById('senderWidthShed').value = shedWidth;

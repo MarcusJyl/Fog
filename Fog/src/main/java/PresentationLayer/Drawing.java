@@ -12,6 +12,7 @@ public class Drawing extends Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         int width = Integer.parseInt(request.getParameter("senderWidth"));
         int length = Integer.parseInt(request.getParameter("senderLength"));
+        //int height = Integer.parseInt(request.getParameter("senderHeight"));
         //int widthShed = Integer.parseInt(request.getParameter("senderWidthShed"));
         //int lengthShed = Integer.parseInt(request.getParameter("senderLengthShed"));
         int rem = length - 35;
@@ -25,13 +26,26 @@ public class Drawing extends Command {
         double træBredde = 4.5;
 
 
+
+
+
         HttpSession session = request.getSession();
 
         session.setAttribute("maxWidth", width);
 
 
         Svg svg = new Svg(600, 800, "0,0,600,800", 0, 0);
+        Svg svgSide = new Svg(700,250, "0,0,700,250",0,0 );
         svg.addRect(0, 0, length, width);
+
+       //Carport fra siden
+        svgSide.addLine(0,0,length,10);
+        svgSide.addLine(0,200,length,200);
+
+        for (int x = 100; x <= width ; x+=310) {
+            svgSide.addRect(x, stolpeTop,162.6 , stolpeStørrelse);
+        }
+
 
         //Remme
 
@@ -44,8 +58,8 @@ public class Drawing extends Command {
         }
 
         //Hulbånd
-        svg.addLine(hulbåndStart, stolpeY, hulbåndX, hulbåndY);
-        svg.addLine(hulbåndStart, hulbåndY, hulbåndX, stolpeY);
+        svg.addDottedLine(hulbåndStart, stolpeY, hulbåndX, hulbåndY);
+        svg.addDottedLine(hulbåndStart, hulbåndY, hulbåndX, stolpeY);
 
         //Stolper
         for (int x = 100; x <= width ; x+=310) {
@@ -58,9 +72,8 @@ public class Drawing extends Command {
         //Pile
 
 
-
-
         request.setAttribute("svgdrawing", svg.toString());
+        request.setAttribute("svgdrawingSide", svgSide.toString());
         return "../index";
     }
 

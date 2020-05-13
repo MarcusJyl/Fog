@@ -32,7 +32,7 @@
         <div class="form-group mt-4">
             Højde
             <select required class="form-control number-input" id="height" name="height"
-                    onchange="saveToStorage('height', document.getElementById('height').value)">
+                    onchange="saveToStorage('height', document.getElementById('height').value); draw('draw')">
                 <option value="" disabled selected>Højde</option>
                 <c:forEach var="i" items="${DimensionsFacade.getHeight()}" varStatus="Count">
                     <option value="${Count.index+1}">
@@ -150,7 +150,7 @@
         <div class="form-group mt-2">
             Længde
             <select required class="form-control number-input" id="shedLength" name="shedLength"
-                    onchange="saveToStorage('shedLength', document.getElementById('shedLength').value)">
+                    onchange="saveToStorage('shedLength', document.getElementById('shedLength').value); draw('draw')">
                 <option value="" disabled selected>Længde af skur</option>
                 <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                     <option value="${Count.index+1}">
@@ -163,7 +163,7 @@
         <div class="form-group mt-2">
             Bredde
             <select required class="form-control number-input" id="shedWidth" name="shedWidth"
-                    onchange="saveToStorage('shedWidth', document.getElementById('shedWidth').value)">
+                    onchange="saveToStorage('shedWidth', document.getElementById('shedWidth').value); draw('draw')">
                 <option value="" disabled selected>Bredde af skur</option>
 
                 <c:if test="${sessionScope.maxWidth != null}">
@@ -215,7 +215,7 @@
 
 
     <div class="form-group col-6 pt-5  bg-light">
-
+        ${requestScope.svgdrawingSide}
         ${requestScope.svgdrawing}
 
     </div>
@@ -229,6 +229,7 @@
     <input type="hidden" id="target" name="taget" value="widthSetter">
     <input type="hidden" id="senderWidth" name="senderWidth" value="">
     <input type="hidden" id="senderLength" name="senderLength" value="">
+    <input type="hidden" id="senderHeight" name="senderHeight" value="">
     <input type="hidden" id="senderWidthShed" name="senderWidthShed" value="">
     <input type="hidden" id="senderLengthShed" name="senderLengthShed" value="">
 </form>
