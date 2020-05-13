@@ -13,8 +13,8 @@ public class Drawing extends Command {
         int width = Integer.parseInt(request.getParameter("senderWidth"));
         int length = Integer.parseInt(request.getParameter("senderLength"));
         int height = Integer.parseInt(request.getParameter("senderHeight"));
-//        int widthShed = Integer.parseInt(request.getParameter("senderWidthShed"));
-//        int lengthShed = Integer.parseInt(request.getParameter("senderLengthShed"));
+        int widthShed = Integer.parseInt(request.getParameter("senderWidthShed"));
+        int lengthShed = Integer.parseInt(request.getParameter("senderLengthShed"));
         System.out.println(height);
         int rem = length - 35;
         int hulbåndY = rem + 4;

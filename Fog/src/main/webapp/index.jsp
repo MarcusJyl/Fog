@@ -33,7 +33,6 @@
             Højde
             <select required class="form-control number-input" id="height" name="height"
                     onchange="saveToStorage('height', document.getElementById('height').value); draw('draw')">
-                <option value="" disabled selected>Højde</option>
                 <c:forEach var="i" items="${DimensionsFacade.getHeight()}" varStatus="Count">
                     <option value="${Count.index+1}">
                             ${i}
@@ -46,7 +45,6 @@
             Bredde
             <select required class="form-control number-input" id="width" name="width"
                     onchange="saveToStorage('width', document.getElementById('width').value); draw('draw')">
-                <option value="" disabled selected>Bredde</option>
                 <c:forEach var="i" items="${DimensionsFacade.getWidth()}" varStatus="Count">
                     <option value="${Count.index+1}">
                             ${i}
@@ -59,7 +57,6 @@
             Længde
             <select required class="form-control number-input" id="length" name="length"
                     onchange="saveToStorage('length', document.getElementById('length').value); draw('draw')">
-                <option value="" disabled selected>Længde</option>
                 <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                     <option value="${Count.index+1}">
                             ${i}
@@ -96,7 +93,6 @@
         <div class="form-group mt-2">
             Beklædning til sider
             <select required class="form-control number-input" id="backingWood" name="backingWood">
-                <option value="" disabled selected>Beklædning til sider</option>
                 <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
                     <option value="${Count.index+1}">
                             ${i}
@@ -117,7 +113,6 @@
             Længde
             <select required class="form-control number-input" id="slope" name="slope"
                     onchange="saveToStorage('length', document.getElementById('slope').value)">
-                <option value="" disabled selected>Hældning af tag</option>
                 <c:forEach var="i" items="${DimensionsFacade.getSlope()}" varStatus="Count">
                     <option value="${Count.index+1}">
                             ${i}
@@ -130,7 +125,6 @@
             Tagtype
             <select required class="form-control number-input" id="roofType" name="roofType"
                     onchange="saveToStorage('roofType', document.getElementById('roofType').value)">
-                <option value="" disabled selected>Vælg tagtype</option>
                 <c:forEach var="i" items="${DimensionsFacade.getAllRoof()}" varStatus="Count">
                     <option value="${Count.index+1}">
                             ${i}
@@ -151,7 +145,6 @@
             Længde
             <select required class="form-control number-input" id="shedLength" name="shedLength"
                     onchange="saveToStorage('shedLength', document.getElementById('shedLength').value); draw('draw')">
-                <option value="" disabled selected>Længde af skur</option>
                 <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                     <option value="${Count.index+1}">
                             ${i}
@@ -164,8 +157,6 @@
             Bredde
             <select required class="form-control number-input" id="shedWidth" name="shedWidth"
                     onchange="saveToStorage('shedWidth', document.getElementById('shedWidth').value); draw('draw')">
-                <option value="" disabled selected>Bredde af skur</option>
-
                 <c:if test="${sessionScope.maxWidth != null}">
                     <c:forEach var="i" items="${DimensionsFacade.getWidth()}" varStatus="Count">
                         <c:if test="${Integer.parseInt(sessionScope.maxWidth) > Integer.parseInt(i)}">
@@ -190,7 +181,6 @@
             Beklædningstype
             <select required class="form-control number-input" id="shedWood" name="shedLength"
                     onchange="saveToStorage('shedWood', document.getElementById('shedWood').value)">
-                <option value="" disabled selected>Beklædning på skur</option>
                 <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
                     <option value="${Count.index+1}">
                             ${i}
@@ -203,7 +193,6 @@
             Gulvtype
             <select required class="form-control number-input" id="shedFloor" name="shedFloor"
                     onchange="saveToStorage('shedFloor', document.getElementById('shedFloor').value)">
-                <option value="" disabled selected>Gulvtype til skur</option>
                 <c:forEach var="i" items="${DimensionsFacade.getAllFlooring()}" varStatus="Count">
                     <option value="${Count.index+1}">
                             ${i}
