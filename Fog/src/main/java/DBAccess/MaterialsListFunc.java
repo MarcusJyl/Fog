@@ -1,5 +1,6 @@
 package DBAccess;
 
+import CarportBerninger.Util.RoofFromDB;
 import CarportBerninger.Util.WoodFromDB;
 import FunctionLayer.WoodWhitPrice;
 
@@ -98,15 +99,33 @@ public class MaterialsListFunc {
             PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
-
-
-            System.out.println(id);
             while (rs.next()) {
                 String text = rs.getString("kommentar");
-
                 return text;
             }
             return null;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static RoofFromDB getRoofFromDB(int vareNummer) {
+        RoofFromDB roofFromDB = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM inventory.produkt_tagpakken inner join produkt on produkt_tagpakken.produktId = produkt.produktId where id = (select id from inventory.produktnumber where produktnumber = ?);";
+            PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, vareNummer);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int produktId = rs.getInt("produktId");
+                double pris = rs.getDouble("pris");
+                String name = rs.getString("produktName");
+                roofFromDB = new RoofFromDB(id,produktId, pris, name);
+            }
+            return roofFromDB;
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;

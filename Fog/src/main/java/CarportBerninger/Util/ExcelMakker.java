@@ -82,10 +82,10 @@ public class ExcelMakker {
                 if ((int) entry.getValue() != 0) {
                     Row row = sheet.createRow(i);
 
+
                     row.createCell(0).setCellValue(wood.getName());
                     row.createCell(1).setCellValue((int) entry.getValue());
                     row.createCell(2).setCellValue(MaterialsListFunc.getDescription(MaterialsListFunc.getAllWoodInfo((int)entry.getKey()).getId()));
-//                    System.out.println(MaterialsListFunc.getDescription((int)entry.getKey()));
                     row.createCell(3).setCellValue((int) entry.getKey());
                     row.createCell(4).setCellValue(wood.getMeterpris());
 
@@ -93,6 +93,29 @@ public class ExcelMakker {
                 }
             }
         }
+
+        i++;
+
+        for (ItemsByNumber roof1: carport.getRoof()) {
+            if (roof1.getVareNr() != null) {
+                for (Integer in : roof1.getVareNr()) {
+                    System.out.println(in);
+
+
+                    if (in != 0) {
+                        Row row = sheet.createRow(i);
+
+                        RoofFromDB roof = MaterialsListFunc.getRoofFromDB(in);
+                        row.createCell(0).setCellValue(roof.getName());
+                        row.createCell(1).setCellValue(roof1.getAmount());
+                        i++;
+
+                    }
+
+                }
+            }
+        }
+
 
         // Write the output to a file
         FileOutputStream fileOut = new FileOutputStream(carport.getHeigth() + "," + carport.getWidth() + "," + carport.getLength() + ".xlsx");

@@ -12,9 +12,10 @@ public class Drawing extends Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         int width = Integer.parseInt(request.getParameter("senderWidth"));
         int length = Integer.parseInt(request.getParameter("senderLength"));
-        //int height = Integer.parseInt(request.getParameter("senderHeight"));
-        //int widthShed = Integer.parseInt(request.getParameter("senderWidthShed"));
-        //int lengthShed = Integer.parseInt(request.getParameter("senderLengthShed"));
+        int height = Integer.parseInt(request.getParameter("senderHeight"));
+//        int widthShed = Integer.parseInt(request.getParameter("senderWidthShed"));
+//        int lengthShed = Integer.parseInt(request.getParameter("senderLengthShed"));
+        System.out.println(height);
         int rem = length - 35;
         int hulbåndY = rem + 4;
         int hulbåndX = width - 55;
@@ -24,9 +25,6 @@ public class Drawing extends Command {
         double stolpeTop = 32.5;
         double stopeBund = length - 37.5;
         double træBredde = 4.5;
-
-
-
 
 
         HttpSession session = request.getSession();

@@ -55,9 +55,12 @@ public class StaticValues {
     public static ArrayList<Integer> Taglægte =  MaterialsListFunc.getVareNr(15);
     //16
     public static ArrayList<Integer> Toplægte =  MaterialsListFunc.getVareNr(16);
-    public static ArrayList<Integer> Tagsten =  MaterialsListFunc.getVareNr(1);
-    public static ArrayList<Integer> rygsten =  MaterialsListFunc.getVareNr(1);
-    public static ArrayList<Integer> nakkekrog =  MaterialsListFunc.getVareNr(1);
+    //17
+    public static ArrayList<Integer> Tagsten =  MaterialsListFunc.getVareNr(17);
+    //18
+    public static ArrayList<Integer> rygsten =  MaterialsListFunc.getVareNr(18);
+    //19
+    public static ArrayList<Integer> nakkekrog =  MaterialsListFunc.getVareNr(19);
 
 
 
