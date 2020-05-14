@@ -33,7 +33,7 @@ public class Drawing extends Command {
 
 
         Svg svgSide = new Svg(700,250, "0,0,%d,%d",0,0 );
-        Svg svg = new Svg(600, 800, "0,0,%d,%d", 0, 0);
+        Svg svg = new Svg(800, 800, "0,0,%d,%d", 0, 0);
 
         svg.addRect(0, 0, width, length);
 
