@@ -72,6 +72,7 @@ public class Drawing extends Command {
 
 
         request.setAttribute("svgdrawing", svg.toString());
+        System.out.println(svg.toString());
         request.setAttribute("svgdrawingSide", svgSide.toString());
         return "../index";
     }
