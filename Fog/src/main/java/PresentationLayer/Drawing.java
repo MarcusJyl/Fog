@@ -15,7 +15,7 @@ public class Drawing extends Command {
         int height = Integer.parseInt(request.getParameter("senderHeight"));
         int widthShed = Integer.parseInt(request.getParameter("senderWidthShed"));
         int lengthShed = Integer.parseInt(request.getParameter("senderLengthShed"));
-        System.out.println(height);
+
         int rem = length - 35;
         int hulbåndY = rem + 4;
         int hulbåndX = width - 55;
@@ -32,8 +32,10 @@ public class Drawing extends Command {
         session.setAttribute("maxWidth", width);
 
 
-        Svg svg = new Svg(600, 800, "0,0,600,800", 0, 0);
-        Svg svgSide = new Svg(700,250, "0,0,700,250",0,0 );
+        Svg svgSide = new Svg(700,250, "0,0,%d,%d",0,0 );
+
+
+        Svg svg = new Svg(600, 800, "0,0,%d,%d", 0, 0);
         svg.addRect(0, 0, length, width);
 
        //Carport fra siden

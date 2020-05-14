@@ -11,8 +11,11 @@ public class Svg {
     private int x;
     private int y;
     private StringBuilder svg = new StringBuilder();
+    private StringBuilder svgText = new StringBuilder();
+    String svgTextHeader;
 
     private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
+    private final String headerTemplate2 ="<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
     private final String rectTemplate = "<rect x=\"%d\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #ffffff\" />";
     private final String dottedLineTemplate = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000; stroke-dasharray: 5 5;\" />";
     private final String lineTemplate = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />";
@@ -24,7 +27,9 @@ public class Svg {
         this.viewbox = viewbox;
         this.x = x;
         this.y = y;
-        svg.append(String.format(headerTemplate, height, width, viewbox));
+
+        svg.append(String.format(headerTemplate, height, width, String.format(viewbox,width, height)));
+        svgTextHeader = String.format(headerTemplate2, String.format(viewbox, width + 50, height + 50));
     }
 
 
@@ -85,6 +90,6 @@ public class Svg {
 
     @Override
     public String toString() {
-        return svg.toString() + "</svg>" ;
+        return svgTextHeader + svg.toString() + "</svg>" + svgText.toString() + "</svg>";
     }
 }

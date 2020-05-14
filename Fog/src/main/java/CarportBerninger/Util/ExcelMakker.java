@@ -99,15 +99,15 @@ public class ExcelMakker {
         for (ItemsByNumber roof1: carport.getRoof()) {
             if (roof1.getVareNr() != null) {
                 for (Integer in : roof1.getVareNr()) {
-                    System.out.println(in);
-
-
                     if (in != 0) {
                         Row row = sheet.createRow(i);
 
                         RoofFromDB roof = MaterialsListFunc.getRoofFromDB(in);
                         row.createCell(0).setCellValue(roof.getName());
                         row.createCell(1).setCellValue(roof1.getAmount());
+                        row.createCell(2).setCellValue(MaterialsListFunc.getDescription(roof.getId()));
+                        row.createCell(3).setCellValue(MaterialsListFunc.getDescription(in));
+                        row.createCell(4).setCellValue(roof.getPris());
                         i++;
 
                     }
@@ -115,6 +115,14 @@ public class ExcelMakker {
                 }
             }
         }
+
+        Cell cell2Update = sheet.getRow(4).getCell(4);
+        cell2Update.setCellValue(49);
+
+        i++;
+        Row row = sheet.createRow(i);
+        Cell cell = row.createCell(2);
+        cell.setCellFormula("SUM(E2:E100000)");
 
 
         // Write the output to a file

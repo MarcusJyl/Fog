@@ -1,6 +1,8 @@
 package CarportBerninger;
 
 import CarportBerninger.Materials.Roof.*;
+import CarportBerninger.Materials.SkruerOgBeslag.Universalbeslag190mmHøjre;
+import CarportBerninger.Materials.SkruerOgBeslag.Universalbeslag190mmVenstre;
 import CarportBerninger.Materials.Wood.*;
 import CarportBerninger.Util.ItemsByNumber;
 import CarportBerninger.Util.Wood;
@@ -11,6 +13,7 @@ public class Carport {
 
     private ArrayList<Wood> woods;
     private ArrayList<ItemsByNumber> roof;
+    private ArrayList<ItemsByNumber> beslag;
     private Spær spær;
 
     private boolean fladtTag;
@@ -21,26 +24,7 @@ public class Carport {
     private int shedWidth;
     private int shedLength;
 
-    //materialise
-//
-//    private int antalSpær;
-//    private BearingPostVerCarport bearingPosts; //Vertical
-//    private Vindskeder vindskeder;
-//    private Stern sternSidder;
-//    private Stern sternEnder;
-//    private Løsholter løsholterWidth;
-//    private Løsholter løsholterHeight;
-//    private Rem rem;
 
-
-//    private BrætPåVindskeder brætPåVindskeder;
-//    private BeklædningAfGavle beklædningAfGavle;
-//    private BrætTilTagfodslægte brætTilTagfodslægte;
-//    private BeklædningAfSkur beklædningAfSkur;
-//    private Taglægte taglægte;
-//    private Tagsten tagsten;
-//    private Rygsten rygsten;
-//    private RygstenBeslag rygstenBeslag;
 
 
     public Carport(int length, int width, int heigth, int shedWidth, int shedLength, boolean fladtTag, boolean shed, int degrees) {
@@ -52,7 +36,7 @@ public class Carport {
         this.fladtTag = fladtTag;
         this.withShed = true;
 
-        spær = new Spær(length, fladtTag);
+
 
         woods = new ArrayList<>();
 
@@ -73,6 +57,7 @@ public class Carport {
 
         if (fladtTag) {
         } else {
+            spær = new Spær(length, fladtTag);
             woods.add(new Vindskeder(width, degrees)); //vindskeder
             woods.add(new BrætPåVindskeder(width, degrees)); //brætPåVindskeder brætet for enden
             woods.add(new BeklædningAfGavle(width, degrees)); //beklædningAfGavle
@@ -88,6 +73,10 @@ public class Carport {
         roof.add(new RygstenBeslag(new Rygsten(length).getAmount()));
         roof.add(new ToplægteHolder(length));
         roof.add(new Nakkekrog(new Tagsten(new Taglægte(width, degrees, length).getAmount().getAmount(), length).getAmount()));
+
+        beslag = new ArrayList<>();
+        beslag.add(new Universalbeslag190mmHøjre(spær.getAmount()));
+        beslag.add(new Universalbeslag190mmVenstre(spær.getAmount()));
 
 //        tagsten = new Tagsten(taglægte.getAmount().getAmount(), length);
 //        rygsten = new Rygsten(length);

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="admin/Style.css">
 </head>
 
+
 <table>
     <tr>
         <th>ID</th>
@@ -17,6 +18,7 @@
         <th>Bredde (mm)</th>
         <th>Dybde (mm)</th>
         <th>Meterpris (kr/m)</th>
+        <th><button type="button" class="btn btn-success">Tilføj</button></th>
 
     </tr>
 
@@ -43,6 +45,9 @@
             <td style="width: 8%">
                 <input class="form-control" type="number" value="${i.getMeterPris()}" id="${i.getId()}"
                        onchange="updateDB(${i.getId()}, document.getElementById(${i.getId()}).value)">
+            </td>
+            <td style="width: 5%">
+                <button type="button" class="btn btn-danger">Slet</button>
             </td>
         </tr>
     </c:forEach>
