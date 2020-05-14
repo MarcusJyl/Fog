@@ -34,12 +34,12 @@ public class Drawing extends Command {
 
         Svg svgSide = new Svg(700,250, "0,0,%d,%d",0,0 );
         Svg svg = new Svg(600, 800, "0,0,%d,%d", 0, 0);
-        
+
         svg.addRect(0, 0, width, length);
 
        //Carport fra siden
-        svgSide.addLine(0,0,10, length);
-        svgSide.addLine(0,200,200,length);
+        svgSide.addLine(0,0,length, 10);
+        svgSide.addLine(0,200,length,200);
 
         for (int x = 100; x <= width ; x+=310) {
             svgSide.addRect(x, stolpeTop,162.6 , stolpeStørrelse);
