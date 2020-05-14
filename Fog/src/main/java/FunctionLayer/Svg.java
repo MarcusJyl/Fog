@@ -33,13 +33,13 @@ public class Svg {
     }
 
 
-    public void addRect(int x, double y, double height, double width){
-        svg.append(String.format(rectTemplate, x, y, height, width));
+    public void addRect(int x, double y, double width, double height){
+        svg.append(String.format(rectTemplate, x, y, width, height));
     }
 
-    public void addSpær(int x, double y, double height, double width){
-            svg.append(String.format(rectTemplate, x, y, height, width));
-    }
+//    public void addSpær(int x, double y, double height, double width){
+//            svg.append(String.format(rectTemplate, x, y, height, width));
+//    }
 
     public void addDottedLine(int x1, int y1, int x2, int y2){
         svg.append(String.format(dottedLineTemplate, x1, y1, x2, y2));

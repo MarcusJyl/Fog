@@ -17,13 +17,13 @@ public class Drawing extends Command {
         int lengthShed = Integer.parseInt(request.getParameter("senderLengthShed"));
 
         int rem = length - 35;
-        int hulbåndY = rem + 4;
+        int hulbånd = 35;
         int hulbåndX = width - 55;
         int hulbåndStart = 55;
         int stolpeY = 35;
         double stolpeStørrelse = 9.7;
         double stolpeTop = 32.5;
-        double stopeBund = length - 37.5;
+        double stopeBund = width - 37.5;
         double træBredde = 4.5;
 
 
@@ -33,14 +33,13 @@ public class Drawing extends Command {
 
 
         Svg svgSide = new Svg(700,250, "0,0,%d,%d",0,0 );
-
-
         Svg svg = new Svg(600, 800, "0,0,%d,%d", 0, 0);
-        svg.addRect(0, 0, length, width);
+        
+        svg.addRect(0, 0, width, length);
 
        //Carport fra siden
-        svgSide.addLine(0,0,length,10);
-        svgSide.addLine(0,200,length,200);
+        svgSide.addLine(0,0,10, length);
+        svgSide.addLine(0,200,200,length);
 
         for (int x = 100; x <= width ; x+=310) {
             svgSide.addRect(x, stolpeTop,162.6 , stolpeStørrelse);
@@ -49,17 +48,17 @@ public class Drawing extends Command {
 
         //Remme
 
-        svg.addRect(0, stolpeY, træBredde, width );
-        svg.addRect(0, rem, træBredde, width);
+        svg.addRect(0, stolpeY, træBredde, length );
+        svg.addRect(0, width-stolpeY, træBredde, length);
         //Spær
 
-        for (int x = 0; x <= width ; x+=55) {
-            svg.addSpær(x,0, length, træBredde);
+        for (int x = 0; x <= length ; x+=55) {
+            svg.addRect(x,0, width, træBredde);
         }
 
         //Hulbånd
-        svg.addDottedLine(hulbåndStart, stolpeY, hulbåndX, hulbåndY);
-        svg.addDottedLine(hulbåndStart, hulbåndY, hulbåndX, stolpeY);
+        svg.addDottedLine(hulbånd, hulbånd, length-hulbånd, width-hulbånd);
+        svg.addDottedLine(hulbånd, width-hulbånd,length-hulbånd, hulbånd);
 
         //Stolper
         for (int x = 100; x <= width ; x+=310) {

@@ -156,3 +156,7 @@ $RECYCLE.BIN/
 .idea/artifacts/Fog_war_exploded.xml
 
 Fog/.idea/compiler.xml
+
+Fog/210,360,400.xlsx
+
+*.xlsx

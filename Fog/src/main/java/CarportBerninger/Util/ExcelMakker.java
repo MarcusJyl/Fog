@@ -106,7 +106,7 @@ public class ExcelMakker {
                         row.createCell(0).setCellValue(roof.getName());
                         row.createCell(1).setCellValue(roof1.getAmount());
                         row.createCell(2).setCellValue(MaterialsListFunc.getDescription(roof.getId()));
-                        row.createCell(3).setCellValue(MaterialsListFunc.getDescription(in));
+                        row.createCell(3).setCellValue(in);
                         row.createCell(4).setCellValue(roof.getPris());
                         i++;
 
