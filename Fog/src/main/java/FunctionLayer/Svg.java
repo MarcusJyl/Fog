@@ -3,6 +3,8 @@ package FunctionLayer;
 import PresentationLayer.Drawing;
 import com.sun.javafx.binding.StringFormatter;
 
+import java.util.Locale;
+
 public class Svg {
 
     private int width1;
@@ -28,13 +30,14 @@ public class Svg {
         this.x = x;
         this.y = y;
 
-        svg.append(String.format(headerTemplate, height, width, String.format(viewbox,width, height)));
-        svgTextHeader = String.format(headerTemplate2, String.format(viewbox, width + 50, height + 50));
+        svg.append(String.format(Locale.US, headerTemplate, height, width, String.format(viewbox,width, height)));
+        svgTextHeader = String.format(Locale.US, headerTemplate2, String.format(viewbox, width + 50, height + 50));
+
     }
 
 
     public void addRect(int x, double y, double width, double height){
-        svg.append(String.format(rectTemplate, x, y, width, height));
+        svg.append(String.format(Locale.US, rectTemplate, x, y, width, height));
     }
 
 //    public void addSpær(int x, double y, double height, double width){
@@ -42,7 +45,7 @@ public class Svg {
 //    }
 
     public void addDottedLine(int x1, int y1, int x2, int y2){
-        svg.append(String.format(dottedLineTemplate, x1, y1, x2, y2));
+        svg.append(String.format(Locale.US, dottedLineTemplate, x1, y1, x2, y2));
     }
 
     public void addLine(int x1, int y1, int x2, int y2){
