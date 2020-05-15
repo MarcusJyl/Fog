@@ -22,6 +22,12 @@ public class BearingPostVerCarport extends Wood {
         numberOfPosts = (int)((acualLength-(acualLength % distance)) / distance) * 2;
     }
 
+    public BearingPostVerCarport(int length, int heigth) {
+        this.heigth = heigth + 90;
+
+        numberOfPosts = (int)((length-(length % distance)) / distance) * 2;
+    }
+
     public int getNumberOfPosts(){
         return numberOfPosts;
     }

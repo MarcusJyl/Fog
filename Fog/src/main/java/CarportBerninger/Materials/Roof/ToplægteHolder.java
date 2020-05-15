@@ -1,12 +1,13 @@
 package CarportBerninger.Materials.Roof;
 
+import CarportBerninger.StaticValues;
 import CarportBerninger.Util.ItemsByNumber;
 
 import java.util.ArrayList;
 
 public class ToplægteHolder extends ItemsByNumber {
 
-    private ArrayList<Integer> vareNr;
+    private ArrayList<Integer> vareNr = StaticValues.toplægteHolder;
     private int amount;
 
     public ToplægteHolder(int length) {

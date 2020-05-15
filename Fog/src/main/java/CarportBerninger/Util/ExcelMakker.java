@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import CarportBerninger.Materials.Wood.Taglægte;
+import CarportBerninger.Util.Email.SendMail;
 import DBAccess.MaterialsListFunc;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -32,7 +33,7 @@ public class ExcelMakker {
         this.carport = carport;
     }
 
-    public void makeCarport() throws IOException {
+    public void makeCarport() throws Exception {
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Contacts");
 
@@ -85,7 +86,7 @@ public class ExcelMakker {
 
                     row.createCell(0).setCellValue(wood.getName());
                     row.createCell(1).setCellValue((int) entry.getValue());
-                    row.createCell(2).setCellValue(MaterialsListFunc.getDescription(MaterialsListFunc.getAllWoodInfo((int)entry.getKey()).getId()));
+                    row.createCell(2).setCellValue(MaterialsListFunc.getDescription(MaterialsListFunc.getAllWoodInfo((int) entry.getKey()).getProduktId()));
                     row.createCell(3).setCellValue((int) entry.getKey());
                     row.createCell(4).setCellValue(wood.getMeterpris());
 
@@ -96,7 +97,7 @@ public class ExcelMakker {
 
         i++;
 
-        for (ItemsByNumber roof1: carport.getRoof()) {
+        for (ItemsByNumber roof1 : carport.getRoof()) {
             if (roof1.getVareNr() != null) {
                 for (Integer in : roof1.getVareNr()) {
                     if (in != 0) {
@@ -105,13 +106,36 @@ public class ExcelMakker {
                         RoofFromDB roof = MaterialsListFunc.getRoofFromDB(in);
                         row.createCell(0).setCellValue(roof.getName());
                         row.createCell(1).setCellValue(roof1.getAmount());
-                        row.createCell(2).setCellValue(MaterialsListFunc.getDescription(roof.getId()));
+                        row.createCell(2).setCellValue(MaterialsListFunc.getDescription(roof.getProduktId()));
                         row.createCell(3).setCellValue(in);
                         row.createCell(4).setCellValue(roof.getPris());
                         i++;
-
                     }
+                }
+            }
+        }
 
+        i++;
+//        for (ItemsByNumber be : carport.getBeslag()) {
+//            System.out.println(be.getVareNr());
+//        }
+
+        for (ItemsByNumber beslag1 : carport.getBeslag()) {
+            if (beslag1.getVareNr() != null) {
+                for (Integer in : beslag1.getVareNr()) {
+                    if (in != 0) {
+                        Row row = sheet.createRow(i);
+
+                        RoofFromDB beslag = MaterialsListFunc.getBeslagFromDB(in);
+
+                        row.createCell(0).setCellValue(beslag.getName());
+                        row.createCell(1).setCellValue(beslag1.getAmount());
+                        row.createCell(2).setCellValue(MaterialsListFunc.getDescription(beslag.getProduktId()));
+                        row.createCell(3).setCellValue(in);
+                        row.createCell(4).setCellValue(beslag.getPris());
+
+                        i++;
+                    }
                 }
             }
         }
@@ -126,8 +150,12 @@ public class ExcelMakker {
 
 
         // Write the output to a file
-        FileOutputStream fileOut = new FileOutputStream(carport.getHeigth() + "," + carport.getWidth() + "," + carport.getLength() + ".xlsx");
+        String fileName = carport.getHeigth() + "," + carport.getWidth() + "," + carport.getLength() + ".xlsx";
+        FileOutputStream fileOut = new FileOutputStream(fileName);
         workbook.write(fileOut);
         fileOut.close();
+
+
+        SendMail.send(fileName);
     }
 }

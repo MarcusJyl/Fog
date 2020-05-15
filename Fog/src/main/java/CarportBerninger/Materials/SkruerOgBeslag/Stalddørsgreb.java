@@ -1,18 +1,16 @@
 package CarportBerninger.Materials.SkruerOgBeslag;
 
-import CarportBerninger.Spær;
 import CarportBerninger.StaticValues;
 import CarportBerninger.Util.ItemsByNumber;
 
 import java.util.ArrayList;
 
-public class Universalbeslag190mmVenstre extends ItemsByNumber {
+public class Stalddørsgreb extends ItemsByNumber {
 
-    private int amount;
-    private ArrayList<Integer> vareNr = StaticValues.Universalbeslag190mmVenstre;
+    private ArrayList<Integer> vareNr = StaticValues.Stalddørsgreb;
+    private int amount = 1;
 
-    public Universalbeslag190mmVenstre(Spær spær) {
-        this.amount = spær.getAmount();
+    public Stalddørsgreb() {
     }
 
     @Override

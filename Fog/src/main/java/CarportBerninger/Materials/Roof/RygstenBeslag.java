@@ -6,7 +6,7 @@ import CarportBerninger.Util.ItemsByNumber;
 import java.util.ArrayList;
 
 public class RygstenBeslag extends ItemsByNumber {
-    private ArrayList<Integer> vareNr = StaticValues.rygsten;
+    private ArrayList<Integer> vareNr = StaticValues.rygstenBeslag;
     private int amount;
 
     public RygstenBeslag(int amount) {

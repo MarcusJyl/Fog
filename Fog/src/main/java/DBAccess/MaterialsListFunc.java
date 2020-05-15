@@ -1,5 +1,6 @@
 package DBAccess;
 
+import CarportBerninger.Util.BeslagFromDB;
 import CarportBerninger.Util.RoofFromDB;
 import CarportBerninger.Util.WoodFromDB;
 import FunctionLayer.WoodWhitPrice;
@@ -15,7 +16,7 @@ public class MaterialsListFunc {
         ArrayList<Integer> vareNummere = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM inventory.produktNumber inner JOIN inventory.produkter_til_carport ON produkter_til_carport.id=produktNumber.id where produkter_til_carport.produktId = (SELECT produktId FROM inventory.produkter_til_carport where id=?) ;";
+            String SQL = "SELECT * FROM inventory.produktNumber where produktId=(SELECT produktId FROM inventory.produkter_til_carport where id=?);";
             PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
@@ -95,7 +96,7 @@ public class MaterialsListFunc {
     public static String getDescription (int id) {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT kommentar FROM inventory.produkter_til_carport where id = ?;";
+            String SQL = "SELECT kommentar FROM inventory.produkter_til_carport where produktId = ?;";
             PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
@@ -126,6 +127,30 @@ public class MaterialsListFunc {
                 roofFromDB = new RoofFromDB(id,produktId, pris, name);
             }
             return roofFromDB;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static BeslagFromDB getBeslagFromDB(int vareNummer) {
+        BeslagFromDB beslagFromDB = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM inventory.produkt_beslag_skruer inner join produkt on produkt_beslag_skruer.produktId = produkt.produktId where id = (select id from inventory.produktnumber where produktnumber = ?);";
+            PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, vareNummer);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int produktId = rs.getInt("produktId");
+                double pris = rs.getDouble("pris");
+                String name = rs.getString("produktName");
+                int antal = rs.getInt("antal");
+                beslagFromDB = new BeslagFromDB(id,produktId, pris, name, antal);
+
+            }
+            return beslagFromDB;
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;
