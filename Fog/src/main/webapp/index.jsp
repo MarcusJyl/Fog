@@ -136,7 +136,7 @@
         <div class="form-group mt-2">
             Ønskes der skur til carporten?
             <label class="container">Ja
-                <input type="checkbox" id="myCheckSkur" onclick="myFunctionSkur()">
+                <input type="checkbox" id="myCheckSkur" onclick="myFunctionSkur(); draw('draw')">
                 <span class="checkmark"></span>
             </label>
         </div>
@@ -154,27 +154,15 @@
         </div>
 
         <div class="form-group mt-2">
-            Bredde
-            <select required class="form-control number-input" id="shedWidth" name="shedWidth"
-                    onchange="saveToStorage('shedWidth', document.getElementById('shedWidth').value); draw('draw')">
-                <c:if test="${sessionScope.maxWidth != null}">
-                    <c:forEach var="i" items="${DimensionsFacade.getWidth()}" varStatus="Count">
-                        <c:if test="${Integer.parseInt(sessionScope.maxWidth) > Integer.parseInt(i)}">
-                            <option value="${Count.index+1}">
-                                    ${i}
-                            </option>
-                        </c:if>
-                    </c:forEach>
-                </c:if>
-                <c:if test="${sessionScope.maxWidth == null}">
-                    <c:forEach var="i" items="${DimensionsFacade.getWidth()}" varStatus="Count">
-                        <option value="${Count.index+1}">
-                                ${i}
-                        </option>
-                    </c:forEach>
-                </c:if>
-
-            </select>
+            Ønskes der skur af halv eller hel carpot bredde?
+            <label class="container">Halv længde
+                <input type="checkbox" id="checkSkurHalf" onclick=" draw('draw')">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Hel længde
+                <input type="checkbox" id="checkSkurWhole" onclick=" draw('draw')">
+                <span class="checkmark"></span>
+            </label>
         </div>
 
         <div class="form-group mt-2">
@@ -221,6 +209,9 @@
     <input type="hidden" id="senderHeight" name="senderHeight" value="">
     <input type="hidden" id="senderWidthShed" name="senderWidthShed" value="">
     <input type="hidden" id="senderLengthShed" name="senderLengthShed" value="">
+    <input type="hidden" id="senderCheckShed" name="senderCheckShed" value="">
+    <input type="hidden" id="senderCheckHalf" name="senderCheckHalf" value="">
+    <input type="hidden" id="senderCheckWhole" name="senderCheckWhole" value="">
 </form>
 
 <script>load()</script>
@@ -228,7 +219,6 @@
 <script>loadInput("slope", 'myCheckTag')</script>
 <script>loadInput("roofType", 'myCheckTag')</script>
 <script>loadInput("shedLength", 'myCheckSkur')</script>
-<script>loadInput("shedWidth", 'myCheckSkur')</script>
 <script>loadInput("shedWood", 'myCheckSkur')</script>
 <script>loadInput("shedFloor", 'myCheckSkur')</script>
 <script>loadInput("rightCheck", 'myCheckCoating')</script>

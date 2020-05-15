@@ -64,7 +64,6 @@ function load() {
     document.getElementById("slope").selectedIndex = localStorage.getItem("slope");
     document.getElementById("roofType").selectedIndex = localStorage.getItem("roofType");
     document.getElementById("shedLength").selectedIndex = localStorage.getItem("shedLength");
-    document.getElementById("shedWidth").selectedIndex = localStorage.getItem("shedWidth");
     document.getElementById("shedWood").selectedIndex = localStorage.getItem("shedWood");
     document.getElementById("shedFloor").selectedIndex = localStorage.getItem("shedFloor");
     document.getElementById("leftCheck").selectedIndex = localStorage.getItem("leftCheck");
@@ -99,13 +98,18 @@ function draw(servlet) {
     var height = heightElement.options[heightElement.selectedIndex].text;
     document.getElementById('senderHeight').value = height;
 
-    var widthElementShed = document.getElementById("shedWidth");
-    var shedWidth = widthElementShed.options[widthElementShed.selectedIndex].text;
-    document.getElementById('senderWidthShed').value = shedWidth;
-
     var lengthElementShed = document.getElementById("shedLength");
     var shedLength = lengthElementShed.options[lengthElementShed.selectedIndex].text;
     document.getElementById('senderLengthShed').value = shedLength;
+
+    var checkElementShed = document.getElementById("myCheckSkur").checked;
+    document.getElementById('senderCheckShed').value = checkElementShed;
+
+    var checkElementShedHalf = document.getElementById("checkSkurHalf").checked;
+    document.getElementById('senderCheckHalf').value = checkElementShedHalf;
+
+    var checkElementShedWhole = document.getElementById("checkSkurWhole").checked;
+    document.getElementById('senderCheckWhole').value = checkElementShedWhole;
 
     document.getElementById("target").value = servlet;
     document.getElementById('valueSender').submit();
