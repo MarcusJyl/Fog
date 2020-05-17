@@ -18,8 +18,9 @@ public class Svg {
 
     private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
     private final String headerTemplate2 ="<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
-    private final String rectTemplate = "<rect x=\"%d\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #ffffff\" />";
+    private final String rectTemplate = "<rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #ffffff\" />";
     private final String dottedLineTemplate = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000; stroke-dasharray: 5 5;\" />";
+    private final String beklædningLineTemplate = "<rect x=\"%d\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #ffffff; stroke-width: 2; stroke-dasharray: 5;\" />";
     private final String lineTemplate = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:#000000; fill: #ffffff\" />";
 
 
@@ -36,7 +37,7 @@ public class Svg {
     }
 
 
-    public void addRect(int x, double y, double width, double height){
+    public void addRect(double x, double y, double width, double height){
         svg.append(String.format(Locale.US, rectTemplate, x, y, width, height));
     }
 
@@ -46,6 +47,10 @@ public class Svg {
 
     public void addDottedLine(int x1, int y1, int x2, int y2){
         svg.append(String.format(Locale.US, dottedLineTemplate, x1, y1, x2, y2));
+    }
+
+    public void addBeklædningDottedLine(int x1, double y1, double width1, double height1){
+        svg.append(String.format(Locale.US, beklædningLineTemplate, x1, y1, width1, height1));
     }
 
     public void addLine(int x1, int y1, int x2, int y2){
