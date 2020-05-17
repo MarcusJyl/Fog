@@ -1,5 +1,6 @@
 package CarportBerninger.Materials.SkruerOgBeslag;
 
+import CarportBerninger.Materials.Wood.FladtTag.SpærFladtTag;
 import CarportBerninger.Spær;
 import CarportBerninger.StaticValues;
 
@@ -13,5 +14,7 @@ public class Universalbeslag190mmHøjre extends Universalbeslag190mmVenstre {
         super(spær);
     }
 
-
+    public Universalbeslag190mmHøjre(SpærFladtTag spærFladtTag) {
+        super(spærFladtTag);
+    }
 }

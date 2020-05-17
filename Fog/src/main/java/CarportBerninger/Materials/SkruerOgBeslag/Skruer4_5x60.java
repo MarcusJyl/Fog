@@ -1,6 +1,8 @@
 package CarportBerninger.Materials.SkruerOgBeslag;
 
 import CarportBerninger.Materials.Wood.BrætPåVindskeder;
+import CarportBerninger.Materials.Wood.FladtTag.VandbrædtForende;
+import CarportBerninger.Materials.Wood.FladtTag.VandbrædtSider;
 import CarportBerninger.Materials.Wood.SternCarport;
 import CarportBerninger.Materials.Wood.SternSkur;
 import CarportBerninger.Materials.Wood.Vindskeder;
@@ -19,6 +21,15 @@ public class Skruer4_5x60 extends ItemsByNumber {
                         sternSkur.getAmount().getLength() * sternSkur.getAmount().getAmount() +
                         vindskeder.getAmount().getLength() * vindskeder.getAmount().getAmount() +
                         brætPåVindskeder.getAmount().getLength() * brætPåVindskeder.getAmount().getAmount())/15;
+    }
+
+    public Skruer4_5x60(SternCarport sternCarport, SternSkur sternSkur, VandbrædtForende vandbrædtForende, VandbrædtSider vandbrædtSider) {
+        this.amount = (int)(sternCarport.getAmount().getLength() + sternSkur.getAmount().getLength() + vandbrædtForende.getAmount().getLength() + vandbrædtSider.getAmount().getLength()) / 15;
+    }
+
+    public Skruer4_5x60(SternCarport sternCarport, VandbrædtForende vandbrædtForende, VandbrædtSider vandbrædtSider) {
+        this.amount = (int)(sternCarport.getAmount().getLength() + vandbrædtForende.getAmount().getLength() + vandbrædtSider.getAmount().getLength())/15;
+
     }
 
     @Override

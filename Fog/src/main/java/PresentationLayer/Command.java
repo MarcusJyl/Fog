@@ -4,6 +4,7 @@ import FunctionLayer.LoginSampleException;
 import PresentationLayer.Admin.*;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,9 +43,13 @@ public abstract class Command {
         commands.put("adminSide", new AdminSide());
         commands.put("returnMeterPris", new ReturnMeterPrice());
         commands.put("priceSetter", new PriceSetter());
+        commands.put("addWood", new AddWood());
+        commands.put("woodAdder", new WoodAdder());
+        commands.put("deleteWood", new DeleteWood());
     }
 
-    static Command from( HttpServletRequest request ) {
+    static Command from( HttpServletRequest request ) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("UTF-8");
         String TagetName = request.getParameter( "taget" );
         if ( commands == null ) {
             initCommands();
@@ -53,6 +58,6 @@ public abstract class Command {
     }
 
     public abstract String execute(HttpServletRequest request, HttpServletResponse response)
-            throws LoginSampleException;
+            throws LoginSampleException, UnsupportedEncodingException;
 
 }

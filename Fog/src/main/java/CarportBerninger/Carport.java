@@ -3,6 +3,8 @@ package CarportBerninger;
 import CarportBerninger.Materials.Roof.*;
 import CarportBerninger.Materials.SkruerOgBeslag.*;
 import CarportBerninger.Materials.Wood.*;
+import CarportBerninger.Materials.Wood.FladtTag.*;
+import CarportBerninger.Materials.Wood.FladtTag.BeslagOgSkruer.Hulbånd;
 import CarportBerninger.Util.ItemsByNumber;
 import CarportBerninger.Util.Wood;
 import DBAccess.MaterialsListFunc;
@@ -52,13 +54,28 @@ public class Carport {
 
         woods = new ArrayList<>();
         beslag = new ArrayList<>();
+        roof = new ArrayList<>();
+
+
+        VandbrædtSider vandbrædtSider = new VandbrædtSider(length);
+        VandbrædtForende vandbrædtForende = new VandbrædtForende(length);
+        Hulbånd hulbånd = new Hulbånd(length);
+        bearingPostVerShed = new BearingPostVerShed(shedLength, heigth, width);
+        bearingPostVerCarport = new BearingPostVerCarport(length, shedLength, heigth);
+        bræddebolt = new Bræddebolt(bearingPostVerCarport, bearingPostVerShed);
+        beklædningAfSkur = new BeklædningAfSkur(shedLength, shedWidth, heigth);
+        skruer4_5x070 = new Skruer4_5x070(beklædningAfSkur);
+        bearingPostVerCarport = new BearingPostVerCarport(length, heigth);
+        Vinkelbeslag vinkelbeslag = new Vinkelbeslag(bearingPostVerShed.getAmount().getAmount());
+
+        beklædningAfGavle = new BeklædningAfGavle(width, degrees);
+
+
+        System.out.println(spær.getAmount());
+
 
         if (shed) {
-            bearingPostVerShed = new BearingPostVerShed(shedLength, heigth, width);
-            bearingPostVerCarport = new BearingPostVerCarport(length, shedLength, heigth);
-            bræddebolt = new Bræddebolt(bearingPostVerCarport, bearingPostVerShed);
-            beklædningAfSkur = new BeklædningAfSkur(shedLength, shedWidth, heigth);
-            skruer4_5x070 = new Skruer4_5x070(beklædningAfSkur);
+
             woods.add(new Løsholter(shedLength, false)); //løsholterWidth
             woods.add(new Løsholter(shedWidth, true)); //løsholterHeight
             woods.add(new RemSkur(shedWidth, width)); //løsholterHeight
@@ -72,10 +89,12 @@ public class Carport {
             beslag.add(new Firkantskiver(bræddebolt));
             beslag.add(skruer4_5x070);
             beslag.add(new Skruer4_5x50(skruer4_5x070));
+            beslag.add(new Stalddørsgreb());
+            beslag.add(new THængsel());
+            beslag.add(vinkelbeslag);
+
 
         } else {
-            bearingPostVerCarport = new BearingPostVerCarport(length, heigth);
-            bræddebolt = new Bræddebolt(bearingPostVerCarport);
 
             woods.add(sternCarport = new SternCarport(length)); //sternSidder brættet der gør man ikke kan se ind i spærne
             woods.add(new Rem(length)); //rem hvis tag er fladt
@@ -86,10 +105,42 @@ public class Carport {
 
 
         if (fladtTag) {
+            beslag.add(bræddebolt);
+            beslag.add(new Firkantskiver(bræddebolt));
+            beslag.add(skruer4_5x070);
+            beslag.add(new Skruer4_5x50(skruer4_5x070));
+            beslag.add(new Stalddørsgreb());
+            beslag.add(new THængsel());
+            beslag.add(vinkelbeslag);
+
+
+            SpærFladtTag spærFladtTag = new SpærFladtTag(width, length);
+            Universalbeslag190mmHøjre universalbeslag190mmHøjre = new Universalbeslag190mmHøjre(spærFladtTag);
+            Universalbeslag190mmVenstre universalbeslag190mmVenstre  = new Universalbeslag190mmVenstre(spærFladtTag);
+
+            woods.add(spærFladtTag);
+            woods.add(new OversternbrædderForenden(length));
+            woods.add(new OversternbrædderSider(length));
+            woods.add(new UndersternbrædderEnder(length));
+            woods.add(new UndersternbrædderSide(length));
+            woods.add(vandbrædtForende);
+            woods.add(vandbrædtSider);
+            woods.add(new Tagplader(length, width));
+
+
+
+
+            beslag.add(new Skruer4_5x50(hulbånd, universalbeslag190mmHøjre));
+            beslag.add(universalbeslag190mmHøjre);
+            beslag.add(universalbeslag190mmVenstre);
+            System.out.println(new Skruer4_5x50(hulbånd, universalbeslag190mmHøjre).getAmount());
         } else {
-            beklædningAfGavle = new BeklædningAfGavle(width, degrees);
             spær = new Spær(length, fladtTag);
             Universalbeslag190mmHøjre universalbeslag190mmHøjre = new Universalbeslag190mmHøjre(spær);
+            Universalbeslag190mmVenstre universalbeslag190mmVenstre = new Universalbeslag190mmVenstre(spær);
+            beslag.add(universalbeslag190mmHøjre);
+            beslag.add(universalbeslag190mmVenstre);
+
             woods.add(vindskeder); //vindskeder
             woods.add(brætPåVindskeder); //brætPåVindskeder brætet for enden
             woods.add(beklædningAfGavle); //beklædningAfGavle
@@ -97,30 +148,16 @@ public class Carport {
             woods.add(toplægte);
             woods.add(new BrætTilTagfodslægte(length)); //brætTilTagfodslægte
             beslag.add(new Skruer4_5x50(beklædningAfGavle));
-            beslag.add(universalbeslag190mmHøjre);
-            beslag.add(new Universalbeslag190mmVenstre(spær));
+
+            roof.add(new Tagsten(taglægte.getAmount().getAmount(), length));
+            roof.add(new Rygsten(length));
+            roof.add(new RygstenBeslag(new Rygsten(length).getAmount()));
+            roof.add(new ToplægteHolder(length));
+            roof.add(new Nakkekrog(new Tagsten(taglægte.getAmount().getAmount(), length).getAmount()));
+            beslag.add(new Skruer4_5x60(sternSkur, sternCarport, vindskeder, brætPåVindskeder));
+            beslag.add(new Beslagskruer5x40(toplægte, spær.getAmount()));
+            beslag.add(new Skruer5x100(taglægte));
         }
-
-
-        roof = new ArrayList<>();
-        roof.add(new Tagsten(taglægte.getAmount().getAmount(), length));
-        roof.add(new Rygsten(length));
-        roof.add(new RygstenBeslag(new Rygsten(length).getAmount()));
-        roof.add(new ToplægteHolder(length));
-        roof.add(new Nakkekrog(new Tagsten(taglægte.getAmount().getAmount(), length).getAmount()));
-
-        beslag.add(new Stalddørsgreb());
-        beslag.add(new THængsel());
-        beslag.add(new Skruer4_5x60(sternSkur, sternCarport, vindskeder, brætPåVindskeder));
-
-        beslag.add(new Beslagskruer5x40(toplægte, spær.getAmount()));
-        beslag.add(new Skruer5x100(taglægte));
-
-//        for (ItemsByNumber item : beslag){
-//            for (Integer i : item.getVareNr())
-//            System.out.println(MaterialsListFunc.getBeslagFromDB(i));
-//        }
-
     }
 
     public ArrayList<Wood> getWoods() {

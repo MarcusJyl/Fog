@@ -1,6 +1,7 @@
 package CarportBerninger.Materials.SkruerOgBeslag;
 
 import CarportBerninger.Materials.Wood.BeklædningAfGavle;
+import CarportBerninger.Materials.Wood.FladtTag.BeslagOgSkruer.Hulbånd;
 import CarportBerninger.StaticValues;
 import CarportBerninger.Util.ItemsByNumber;
 
@@ -16,6 +17,11 @@ public class Skruer4_5x50 extends ItemsByNumber {
     }
     public Skruer4_5x50(Skruer4_5x070 skrue) {
         amount = (int) (skrue.getAmount() * 0.8);
+    }
+
+    public Skruer4_5x50(Hulbånd hulbånd, Universalbeslag190mmHøjre uni) {
+        this.amount = ((uni.getAmount() * 2) * 8) + (hulbånd.getAmount() * 40);
+        vareNr = StaticValues.Skruer4_5x50Nummer2;
     }
 
     @Override

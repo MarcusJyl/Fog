@@ -20,6 +20,11 @@ public class StaticValues {
     //bredde af tagsten
     public static double tagstenBredde = 30.5;
 
+    public static double tagpladeBredde = 109;
+    public static double tagpladeOverlap = 9;
+
+
+
 
     //Varenummere
     //4
@@ -86,6 +91,22 @@ public class StaticValues {
     public static ArrayList<Integer> skruer4_5x070 = MaterialsListFunc.getVareNr(32);
     // 25
     public static ArrayList<Integer> Skruer4_5x50 =  MaterialsListFunc.getVareNr(33);
+
+
+    public static ArrayList<Integer> UndersternbrædderEnder =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> UndersternbrædderSide =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> OversternbrædderForenden =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> OversternbrædderSider =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> VandbrædtSider =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> VandbrædtForende =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> SpærFladtTag =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> Tagplader =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> PlastmoBundskruer =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> Hulbånd =  MaterialsListFunc.getVareNr(6);
+    public static ArrayList<Integer> Skruer4_5x50Nummer2 =  MaterialsListFunc.getVareNr(6);
+
+
+
 
 
 }

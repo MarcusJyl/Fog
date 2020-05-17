@@ -1,17 +1,17 @@
-package CarportBerninger.Materials.SkruerOgBeslag;
+package CarportBerninger.Materials.Wood.FladtTag.BeslagOgSkruer;
 
 import CarportBerninger.StaticValues;
 import CarportBerninger.Util.ItemsByNumber;
 
 import java.util.ArrayList;
 
-public class Vinkelbeslag extends ItemsByNumber {
+public class PlastmoBundskruer extends ItemsByNumber {
 
-    private ArrayList<Integer> vareNr = StaticValues.vinkelbeslag;
+    private ArrayList<Integer> vareNr = StaticValues.PlastmoBundskruer;
     private int amount;
 
-    public Vinkelbeslag(int antalStolper) {
-        this.amount = antalStolper *2 * 2;
+    public PlastmoBundskruer(int length, int width) {
+        this.amount = (length * width) / 800;
     }
 
     @Override

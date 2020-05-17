@@ -1,4 +1,14 @@
 package PresentationLayer.Admin;
 
-public class AddWood {
+import FunctionLayer.LoginSampleException;
+import PresentationLayer.Command;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class AddWood extends Command {
+    @Override
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        return "addWood";
+    }
 }

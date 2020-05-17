@@ -1,5 +1,6 @@
 package CarportBerninger.Materials.SkruerOgBeslag;
 
+import CarportBerninger.Materials.Wood.FladtTag.SpærFladtTag;
 import CarportBerninger.Spær;
 import CarportBerninger.StaticValues;
 import CarportBerninger.Util.ItemsByNumber;
@@ -13,6 +14,10 @@ public class Universalbeslag190mmVenstre extends ItemsByNumber {
 
     public Universalbeslag190mmVenstre(Spær spær) {
         this.amount = spær.getAmount();
+    }
+
+    public Universalbeslag190mmVenstre(SpærFladtTag spærFladtTag) {
+        this.amount = spærFladtTag.getAmount().getAmount();
     }
 
     @Override

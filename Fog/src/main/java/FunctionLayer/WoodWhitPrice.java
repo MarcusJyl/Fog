@@ -4,9 +4,9 @@ public class WoodWhitPrice {
 
     private int id;
     private String name;
-    private int bredde;
-    private int lægde;
-    private int højde;
+    private double bredde;
+    private double lægde;
+    private double højde;
     private double meterPris;
     private int produktnummer;
 
@@ -18,15 +18,15 @@ public class WoodWhitPrice {
         return name;
     }
 
-    public int getBredde() {
+    public double getBredde() {
         return bredde;
     }
 
-    public int getLægde() {
+    public double getLægde() {
         return lægde;
     }
 
-    public int getHøjde() {
+    public double getHøjde() {
         return højde;
     }
 
@@ -38,7 +38,7 @@ public class WoodWhitPrice {
         return produktnummer;
     }
 
-    public WoodWhitPrice(int id, int bredde, int lægde, int højde, double meterPris, int produktnummer, String name) {
+    public WoodWhitPrice(int id, double bredde, double lægde, double højde, double meterPris, int produktnummer, String name) {
         this.id = id;
         this.name = name;
         this.bredde = bredde;
@@ -46,5 +46,12 @@ public class WoodWhitPrice {
         this.højde = højde;
         this.meterPris = meterPris;
         this.produktnummer = produktnummer;
+    }
+    public WoodWhitPrice(int id, double bredde, double lægde, double højde, double meterPris) {
+        this.id = id;
+        this.bredde = bredde;
+        this.lægde = lægde;
+        this.højde = højde;
+        this.meterPris = meterPris;
     }
 }

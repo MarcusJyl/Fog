@@ -1,5 +1,6 @@
 package DBAccess;
 
+import FunctionLayer.Wood;
 import FunctionLayer.WoodWhitPrice;
 
 import java.sql.*;
@@ -306,9 +307,9 @@ public class AdminFunctions {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
-                int bredde = rs.getInt("træ_bredde");
-                int lægde = rs.getInt("træ_længde");
-                int dypde = rs.getInt("træ_dypde");
+                double bredde = rs.getDouble("træ_bredde");
+                double lægde = rs.getDouble("træ_længde");
+                double dypde = rs.getDouble("træ_dypde");
                 int produktnummer = rs.getInt("produktNumber");
                 double meterpris = rs.getDouble("meterpris");
                 String produktNavn = rs.getString("produktName");
@@ -316,6 +317,49 @@ public class AdminFunctions {
                 allHeight.add(tempWood);
             }
             return allHeight;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static ArrayList<String> selectAllWoodNames() {
+        ArrayList<String> allHeight = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT DISTINCT produktName FROM produkt inner JOIN inventory.produkt_træ ON produkt.produktId=produkt_træ.produktId;";
+            PreparedStatement preparedStatement = con.prepareStatement(SQL);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String produktNavn = rs.getString("produktName");
+                allHeight.add(produktNavn);
+            }
+            return allHeight;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static WoodWhitPrice selectWoodByName(String name) {
+        WoodWhitPrice wood = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM inventory.produkt_træ where produktId = (select produktId from produkt where produktName = ? LIMIT 1) ;";
+            PreparedStatement preparedStatement = con.prepareStatement(SQL);
+            preparedStatement.setString(1, name);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                double bredde = rs.getDouble("træ_bredde");
+                double lægde = rs.getDouble("træ_længde");
+                double dypde = rs.getDouble("træ_dypde");
+                double meterpris = rs.getDouble("meterpris");
+                wood = new WoodWhitPrice(id, bredde, lægde, dypde, meterpris);
+                return wood;
+            }
+            return null;
+
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;
@@ -334,4 +378,101 @@ public class AdminFunctions {
             e.printStackTrace();
         }
     }
+
+    public static void deleteWood(int id) {
+        int count = 0;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "delete from produkt_træ where id = ?;";
+            PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+            Connection con1 = Connector.connection();
+            String SQL1 = "delete from produktnumber where id = ?;";
+            PreparedStatement preparedStatement1 = con1.prepareStatement(SQL1, PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement1.setInt(1, id);
+            preparedStatement1.executeUpdate();
+
+            Connection con2 = Connector.connection();
+            String SQL2 = "select count(id) as count from produktnumber where produktId = (select produktId from produktnumber where id = ?);";
+            PreparedStatement preparedStatement2 = con2.prepareStatement(SQL2);
+            preparedStatement2.setInt(1, id);
+            ResultSet rs = preparedStatement2.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt("count");
+            }
+
+            if (count == 0){
+                System.out.println("hej");
+                Connection con4 = Connector.connection();
+                String SQL4 = "delete from produkt where produktId = (select produktId from produktnumber where id = ?);";
+                PreparedStatement preparedStatement4 = con4.prepareStatement(SQL4, PreparedStatement.RETURN_GENERATED_KEYS);
+                preparedStatement4.setInt(1, id);
+                preparedStatement4.executeUpdate();
+            }
+
+            System.out.println(count);
+
+
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void insertWood(String navn, int vareNr, double længde, double bredde, double dybde, double pris, boolean newName) {
+        try {
+            int produktId = 0;
+            if (newName){
+                Connection con = Connector.connection();
+                String SQL = "insert into produkt(produktName) value(?) ";
+                PreparedStatement ps = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
+                ps.setString(1, navn);
+                ps.executeUpdate();
+                ResultSet ids = ps.getGeneratedKeys();
+                ids.next();
+                produktId = ids.getInt(1);
+                System.out.println(produktId);
+            } else {
+                Connection con = Connector.connection();
+                String SQL = "select produktId from produkt where produktName = ?";
+                PreparedStatement preparedStatement = con.prepareStatement(SQL);
+                preparedStatement.setString(1, navn);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    produktId = rs.getInt("produktId");
+                }
+            }
+
+
+
+            Connection con2 = Connector.connection();
+            String SQL2 = "insert into produktNumber(produktId, produktNumber) value (?,?); ";
+            PreparedStatement ps2 = con2.prepareStatement(SQL2, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps2.setInt(1, produktId);
+            ps2.setInt(2, vareNr);
+            ps2.executeUpdate();
+            ResultSet ids2 = ps2.getGeneratedKeys();
+            ids2.next();
+            int id = ids2.getInt(1);
+
+            Connection con3 = Connector.connection();
+            String SQL3 = "insert into produkt_træ(id, produktId, træ_længde, træ_bredde, træ_dypde, meterpris) values(?,?,?,?,?,?)";
+            PreparedStatement ps3 = con3.prepareStatement(SQL3, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps3.setInt(1, id);
+            ps3.setInt(2, produktId);
+            ps3.setDouble(3, længde);
+            ps3.setDouble(4, bredde);
+            ps3.setDouble(5, dybde);
+            ps3.setDouble(6, pris);
+            ps3.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

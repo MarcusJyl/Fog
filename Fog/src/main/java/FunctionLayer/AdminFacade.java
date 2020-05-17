@@ -14,4 +14,12 @@ public class AdminFacade {
         AdminFunctions.updateWoodPrice(id, val);
     }
 
+    public static ArrayList<String> getAllWoodNames(){
+        return AdminFunctions.selectAllWoodNames();
+    }
+
+    public static WoodWhitPrice getWoodByName(String name){
+        return AdminFunctions.selectWoodByName(name);
+    }
+
 }
