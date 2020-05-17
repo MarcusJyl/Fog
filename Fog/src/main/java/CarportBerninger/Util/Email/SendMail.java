@@ -13,7 +13,7 @@ import javax.mail.internet.MimeMultipart;
 
 public class SendMail {
 
-    public static void send(String fileName) {
+    public static void send(String fileName, String Subject, String text) {
 
         // Recipient's email ID needs to be mentioned.
         String to = "cphprojekter@gmail.com";
@@ -58,10 +58,10 @@ public class SendMail {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
             // Set Subject: header field
-            message.setSubject("This is the Subject Line!");
+            message.setSubject(Subject);
 
             // Now set the actual message
-            message.setText("This is actual message");
+            message.setText(text);
 
 
             Multipart multipart = new MimeMultipart();

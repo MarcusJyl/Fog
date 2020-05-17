@@ -32,6 +32,7 @@ public class Datamapper {
         ArrayList<Integer> allLength = new ArrayList<Integer>();
         try {
             Connection con = Connector.connection();
+            System.out.println(con.getClientInfo());
             String SQL = "SELECT length FROM `length`;";
             PreparedStatement preparedStatement = con.prepareStatement(SQL);
             ResultSet rs = preparedStatement.executeQuery();

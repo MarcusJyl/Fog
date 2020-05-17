@@ -327,7 +327,7 @@ public class AdminFunctions {
         ArrayList<String> allHeight = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT DISTINCT produktName FROM produkt inner JOIN inventory.produkt_træ ON produkt.produktId=produkt_træ.produktId;";
+            String SQL = "SELECT DISTINCT produktname FROM produkt inner JOIN inventory.produkt_træ ON produkt.produktId=produkt_træ.produktId;";
             PreparedStatement preparedStatement = con.prepareStatement(SQL);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {

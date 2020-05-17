@@ -29,14 +29,14 @@ public class Carport {
 
 
 
-    public Carport(int length, int width, int heigth, int shedWidth, int shedLength, boolean fladtTag, boolean shed, int degrees) {
+    public Carport(int length, int width, int heigth, int degrees, int shedLength,  boolean shed, boolean shedHalf, boolean shedWhole, boolean fladtTag){
         this.length = length;
         this.width = width;
         this.heigth = heigth;
-        this.shedWidth = shedWidth;
-        this.shedLength = shedLength;
         this.fladtTag = fladtTag;
         this.withShed = true;
+        this.shedLength = shedLength;
+
 
         SternSkur sternSkur = new SternSkur(width);
         SternCarport sternCarport;
@@ -70,11 +70,9 @@ public class Carport {
 
         beklædningAfGavle = new BeklædningAfGavle(width, degrees);
 
-
-        System.out.println(spær.getAmount());
-
-
         if (shed) {
+            if(shedHalf) this.shedWidth = width/2;
+            else if (shedWhole) this.shedWidth = width;
 
             woods.add(new Løsholter(shedLength, false)); //løsholterWidth
             woods.add(new Løsholter(shedWidth, true)); //løsholterHeight

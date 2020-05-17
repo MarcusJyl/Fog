@@ -33,7 +33,7 @@ public class ExcelMakker {
         this.carport = carport;
     }
 
-    public void makeCarport() throws Exception {
+    public void makeCarport(String text, String Subject) throws Exception {
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Contacts");
 
@@ -117,29 +117,26 @@ public class ExcelMakker {
 
 
         i++;
-//        for (ItemsByNumber be : carport.getBeslag()) {
-//            System.out.println(be.getVareNr());
-//        }
+            for (ItemsByNumber beslag1 : carport.getBeslag()) {
+                if (beslag1.getVareNr() != null) {
+                    for (Integer in : beslag1.getVareNr()) {
+                        if (in != 0) {
+                            Row row = sheet.createRow(i);
 
-        for (ItemsByNumber beslag1 : carport.getBeslag()) {
-            if (beslag1.getVareNr() != null) {
-                for (Integer in : beslag1.getVareNr()) {
-                    if (in != 0) {
-                        Row row = sheet.createRow(i);
+                            RoofFromDB beslag = MaterialsListFunc.getBeslagFromDB(in);
+                            if (beslag != null) {
+                                row.createCell(0).setCellValue(beslag.getName());
+                                row.createCell(1).setCellValue(beslag1.getAmount());
+                                row.createCell(2).setCellValue(MaterialsListFunc.getDescription(beslag.getProduktId()));
+                                row.createCell(3).setCellValue(in);
+                                row.createCell(4).setCellValue(beslag.getPris());
 
-                        RoofFromDB beslag = MaterialsListFunc.getBeslagFromDB(in);
 
-                        row.createCell(0).setCellValue(beslag.getName());
-                        row.createCell(1).setCellValue(beslag1.getAmount());
-                        row.createCell(2).setCellValue(MaterialsListFunc.getDescription(beslag.getProduktId()));
-                        row.createCell(3).setCellValue(in);
-                        row.createCell(4).setCellValue(beslag.getPris());
-
-                        i++;
+                            }
+                        }
                     }
                 }
             }
-        }
 
         Cell cell2Update = sheet.getRow(4).getCell(4);
         cell2Update.setCellValue(49);
@@ -157,6 +154,6 @@ public class ExcelMakker {
         fileOut.close();
 
 
-        SendMail.send(fileName);
+        SendMail.send(fileName, Subject, text);
     }
 }

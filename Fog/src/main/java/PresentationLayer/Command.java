@@ -46,6 +46,9 @@ public abstract class Command {
         commands.put("addWood", new AddWood());
         commands.put("woodAdder", new WoodAdder());
         commands.put("deleteWood", new DeleteWood());
+        commands.put("SendOrder", new SendOrder());
+        commands.put("Annuller", new Annuller());
+        commands.put("excelMaker", new ExcelMaker());
     }
 
     static Command from( HttpServletRequest request ) throws UnsupportedEncodingException {

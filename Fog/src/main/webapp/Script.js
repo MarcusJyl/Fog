@@ -111,6 +111,16 @@ function draw(servlet) {
     var checkElementShedWhole = document.getElementById("checkSkurWhole").checked;
     document.getElementById('senderCheckWhole').value = checkElementShedWhole;
 
+    var slopeElement = document.getElementById("slope");
+    var slope = slopeElement.options[slopeElement.selectedIndex].text;
+    document.getElementById('sendSlope').value = slope;
+
+    document.getElementById('sendTag').value = document.getElementById('myCheckTag').checked;
+
+    document.getElementById('name').value = document.getElementById('input-name').value;
+    document.getElementById('email').value = document.getElementById('input-phone').value;
+    document.getElementById('phone').value = document.getElementById('input-email').value;
+
     document.getElementById("target").value = servlet;
     document.getElementById('valueSender').submit();
 }
