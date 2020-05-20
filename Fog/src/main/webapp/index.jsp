@@ -8,61 +8,66 @@
     <input type="hidden" name="taget" value="Annuller">
 </form>
 
-    <c:if test="${sessionScope.send.equals('send')}">
-        <div class="col-lg-3"></div>
-        <div id="Opret" class="jumbotron col-lg-6" style="    position: absolute; top: 10%; left: 30%; height: 80%; width: 40%; z-index: 99;">
-            <div class="text-center mb-5">
-                <h1>Vi kunne ikke finde mailen men du kan oprette dig her</h1>
-                <p style="color: red"> ${requestScope.error} </p>
-            </div>
-
-            <div class="row" style="text-align: center">
-                <input type="text" class="form-control col-6" placeholder="Navn" id="input-name" aria-label="Username" aria-describedby="basic-addon1" name="name">
-
-                <input type="tel" class="form-control col-6" placeholder="telefonenummer" id="input-phone" aria-label="Username" aria-describedby="basic-addon1" name="phone">
-
-                <input type="email" class="form-control mr-sm-2 col-12" placeholder="email" id="input-email" aria-label="Username" aria-describedby="basic-addon1" name="email">
-            </div>
-
-
-            <div style="text-align: center">
-                <input class="btn btn-success" onclick="draw('excelMaker')" name="submit" value="Bestil">
-            </div>
-
-            <div style="text-align: center; width: auto">
-                <input class="btn btn-danger" onclick="document.getElementById('Annuller').submit()" name="submit"
-                       value="Annuller">
-            </div>
+<c:if test="${sessionScope.send.equals('send')}">
+    <div class="col-lg-3"></div>
+    <div id="Opret" class="jumbotron col-lg-6"
+         style="    position: absolute; top: 10%; left: 30%; height: 80%; width: 40%; z-index: 99;">
+        <div class="text-center mb-5">
+            <h1>Vi kunne ikke finde mailen men du kan oprette dig her</h1>
+            <p style="color: red"> ${requestScope.error} </p>
         </div>
-        <div class="col-lg-3"></div>
-    </c:if>
 
-    <div class="row">
+        <div class="row" style="text-align: center">
+            <input type="text" class="form-control col-6" placeholder="Navn" id="input-name" aria-label="Username"
+                   aria-describedby="basic-addon1" name="name">
 
-        <div class="col-12 text-center">
-            <a href="https://www.johannesfog.dk">
-                <img src="images/nav.png">
-            </a>
+            <input type="tel" class="form-control col-6" placeholder="telefonenummer" id="input-phone"
+                   aria-label="Username" aria-describedby="basic-addon1" name="phone">
+
+            <input type="email" class="form-control mr-sm-2 col-12" placeholder="email" id="input-email"
+                   aria-label="Username" aria-describedby="basic-addon1" name="email">
         </div>
 
 
+        <div style="text-align: center">
+            <input class="btn btn-success" onclick="draw('excelMaker')" name="submit" value="Bestil">
+        </div>
+
+        <div style="text-align: center; width: auto">
+            <input class="btn btn-danger" onclick="document.getElementById('Annuller').submit()" name="submit"
+                   value="Annuller">
+        </div>
     </div>
+    <div class="col-lg-3"></div>
+</c:if>
 
-    <div class="row">
-        <div class="col-2"></div>
+<div class="row">
 
-        <div class="col-8 text-center bg-light">
-            <h1>Velkommen til fogs carport quickbygger</h1>
-        </div>
-        <div class="col-2"></div>
-
-
+    <div class="col-12 text-center">
+        <a href="https://www.johannesfog.dk">
+            <img src="images/nav.png">
+        </a>
     </div>
 
 
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="form-group col-md-2 bg-light">
+</div>
+
+<div class="row">
+    <div class="col-2"></div>
+
+    <div class="col-8 text-center bg-light">
+        <h1>Velkommen til fogs carport quickbygger</h1>
+    </div>
+    <div class="col-2"></div>
+
+
+</div>
+
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-2">
+        <div class="form-group bg-light">
             <div class="form-group mt-4">
                 Højde
                 <select required class="form-control number-input" id="height" name="height"
@@ -73,6 +78,7 @@
                         </option>
                     </c:forEach>
                 </select>
+
             </div>
 
             <div class="form-group mt-2">
@@ -103,38 +109,41 @@
             <div class="form-group mt-2">
                 Ønskes der beklædning på siderne af carporten?
                 <label class="container">Ja
-                    <input type="checkbox" id="myCheckBacking" onclick="myFunctionCoating()">
+                    <input type="checkbox" id="myCheckBacking" onclick="myFunctionCoating('myCheckBacking', 'shed')">
                     <span class="checkmark"></span>
                 </label>
             </div>
 
+            <div id="shed">
+                <div class="form-group mt-2">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rightCheck" name="rightCheck"
+                               onclick="saveToStorage('rightCheck', document.getElementById('rightCheck').checked)" style="display: block">
+                        <label class="form-check-label" for="rightCheck">Højre</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="leftCheck" name="leftCheck"
+                               onclick="saveToStorage('leftCheck', document.getElementById('leftCheck').checked)" style="display: block">
+                        <label class="form-check-label" for="leftCheck">Venstre</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="backCheck" name="backCheck"
+                               onclick="saveToStorage('backCheck', document.getElementById('backCheck').checked)" style="display: block">
+                        <label class="form-check-label" for="backCheck">Bagvæggen</label>
+                    </div>
+                </div>
 
-            <div class="form-group mt-2">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="rightCheck" name="rightCheck">
-                    <label class="form-check-label" for="rightCheck">Højre</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="leftCheck" name="leftCheck">
-                    <label class="form-check-label" for="leftCheck">Venstre</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="backCheck" name="backCheck">
-                    <label class="form-check-label" for="backCheck">Bagvæggen</label>
+                <div class="form-group mt-2">
+                    Beklædning til sider
+                    <select required class="form-control number-input" id="backingWood" name="backingWood">
+                        <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
+                            <option value="${Count.index+1}">
+                                    ${i}
+                            </option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
-
-            <div class="form-group mt-2">
-                Beklædning til sider
-                <select required class="form-control number-input" id="backingWood" name="backingWood">
-                    <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
-                        <option value="${Count.index+1}">
-                                ${i}
-                        </option>
-                    </c:forEach>
-                </select>
-            </div>
-
             <div class="form-group mt-2">
                 Ønskes der tag med rejsning?
                 <label class="container">Ja
@@ -190,11 +199,11 @@
             <div class="form-group mt-2">
                 Ønskes der skur af halv eller hel carpot bredde?
                 <label class="container">Halv længde
-                    <input type="checkbox" id="checkSkurHalf" onclick=" draw('draw')">
+                    <input type="checkbox" id="checkSkurHalf" onclick=" draw('draw'); saveToStorage('backCheck', document.getElementById('backCheck').checked)">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Hel længde
-                    <input type="checkbox" id="checkSkurWhole" onclick=" draw('draw')">
+                    <input type="checkbox" id="checkSkurWhole" onclick=" draw('draw'); saveToStorage('backCheck', document.getElementById('backCheck').checked)">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -226,13 +235,13 @@
                    value="Bestil">
         </div>
     </div>
+    <div class="form-group col-6 pt-5  bg-light" style="height: auto">
+        ${requestScope.svgdrawingSide}
+        ${requestScope.svgdrawing}
+    </div>
+</div>
 </div>
 
-<div class="form-group col-6 pt-5  bg-light">
-    ${requestScope.svgdrawingSide}
-    ${requestScope.svgdrawing}
-
-</div>
 
 <div class="col-2"></div>
 </div>
@@ -266,10 +275,10 @@
 <script>loadInput("shedLength", 'myCheckSkur')</script>
 <script>loadInput("shedWood", 'myCheckSkur')</script>
 <script>loadInput("shedFloor", 'myCheckSkur')</script>
-<script>loadInput("rightCheck", 'myCheckCoating')</script>
-<script>loadInput("leftCheck", 'myCheckCoating')</script>
-<script>loadInput("backCheck", 'myCheckCoating')</script>
-<script>loadInput("backingWood", 'myCheckCoating')</script>
+<script>loadInput("rightCheck", 'rightCheck')</script>
+<script>loadInput("leftCheck", 'leftCheck')</script>
+<script>loadInput("backCheck", 'backCheck')</script>
+<script>loadInput("backingWood", 'backingWood')</script>
 
 
 <%@include file="Includes/Footer.inc" %>

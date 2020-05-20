@@ -32,28 +32,21 @@ function myFunctionSkur() {
     }
 }
 
-function myFunctionCoating() {
-    var checkboxCoating = document.getElementById("myCheckBacking");
-    localStorage.setItem('myCheckBacking', checkboxCoating.checked);
-    var dropdown10 = document.getElementById("rightCheck");
-    var dropdown11 = document.getElementById("leftCheck");
-    var dropdown12 = document.getElementById("backCheck");
-    var dropdown13 = document.getElementById("backingWood");
-    if (checkboxCoating.checked){
-        dropdown10.style.display = "block";
-        dropdown11.style.display = "block";
-        dropdown12.style.display = "block";
-        dropdown13.style.display = "block";
+function myFunctionCoating(id, div) {
+    var checkboxCoating = document.getElementById(id);
+    console.log(checkboxCoating.checked)
+    // localStorage.setItem('myCheckBacking', checkboxCoating.checked);
+    var divElement = document.getElementById(div);
+
+    if (checkboxCoating.checked) {
+        divElement.style.display = "block";
     } else {
-        dropdown10.style.display = "none";
-        dropdown11.style.display = "none";
-        dropdown12.style.display = "none";
-        dropdown13.style.display = "none";
+        divElement.style.display = "none";
     }
 }
 
-function saveToStorage(name, id) {
-    localStorage.setItem(name, id);
+function saveToStorage(name, val) {
+    localStorage.setItem(name, val);
     console.log(localStorage.getItem(name))
 }
 
@@ -117,11 +110,16 @@ function draw(servlet) {
 
     document.getElementById('sendTag').value = document.getElementById('myCheckTag').checked;
 
-    document.getElementById('name').value = document.getElementById('input-name').value;
-    document.getElementById('email').value = document.getElementById('input-phone').value;
-    document.getElementById('phone').value = document.getElementById('input-email').value;
+    if(servlet == "excelMaker"){
+        document.getElementById('name').value = document.getElementById('input-name').value;
+        document.getElementById('email').value = document.getElementById('input-phone').value;
+        document.getElementById('phone').value = document.getElementById('input-email').value;
+    }
+
+
 
     document.getElementById("target").value = servlet;
+    console.log(document.getElementById("target").value);
     document.getElementById('valueSender').submit();
 }
 
