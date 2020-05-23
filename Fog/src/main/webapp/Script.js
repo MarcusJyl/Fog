@@ -1,41 +1,6 @@
-function myFunctionTag() {
-    var checkboxTag = document.getElementById("myCheckTag");
-    localStorage.setItem('myCheckTag', checkboxTag.checked);
-    var dropdown4 = document.getElementById("slope");
-    var dropdown5 = document.getElementById("roofType");
-    if (checkboxTag.checked) {
-        dropdown4.style.display = "block";
-        dropdown5.style.display = "block";
-    } else {
-        dropdown4.style.display = "none";
-        dropdown5.style.display = "none";
-    }
-}
-
-function myFunctionSkur() {
-    var checkboxSkur = document.getElementById("myCheckSkur");
-    localStorage.setItem('myCheckSkur', checkboxSkur.checked);
-    var dropdown6 = document.getElementById("shedLength");
-    var dropdown7 = document.getElementById("shedWidth");
-    var dropdown8 = document.getElementById("shedWood");
-    var dropdown9 = document.getElementById("shedFloor");
-    if (checkboxSkur.checked) {
-        dropdown6.style.display = "block";
-        dropdown7.style.display = "block";
-        dropdown8.style.display = "block";
-        dropdown9.style.display = "block";
-    } else {
-        dropdown6.style.display = "none";
-        dropdown7.style.display = "none";
-        dropdown8.style.display = "none";
-        dropdown9.style.display = "none";
-    }
-}
-
-function myFunctionCoating(id, div) {
+function hide(id, div) {
     var checkboxCoating = document.getElementById(id);
-    console.log(checkboxCoating.checked)
-    // localStorage.setItem('myCheckBacking', checkboxCoating.checked);
+    localStorage.setItem(id, checkboxCoating.checked);
     var divElement = document.getElementById(div);
 
     if (checkboxCoating.checked) {
@@ -64,18 +29,14 @@ function load() {
     document.getElementById("backCheck").selectedIndex = localStorage.getItem("backCheck");
     document.getElementById("backingWood").selectedIndex = localStorage.getItem("backingCheck");
     document.getElementById("myCheckSkur").checked = JSON.parse(localStorage.getItem("myCheckSkur"));
+    document.getElementById("checkSkurHalf").checked = JSON.parse(localStorage.getItem("checkSkurHalf"));
+    document.getElementById("checkSkurWhole").checked = JSON.parse(localStorage.getItem("checkSkurWhole"));
     document.getElementById("myCheckTag").checked = JSON.parse(localStorage.getItem("myCheckTag"));
     document.getElementById("myCheckBacking").checked = JSON.parse(localStorage.getItem("myCheckBacking"));
-}
 
-function loadInput(id, checkbox) {
-    let dropdown = document.getElementById(id);
-
-    if (document.getElementById(checkbox).checked) {
-        dropdown.style.display = "block";
-    } else {
-        dropdown.style.display = "none";
-    }
+    hide('myCheckBacking', 'shed');
+    hide('myCheckTag', 'tag');
+    hide('myCheckSkur', 'skur');
 }
 
 function draw(servlet) {
@@ -115,8 +76,6 @@ function draw(servlet) {
         document.getElementById('email').value = document.getElementById('input-phone').value;
         document.getElementById('phone').value = document.getElementById('input-email').value;
     }
-
-
 
     document.getElementById("target").value = servlet;
     console.log(document.getElementById("target").value);

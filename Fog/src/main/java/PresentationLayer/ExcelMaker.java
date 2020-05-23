@@ -26,7 +26,7 @@ public class ExcelMaker extends Command {
         boolean shedCheck = Boolean.parseBoolean(request.getParameter("senderCheckShed"));
         boolean shedCheckHalf = Boolean.parseBoolean(request.getParameter("senderCheckHalf"));
         boolean shedCheckWhole = Boolean.parseBoolean(request.getParameter("senderCheckWhole"));
-        boolean fladtTag = Boolean.parseBoolean(request.getParameter("sendTag"));
+        boolean fladtTag = !Boolean.parseBoolean(request.getParameter("sendTag"));
 
         HttpSession session = request.getSession();
         session.setAttribute("send", "");

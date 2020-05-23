@@ -109,7 +109,7 @@
             <div class="form-group mt-2">
                 Ønskes der beklædning på siderne af carporten?
                 <label class="container">Ja
-                    <input type="checkbox" id="myCheckBacking" onclick="myFunctionCoating('myCheckBacking', 'shed')">
+                    <input type="checkbox" id="myCheckBacking" onclick="hide('myCheckBacking', 'shed')">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -118,17 +118,20 @@
                 <div class="form-group mt-2">
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="rightCheck" name="rightCheck"
-                               onclick="saveToStorage('rightCheck', document.getElementById('rightCheck').checked)" style="display: block">
+                               onclick="saveToStorage('rightCheck', document.getElementById('rightCheck').checked)"
+                               style="display: block">
                         <label class="form-check-label" for="rightCheck">Højre</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="leftCheck" name="leftCheck"
-                               onclick="saveToStorage('leftCheck', document.getElementById('leftCheck').checked)" style="display: block">
+                               onclick="saveToStorage('leftCheck', document.getElementById('leftCheck').checked)"
+                               style="display: block">
                         <label class="form-check-label" for="leftCheck">Venstre</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="backCheck" name="backCheck"
-                               onclick="saveToStorage('backCheck', document.getElementById('backCheck').checked)" style="display: block">
+                               onclick="saveToStorage('backCheck', document.getElementById('backCheck').checked)"
+                               style="display: block">
                         <label class="form-check-label" for="backCheck">Bagvæggen</label>
                     </div>
                 </div>
@@ -147,94 +150,99 @@
             <div class="form-group mt-2">
                 Ønskes der tag med rejsning?
                 <label class="container">Ja
-                    <input type="checkbox" id="myCheckTag" onclick="myFunctionTag()">
+                    <input type="checkbox" id="myCheckTag" onclick="hide('myCheckTag','tag' )">
                     <span class="checkmark"></span>
                 </label>
             </div>
+            <div id="tag">
+                <div class="form-group mt-2">
+                    Vinkel
+                    <select required class="form-control number-input" id="slope" name="slope"
+                            onchange="saveToStorage('slope', document.getElementById('slope').value)">
+                        <c:forEach var="i" items="${DimensionsFacade.getSlope()}" varStatus="Count">
+                            <option value="${Count.index+1}">
+                                    ${i}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
 
-            <div class="form-group mt-2">
-                Vinkel
-                <select required class="form-control number-input" id="slope" name="slope"
-                        onchange="saveToStorage('slope', document.getElementById('slope').value)">
-                    <c:forEach var="i" items="${DimensionsFacade.getSlope()}" varStatus="Count">
-                        <option value="${Count.index+1}">
-                                ${i}
-                        </option>
-                    </c:forEach>
-                </select>
-            </div>
-
-            <div class="form-group mt-2">
-                Tagtype
-                <select required class="form-control number-input" id="roofType" name="roofType"
-                        onchange="saveToStorage('roofType', document.getElementById('roofType').value)">
-                    <c:forEach var="i" items="${DimensionsFacade.getAllRoof()}" varStatus="Count">
-                        <option value="${Count.index+1}">
-                                ${i}
-                        </option>
-                    </c:forEach>
-                </select>
+                <div class="form-group mt-2">
+                    Tagtype
+                    <select required class="form-control number-input" id="roofType" name="roofType"
+                            onchange="saveToStorage('roofType', document.getElementById('roofType').value)">
+                        <c:forEach var="i" items="${DimensionsFacade.getAllRoof()}" varStatus="Count">
+                            <option value="${Count.index+1}">
+                                    ${i}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
             </div>
 
             <div class="form-group mt-2">
                 Ønskes der skur til carporten?
                 <label class="container">Ja
-                    <input type="checkbox" id="myCheckSkur" onclick="myFunctionSkur(); draw('draw')">
+                    <input type="checkbox" id="myCheckSkur" onclick="hide('myCheckSkur', 'skur')">
                     <span class="checkmark"></span>
                 </label>
             </div>
+            <div id="skur">
+                <div class="form-group mt-2">
+                    Længde
+                    <select required class="form-control number-input" id="shedLength" name="shedLength"
+                            onchange="saveToStorage('shedLength', document.getElementById('shedLength').value); draw('draw')">
+                        <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
+                            <option value="${Count.index+1}">
+                                    ${i}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
 
-            <div class="form-group mt-2">
-                Længde
-                <select required class="form-control number-input" id="shedLength" name="shedLength"
-                        onchange="saveToStorage('shedLength', document.getElementById('shedLength').value); draw('draw')">
-                    <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
-                        <option value="${Count.index+1}">
-                                ${i}
-                        </option>
-                    </c:forEach>
-                </select>
-            </div>
+                <div class="form-group mt-2">
+                    Ønskes der skur af halv eller hel carpot bredde?
+                    <label class="container">Halv længde
+                        <input type="checkbox" id="checkSkurHalf"
+                               onclick="saveToStorage('checkSkurHalf', document.getElementById('checkSkurHalf').checked); ">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Hel længde
+                        <input type="checkbox" id="checkSkurWhole"
+                               onclick="saveToStorage('checkSkurWhole', document.getElementById('checkSkurWhole').checked); ">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
 
-            <div class="form-group mt-2">
-                Ønskes der skur af halv eller hel carpot bredde?
-                <label class="container">Halv længde
-                    <input type="checkbox" id="checkSkurHalf" onclick=" draw('draw'); saveToStorage('backCheck', document.getElementById('backCheck').checked)">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Hel længde
-                    <input type="checkbox" id="checkSkurWhole" onclick=" draw('draw'); saveToStorage('backCheck', document.getElementById('backCheck').checked)">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
+                <div class="form-group mt-2">
+                    Beklædningstype
+                    <select required class="form-control number-input" id="shedWood" name="shedLength"
+                            onchange="saveToStorage('shedWood', document.getElementById('shedWood').value)">
+                        <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
+                            <option value="${Count.index+1}">
+                                    ${i}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
 
-            <div class="form-group mt-2">
-                Beklædningstype
-                <select required class="form-control number-input" id="shedWood" name="shedLength"
-                        onchange="saveToStorage('shedWood', document.getElementById('shedWood').value)">
-                    <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
-                        <option value="${Count.index+1}">
-                                ${i}
-                        </option>
-                    </c:forEach>
-                </select>
+                <div class="form-group mt-2">
+                    Gulvtype
+                    <select required class="form-control number-input" id="shedFloor" name="shedFloor"
+                            onchange="saveToStorage('shedFloor', document.getElementById('shedFloor').value)">
+                        <c:forEach var="i" items="${DimensionsFacade.getAllFlooring()}" varStatus="Count">
+                            <option value="${Count.index+1}">
+                                    ${i}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
             </div>
-
-            <div class="form-group mt-2">
-                Gulvtype
-                <select required class="form-control number-input" id="shedFloor" name="shedFloor"
-                        onchange="saveToStorage('shedFloor', document.getElementById('shedFloor').value)">
-                    <c:forEach var="i" items="${DimensionsFacade.getAllFlooring()}" varStatus="Count">
-                        <option value="${Count.index+1}">
-                                ${i}
-                        </option>
-                    </c:forEach>
-                </select>
-            </div>
-            <input class="btn btn-info btn-block" onclick="document.getElementById('SendOrder').submit()"
-                   value="Bestil">
         </div>
+        <input class="btn btn-info btn-block" onclick="document.getElementById('SendOrder').submit()"
+               value="Bestil">
     </div>
+
     <div class="form-group col-6 pt-5  bg-light" style="height: auto">
         ${requestScope.svgdrawingSide}
         ${requestScope.svgdrawing}
@@ -268,17 +276,9 @@
     <input type="hidden" id="phone" name="phone" value="">
 </form>
 
-<script>load()</script>
-
-<script>loadInput("slope", 'myCheckTag')</script>
-<script>loadInput("roofType", 'myCheckTag')</script>
-<script>loadInput("shedLength", 'myCheckSkur')</script>
-<script>loadInput("shedWood", 'myCheckSkur')</script>
-<script>loadInput("shedFloor", 'myCheckSkur')</script>
-<script>loadInput("rightCheck", 'rightCheck')</script>
-<script>loadInput("leftCheck", 'leftCheck')</script>
-<script>loadInput("backCheck", 'backCheck')</script>
-<script>loadInput("backingWood", 'backingWood')</script>
+<script>
+    load();
+</script>
 
 
 <%@include file="Includes/Footer.inc" %>
