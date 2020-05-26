@@ -18,4 +18,9 @@ public class OversternbrædderForenden extends UndersternbrædderEnder{
     public WoodReturn getAmount() {
         return new WoodReturn(super.getAmount().getLength(), amount);
     }
+
+    @Override
+    public ArrayList<Integer> getVareNr() {
+        return vareNr;
+    }
 }

@@ -103,6 +103,19 @@ public class Carport {
 
 
         if (fladtTag) {
+            SpærFladtTag spærFladtTag = new SpærFladtTag(width, length);
+            Universalbeslag190mmHøjre universalbeslag190mmHøjre = new Universalbeslag190mmHøjre(spærFladtTag);
+            Universalbeslag190mmVenstre universalbeslag190mmVenstre  = new Universalbeslag190mmVenstre(spærFladtTag);
+            woods.add(spærFladtTag);
+            woods.add(new OversternbrædderForenden(length));
+            woods.add(new OversternbrædderSider(length));
+            woods.add(new UndersternbrædderEnder(length));
+            woods.add(new UndersternbrædderSide(length));
+            woods.add(vandbrædtForende);
+            woods.add(vandbrædtSider);
+            woods.add(new Tagplader(length, width));
+            woods.add(new Tagplader(length,width));
+
             beslag.add(bræddebolt);
             beslag.add(new Firkantskiver(bræddebolt));
             beslag.add(skruer4_5x070);
@@ -112,26 +125,9 @@ public class Carport {
             beslag.add(vinkelbeslag);
 
 
-            SpærFladtTag spærFladtTag = new SpærFladtTag(width, length);
-            Universalbeslag190mmHøjre universalbeslag190mmHøjre = new Universalbeslag190mmHøjre(spærFladtTag);
-            Universalbeslag190mmVenstre universalbeslag190mmVenstre  = new Universalbeslag190mmVenstre(spærFladtTag);
-
-            woods.add(spærFladtTag);
-            woods.add(new OversternbrædderForenden(length));
-            woods.add(new OversternbrædderSider(length));
-            woods.add(new UndersternbrædderEnder(length));
-            woods.add(new UndersternbrædderSide(length));
-            woods.add(vandbrædtForende);
-            woods.add(vandbrædtSider);
-            woods.add(new Tagplader(length, width));
-
-
-
-
             beslag.add(new Skruer4_5x50(hulbånd, universalbeslag190mmHøjre));
             beslag.add(universalbeslag190mmHøjre);
             beslag.add(universalbeslag190mmVenstre);
-            System.out.println(new Skruer4_5x50(hulbånd, universalbeslag190mmHøjre).getAmount());
         } else {
             spær = new Spær(length, fladtTag);
             Universalbeslag190mmHøjre universalbeslag190mmHøjre = new Universalbeslag190mmHøjre(spær);

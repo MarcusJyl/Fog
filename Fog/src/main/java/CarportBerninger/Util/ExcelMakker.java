@@ -80,9 +80,8 @@ public class ExcelMakker {
         int i = 1;
         for (Wood w : carport.getWoods()) {
             HashMap<Integer, Integer> woods = Match.wood(w);
-
-            String send = "";
-
+            System.out.println(w.getClass() + "  ;:  "+ w.getAmount().getAmount());
+            System.out.println(woods);
             for (Map.Entry entry : woods.entrySet()) {
 
                 WoodFromDB wood = MaterialsListFunc.getAllWoodInfo((int) entry.getKey());
@@ -125,7 +124,6 @@ public class ExcelMakker {
 
         i++;
         for (ItemsByNumber beslag1 : carport.getBeslag()) {
-            System.out.println(beslag1.getClass() + "    " + beslag1.getAmount() + "  :  " + beslag1.getVareNr());
             for (Integer in : beslag1.getVareNr()) {
                 if (in != 0) {
                     Row row = sheet.createRow(i);

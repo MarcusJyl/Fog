@@ -77,10 +77,10 @@ public class SendMail {
 
             message.setContent(multipart);
 
-            System.out.println("sending...");
+
             // Send message
             Transport.send(message);
-            System.out.println("Sent message successfully....");
+
         } catch (MessagingException mex) {
             mex.printStackTrace();
         }

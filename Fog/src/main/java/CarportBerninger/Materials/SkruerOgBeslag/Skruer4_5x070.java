@@ -13,7 +13,6 @@ public class Skruer4_5x070 extends ItemsByNumber {
 
     public Skruer4_5x070(BeklædningAfSkur beklædningAfSkur) {
         amount = (int)(beklædningAfSkur.getAmount().getLength() * beklædningAfSkur.getAmount().getAmount())/50;
-        System.out.println(vareNr);
     }
 
     @Override

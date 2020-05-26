@@ -404,18 +404,12 @@ public class AdminFunctions {
             }
 
             if (count == 0){
-                System.out.println("hej");
                 Connection con4 = Connector.connection();
                 String SQL4 = "delete from produkt where produktId = (select produktId from produktnumber where id = ?);";
                 PreparedStatement preparedStatement4 = con4.prepareStatement(SQL4, PreparedStatement.RETURN_GENERATED_KEYS);
                 preparedStatement4.setInt(1, id);
                 preparedStatement4.executeUpdate();
             }
-
-            System.out.println(count);
-
-
-
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -434,7 +428,6 @@ public class AdminFunctions {
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
                 produktId = ids.getInt(1);
-                System.out.println(produktId);
             } else {
                 Connection con = Connector.connection();
                 String SQL = "select produktId from produkt where produktName = ?";

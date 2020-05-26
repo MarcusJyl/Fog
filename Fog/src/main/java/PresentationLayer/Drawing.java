@@ -18,7 +18,6 @@ public class Drawing extends Command {
         boolean shedCheckHalf = Boolean.parseBoolean(request.getParameter("senderCheckHalf"));
         boolean shedCheckWhole = Boolean.parseBoolean(request.getParameter("senderCheckWhole"));
 
-        System.out.println(height);
 
         int rem = length - 35;
         int hulbånd = 35;

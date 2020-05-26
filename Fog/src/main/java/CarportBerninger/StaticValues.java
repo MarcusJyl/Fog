@@ -93,20 +93,15 @@ public class StaticValues {
     public static ArrayList<Integer> Skruer4_5x50 =  MaterialsListFunc.getVareNr(33);
 
 
-    public static ArrayList<Integer> UndersternbrædderEnder =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> UndersternbrædderSide =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> OversternbrædderForenden =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> OversternbrædderSider =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> VandbrædtSider =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> VandbrædtForende =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> SpærFladtTag =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> Tagplader =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> PlastmoBundskruer =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> Hulbånd =  MaterialsListFunc.getVareNr(6);
-    public static ArrayList<Integer> Skruer4_5x50Nummer2 =  MaterialsListFunc.getVareNr(6);
-
-
-
-
-
+    public static ArrayList<Integer> UndersternbrædderEnder =  MaterialsListFunc.getVareNr(34);
+    public static ArrayList<Integer> UndersternbrædderSide =  MaterialsListFunc.getVareNr(35);
+    public static ArrayList<Integer> OversternbrædderForenden =  MaterialsListFunc.getVareNr(36);
+    public static ArrayList<Integer> OversternbrædderSider =  MaterialsListFunc.getVareNr(37);
+    public static ArrayList<Integer> VandbrædtSider =  MaterialsListFunc.getVareNr(38);
+    public static ArrayList<Integer> VandbrædtForende =  MaterialsListFunc.getVareNr(39);
+    public static ArrayList<Integer> SpærFladtTag =  MaterialsListFunc.getVareNr(40);
+    public static ArrayList<Integer> Tagplader =  MaterialsListFunc.getVareNr(44);
+    public static ArrayList<Integer> PlastmoBundskruer =  MaterialsListFunc.getVareNr(42);
+    public static ArrayList<Integer> Hulbånd =  MaterialsListFunc.getVareNr(43);
+    public static ArrayList<Integer> Skruer4_5x50Nummer2 =  MaterialsListFunc.getVareNr(44);
 }
