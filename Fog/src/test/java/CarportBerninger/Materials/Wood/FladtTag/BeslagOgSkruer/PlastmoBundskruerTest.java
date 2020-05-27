@@ -1,5 +1,6 @@
 package CarportBerninger.Materials.Wood.FladtTag.BeslagOgSkruer;
 
+import Matrialeliste.Materials.Wood.FladtTag.BeslagOgSkruer.PlastmoBundskruer;
 import junit.framework.TestCase;
 
 public class PlastmoBundskruerTest extends TestCase {

@@ -1,5 +1,6 @@
 package CarportBerninger.Materials.Roof;
 
+import Matrialeliste.Materials.Roof.Rygsten;
 import junit.framework.TestCase;
 
 public class RygstenTest extends TestCase {

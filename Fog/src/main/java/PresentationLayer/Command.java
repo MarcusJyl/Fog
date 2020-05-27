@@ -50,7 +50,7 @@ public abstract class Command {
         commands.put("deleteWood", new DeleteWood());
         commands.put("SendOrder", new SendOrder());
         commands.put("Annuller", new Annuller());
-        commands.put("excelMaker", new ExcelMaker());
+        commands.put("excelMaker", new frontExcelMaker());
     }
 
     static Command from( HttpServletRequest request ) throws UnsupportedEncodingException {

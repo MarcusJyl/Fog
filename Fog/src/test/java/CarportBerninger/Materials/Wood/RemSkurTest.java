@@ -1,5 +1,6 @@
 package CarportBerninger.Materials.Wood;
 
+import Matrialeliste.Materials.Wood.RemSkur;
 import junit.framework.TestCase;
 
 public class RemSkurTest extends TestCase {

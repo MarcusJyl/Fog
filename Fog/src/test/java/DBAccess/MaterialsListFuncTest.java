@@ -1,6 +1,5 @@
 package DBAccess;
 
-import CarportBerninger.Util.Material;
 import junit.framework.TestCase;
 
 public class MaterialsListFuncTest extends TestCase {

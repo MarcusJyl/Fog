@@ -12,7 +12,6 @@ function hide(id, div) {
 
 function saveToStorage(name, val) {
     localStorage.setItem(name, val);
-    console.log(localStorage.getItem(name))
 }
 
 function load() {

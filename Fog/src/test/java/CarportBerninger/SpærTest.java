@@ -1,5 +1,6 @@
 package CarportBerninger;
 
+import Matrialeliste.Spær;
 import junit.framework.TestCase;
 
 public class SpærTest extends TestCase {

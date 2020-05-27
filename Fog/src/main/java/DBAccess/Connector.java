@@ -38,8 +38,8 @@ public class Connector {
             PASSWORD = System.getenv("JDBC_PASSWORD");
         } else {
             URL = "jdbc:mysql://localhost:3306/inventory";
-            USERNAME = "super";
-            PASSWORD = "Password123/";
+            USERNAME = "root";
+            PASSWORD = "root";
         }
     }
 }

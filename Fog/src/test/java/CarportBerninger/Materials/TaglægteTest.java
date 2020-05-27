@@ -1,6 +1,6 @@
 package CarportBerninger.Materials;
 
-import CarportBerninger.Materials.Wood.Taglægte;
+import Matrialeliste.Materials.Wood.Taglægte;
 import junit.framework.TestCase;
 
 public class TaglægteTest extends TestCase {

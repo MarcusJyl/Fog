@@ -1,5 +1,6 @@
 package CarportBerninger.Materials.Wood.FladtTag;
 
+import Matrialeliste.Materials.Wood.FladtTag.SpærFladtTag;
 import junit.framework.TestCase;
 
 public class SpærFladtTagTest extends TestCase {

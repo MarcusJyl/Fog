@@ -1,7 +1,7 @@
 package CarportBerninger.Materials;
 
-import CarportBerninger.Materials.Wood.BeklædningAfGavle;
-import CarportBerninger.Util.WoodReturn;
+import Matrialeliste.Materials.Wood.BeklædningAfGavle;
+import Matrialeliste.Util.WoodReturn;
 import junit.framework.TestCase;
 
 public class beklædningAfGavleTest extends TestCase {

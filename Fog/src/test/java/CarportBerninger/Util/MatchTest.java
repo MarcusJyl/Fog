@@ -1,6 +1,5 @@
 package CarportBerninger.Util;
 
-import CarportBerninger.Materials.Wood.Vindskeder;
 import junit.framework.TestCase;
 
 public class MatchTest extends TestCase {

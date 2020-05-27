@@ -1,5 +1,6 @@
 package CarportBerninger.Materials.Wood;
 
+import Matrialeliste.Materials.Wood.SternSkur;
 import junit.framework.TestCase;
 
 public class SternEnderTest extends TestCase {

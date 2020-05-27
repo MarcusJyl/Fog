@@ -1,5 +1,6 @@
 package CarportBerninger.Materials.Wood;
 
+import Matrialeliste.Materials.Wood.Løsholter;
 import junit.framework.TestCase;
 
 public class LøsholterTest extends TestCase {

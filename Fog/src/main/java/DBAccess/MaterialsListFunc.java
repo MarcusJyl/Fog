@@ -1,9 +1,8 @@
 package DBAccess;
 
-import CarportBerninger.Util.BeslagFromDB;
-import CarportBerninger.Util.RoofFromDB;
-import CarportBerninger.Util.WoodFromDB;
-import FunctionLayer.WoodWhitPrice;
+import Matrialeliste.Util.BeslagFromDB;
+import Matrialeliste.Util.RoofFromDB;
+import Matrialeliste.Util.WoodFromDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
