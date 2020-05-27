@@ -2,9 +2,7 @@ package PresentationLayer;
 
 import CarportBerninger.Carport;
 import CarportBerninger.Util.ExcelMakker;
-import FunctionLayer.LoginSampleException;
 
-import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 
 public class ExcelMaker extends Command {
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, UnsupportedEncodingException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");

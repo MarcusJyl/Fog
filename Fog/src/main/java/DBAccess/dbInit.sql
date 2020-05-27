@@ -367,4 +367,4 @@ INSERT INTO width(width)VALUES(440);
 INSERT INTO width(width)VALUES(480);
 INSERT INTO width(width)VALUES(520);
 INSERT INTO width(width)VALUES(560);
-INSERT INTO width(width)VALUES(600); 
+INSERT INTO width(width)VALUES(600);

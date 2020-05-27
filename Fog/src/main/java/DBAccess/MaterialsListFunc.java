@@ -11,6 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Denne classe inholder alle sql kald som pogramet bruger for at lave matrialelisten.
+ */
+
 public class MaterialsListFunc {
     public static ArrayList<Integer> getVareNr(int id) {
         ArrayList<Integer> vareNummere = new ArrayList<>();

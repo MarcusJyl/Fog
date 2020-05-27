@@ -14,6 +14,7 @@ public class AdminFunctionsTest extends TestCase {
         AdminFunctions.deleteWood(32);
 //AdminFunctions.test("Hej", 12312321);
         assertEquals(32,2);
+
     }
 
     public void test() {

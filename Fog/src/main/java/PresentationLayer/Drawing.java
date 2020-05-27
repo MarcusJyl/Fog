@@ -1,6 +1,5 @@
 package PresentationLayer;
 
-import FunctionLayer.LoginSampleException;
 import FunctionLayer.Svg;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 public class Drawing extends Command {
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         int width = Integer.parseInt(request.getParameter("senderWidth"));
         int length = Integer.parseInt(request.getParameter("senderLength"));
         int height = Integer.parseInt(request.getParameter("senderHeight"));

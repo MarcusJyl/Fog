@@ -1,5 +1,9 @@
 package FunctionLayer;
 
+/**
+ * Klassen holder information om træ så det kan sendes vider sammen
+ */
+
 public class WoodWhitPrice {
 
     private int id;

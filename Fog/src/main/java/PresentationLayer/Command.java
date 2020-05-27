@@ -1,6 +1,5 @@
 package PresentationLayer;
 
-import FunctionLayer.LoginSampleException;
 import PresentationLayer.Admin.*;
 
 
@@ -9,6 +8,9 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Holder alt klasser om frontcontroler kan redirecte til.
+ */
 public abstract class Command {
 
     private static HashMap<String, Command> commands;
@@ -61,6 +63,6 @@ public abstract class Command {
     }
 
     public abstract String execute(HttpServletRequest request, HttpServletResponse response)
-            throws LoginSampleException, UnsupportedEncodingException;
+            throws Exception;
 
 }

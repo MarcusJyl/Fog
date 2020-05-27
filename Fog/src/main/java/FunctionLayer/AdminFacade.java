@@ -4,6 +4,10 @@ import DBAccess.AdminFunctions;
 
 import java.util.ArrayList;
 
+/**
+ * Methoder der hente data fra databasen og sender det til frontenden
+ */
+
 public class AdminFacade {
 
     public static ArrayList<WoodWhitPrice> getAllWood(){

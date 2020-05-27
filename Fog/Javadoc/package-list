@@ -1,0 +1,13 @@
+CarportBerninger
+CarportBerninger.Materials
+CarportBerninger.Materials.Roof
+CarportBerninger.Materials.SkruerOgBeslag
+CarportBerninger.Materials.Wood
+CarportBerninger.Materials.Wood.FladtTag
+CarportBerninger.Materials.Wood.FladtTag.BeslagOgSkruer
+CarportBerninger.Util
+CarportBerninger.Util.Email
+DBAccess
+FunctionLayer
+PresentationLayer
+PresentationLayer.Admin

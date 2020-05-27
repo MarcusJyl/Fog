@@ -1,14 +1,17 @@
 package DBAccess;
 
-import FunctionLayer.Carport;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Denne classe bruges til at hente data fra databasen og alt det benyttes på bruger siden
+ */
+
 public class Datamapper {
+
 
     public static ArrayList<Integer> GetHeight() {
         ArrayList<Integer> allHeight = new ArrayList<Integer>();

@@ -5,6 +5,10 @@ import com.sun.javafx.binding.StringFormatter;
 
 import java.util.Locale;
 
+/**
+ * Denne klasse holder på alle methoder til at tegne svg tegningen med.
+ */
+
 public class Svg {
 
     private int width1;
@@ -35,7 +39,6 @@ public class Svg {
         svgTextHeader = String.format(Locale.US, headerTemplate2, String.format(viewbox, width + 50, height + 50));
 
     }
-
 
     public void addRect(double x, double y, double width, double height){
         svg.append(String.format(Locale.US, rectTemplate, x, y, width, height));

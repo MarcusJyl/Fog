@@ -1,7 +1,6 @@
 package PresentationLayer.Admin;
 
 import DBAccess.AdminFunctions;
-import FunctionLayer.LoginSampleException;
 import PresentationLayer.Command;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 
 public class DeleteWood extends Command {
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, UnsupportedEncodingException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 
         int id = Integer.parseInt(request.getParameter("deleteId"));
 

@@ -6,14 +6,14 @@ import CarportBerninger.Util.WoodReturn;
 
 import java.util.ArrayList;
 
-public class ZTilDør extends Wood {
+public class ZForDoor extends Wood {
 
     private ArrayList<Integer> vareNr = StaticValues.ZTilDør;
 
     private int length = 540;
     private int amount = 1;
 
-    public ZTilDør() {
+    public ZForDoor() {
     }
 
     @Override

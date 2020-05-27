@@ -1,5 +1,8 @@
 package FunctionLayer;
 
+/**
+ * Klassen bruges til at holde navn og id for træ så det kan sendes vider sammen
+ */
 public class Wood {
 
     private int id;

@@ -6,6 +6,12 @@ import FunctionLayer.WoodWhitPrice;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Denne classe bruges til at insætte eller slete data fra databasen
+ * alle methoder kan enden slette eller hente noget fra databasen
+ * alle methoder bruges på adminsiden
+ */
+
 public class AdminFunctions {
 
     public static int InsertHeight(int height) {

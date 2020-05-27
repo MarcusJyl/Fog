@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Klassen indholder methoder der henter diminisioner fra databasen og sender dem til frontenden
+ */
+
 public class DimensionsFacade {
 
     public static int width = 0;
