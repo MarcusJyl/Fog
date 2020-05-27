@@ -1,5 +1,9 @@
 package CarportBerninger.Util;
 
+/**
+ * Holder alle værdiger der bliver hentet ned fra databasen on et stykke 3
+ */
+
 public class WoodFromDB {
     int id;
     int produktId;

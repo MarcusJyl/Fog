@@ -1,5 +1,9 @@
 package CarportBerninger.Util;
 
+/**
+ * Bruges til at sende antal og længde på træ rundt sammen
+ */
+
 public class WoodReturn {
 
     private double length;

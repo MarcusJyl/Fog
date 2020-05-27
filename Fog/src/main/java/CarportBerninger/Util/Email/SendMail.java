@@ -11,6 +11,9 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+/**
+ * Sender en mail til sælger
+ */
 public class SendMail {
 
     public static void send(String fileName, String Subject, String text) {

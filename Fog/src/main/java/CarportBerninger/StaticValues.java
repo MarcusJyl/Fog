@@ -4,6 +4,9 @@ import DBAccess.MaterialsListFunc;
 
 import java.util.ArrayList;
 
+/**
+ * Holder på værdige der ikke skal ændres men skal bruges for skellige steder i programmet
+ */
 public class StaticValues {
     public static int dictensBetweenSpær = 70;
 

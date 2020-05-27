@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Prøver at finde den kombination af træ stykker der giver mindst spild
+ */
+
 public class Match {
 
     public static HashMap<Integer, Integer> wood(Wood wood) {

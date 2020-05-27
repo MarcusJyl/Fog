@@ -1,5 +1,9 @@
 package CarportBerninger.Util;
 
+/**
+ * Holder værdiger om beslag og skruer der bliver hentet fra databasen
+ */
+
 public class BeslagFromDB extends RoofFromDB {
 
     private int antal;

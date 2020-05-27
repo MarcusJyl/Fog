@@ -1,5 +1,9 @@
 package CarportBerninger.Util;
 
+/**
+ * Holadert værdiger der bliver hentet om tag fra databaseen
+ */
+
 public class RoofFromDB {
 
     private int id;

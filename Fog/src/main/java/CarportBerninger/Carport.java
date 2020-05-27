@@ -27,6 +27,18 @@ public class Carport {
     private int shedLength;
 
 
+    /**
+     * Carport classen står for at finde alle matrialer der skal bruges
+     * @param length
+     * @param width
+     * @param heigth
+     * @param degrees
+     * @param shedLength
+     * @param shed
+     * @param shedHalf
+     * @param shedWhole
+     * @param fladtTag
+     */
 
 
     public Carport(int length, int width, int heigth, int degrees, int shedLength,  boolean shed, boolean shedHalf, boolean shedWhole, boolean fladtTag){

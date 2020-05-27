@@ -24,7 +24,9 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-
+/**
+ * Denne klasse laver et excel ark
+ */
 public class ExcelMakker {
 
     private Carport carport;
