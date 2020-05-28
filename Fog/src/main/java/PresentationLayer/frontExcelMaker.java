@@ -1,7 +1,7 @@
 package PresentationLayer;
 
 import Matrialeliste.Carport;
-import Matrialeliste.Util.ExcelMakker;
+import Matrialeliste.Util.ExcelMaker;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,7 +30,7 @@ public class frontExcelMaker extends Command {
         session.setAttribute("send", "");
 
         Carport carport = new Carport(length,width,height, slope, lengthShed, shedCheck, shedCheckHalf, shedCheckWhole, fladtTag);
-        ExcelMakker excel = new ExcelMakker(carport);
+        ExcelMaker excel = new ExcelMaker(carport);
         try {
             excel.makeCarport(
                     "Kunde: " + name + "\nTelefonnummer: " + phone + "\n Mail: " + email,
