@@ -57,7 +57,7 @@ public class MaterialsListFunc {
         int length = 0;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT træ_længde as længde FROM inventory.produkt_træ inner join inventory.produktnumber on produkt_træ.id = produktNumber.id where produktNumber = ?;";
+            String SQL = "SELECT træ_længde as længde FROM inventory.produkt_træ inner join inventory.produktNumber on produkt_træ.id = produktNumber.id where produktNumber = ?;";
             PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, vareNummer);
             ResultSet rs = preparedStatement.executeQuery();
@@ -75,7 +75,7 @@ public class MaterialsListFunc {
         WoodFromDB woodFromDB = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM inventory.produkt_træ inner join produkt on produkt_træ.produktId = produkt.produktId where id = (select id from inventory.produktnumber where produktnumber = ?);";
+            String SQL = "SELECT * FROM inventory.produkt_træ inner join produkt on produkt_træ.produktId = produkt.produktId where id = (select id from inventory.produktNumber where produktNumber = ?);";
             PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, vareNummer);
             ResultSet rs = preparedStatement.executeQuery();
@@ -118,7 +118,7 @@ public class MaterialsListFunc {
         RoofFromDB roofFromDB = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM inventory.produkt_tagpakken inner join produkt on produkt_tagpakken.produktId = produkt.produktId where id = (select id from inventory.produktnumber where produktnumber = ?);";
+            String SQL = "SELECT * FROM inventory.produkt_tagpakken inner join produkt on produkt_tagpakken.produktId = produkt.produktId where id = (select id from inventory.produktNumber where produktNumber = ?);";
             PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, vareNummer);
             ResultSet rs = preparedStatement.executeQuery();
@@ -140,7 +140,7 @@ public class MaterialsListFunc {
         BeslagFromDB beslagFromDB = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM inventory.produkt_beslag_skruer inner join produkt on produkt_beslag_skruer.produktId = produkt.produktId where id = (select id from inventory.produktnumber where produktnumber = ?);";
+            String SQL = "SELECT * FROM inventory.produkt_beslag_skruer inner join produkt on produkt_beslag_skruer.produktId = produkt.produktId where id = (select id from inventory.produktNumber where produktNumber = ?);";
             PreparedStatement preparedStatement = con.prepareStatement(SQL, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1, vareNummer);
             ResultSet rs = preparedStatement.executeQuery();

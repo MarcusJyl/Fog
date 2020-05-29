@@ -36,7 +36,7 @@ public class SendMail {
                 return new PasswordAuthentication(from, "1123581321#");
             }
         });
-
+        session.setDebug(true);
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));

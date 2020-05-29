@@ -68,6 +68,13 @@ public class Drawing extends Command {
                 svg.addRect(skurStart, (width - 35) - stolpeStørrelse, stolpeStørrelse, stolpeStørrelse);
                 svg.addRect(length - stolpeStørrelse, (width - 35) - stolpeStørrelse, stolpeStørrelse, stolpeStørrelse);
             }
+            //Stolper
+            for (int x = 100; x <= length - lengthShed; x += 310) {
+                svg.addRect(x, stolpeTop, stolpeStørrelse, stolpeStørrelse);
+            }
+            for (int x = 100; x <= length - lengthShed; x += 310) {
+                svg.addRect(x, stopeBund, stolpeStørrelse, stolpeStørrelse);
+            }
         } else {
             //Stolper
             for (int x = 100; x <= length; x += 310) {

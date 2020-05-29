@@ -183,7 +183,7 @@
             <div class="form-group mt-2">
                 Ønskes der skur til carporten?
                 <label class="container">Ja
-                    <input type="checkbox" id="myCheckSkur" onclick="hide('myCheckSkur', 'skur')">
+                    <input type="checkbox" id="myCheckSkur" onclick="hide('myCheckSkur', 'skur'); draw('draw')">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -204,12 +204,12 @@
                     Ønskes der skur af halv eller hel carpot bredde?
                     <label class="container">Halv længde
                         <input type="checkbox" id="checkSkurHalf"
-                               onclick="saveToStorage('checkSkurHalf', document.getElementById('checkSkurHalf').checked); ">
+                               onclick="saveToStorage('checkSkurHalf', document.getElementById('checkSkurHalf').checked); draw('draw') ">
                         <span class="checkmark"></span>
                     </label>
                     <label class="container">Hel længde
                         <input type="checkbox" id="checkSkurWhole"
-                               onclick="saveToStorage('checkSkurWhole', document.getElementById('checkSkurWhole').checked); ">
+                               onclick="saveToStorage('checkSkurWhole', document.getElementById('checkSkurWhole').checked); draw('draw') ">
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -244,7 +244,6 @@
     </div>
 
     <div class="form-group col-6 pt-5  bg-light" style="height: auto">
-        ${requestScope.svgdrawingSide}
         ${requestScope.svgdrawing}
     </div>
 </div>

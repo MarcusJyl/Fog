@@ -308,7 +308,7 @@ public class AdminFunctions {
         ArrayList<WoodWhitPrice> allHeight = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM inventory.produktnumber inner JOIN inventory.produkt_træ ON produktnumber.id=produkt_træ.id inner JOIN inventory.produkt ON produktnumber.produktId=produkt.produktId;";
+            String SQL = "SELECT * FROM inventory.produktNumber inner JOIN inventory.produkt_træ ON produktNumber.id=produkt_træ.id inner JOIN inventory.produkt ON produktNumber.produktId=produkt.produktId;";
             PreparedStatement preparedStatement = con.prepareStatement(SQL);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -395,13 +395,13 @@ public class AdminFunctions {
             preparedStatement.executeUpdate();
 
             Connection con1 = Connector.connection();
-            String SQL1 = "delete from produktnumber where id = ?;";
+            String SQL1 = "delete from produktNumber where id = ?;";
             PreparedStatement preparedStatement1 = con1.prepareStatement(SQL1, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement1.setInt(1, id);
             preparedStatement1.executeUpdate();
 
             Connection con2 = Connector.connection();
-            String SQL2 = "select count(id) as count from produktnumber where produktId = (select produktId from produktnumber where id = ?);";
+            String SQL2 = "select count(id) as count from produktNumber where produktId = (select produktId from produktNumber where id = ?);";
             PreparedStatement preparedStatement2 = con2.prepareStatement(SQL2);
             preparedStatement2.setInt(1, id);
             ResultSet rs = preparedStatement2.executeQuery();
@@ -411,7 +411,7 @@ public class AdminFunctions {
 
             if (count == 0){
                 Connection con4 = Connector.connection();
-                String SQL4 = "delete from produkt where produktId = (select produktId from produktnumber where id = ?);";
+                String SQL4 = "delete from produkt where produktId = (select produktId from produktNumber where id = ?);";
                 PreparedStatement preparedStatement4 = con4.prepareStatement(SQL4, PreparedStatement.RETURN_GENERATED_KEYS);
                 preparedStatement4.setInt(1, id);
                 preparedStatement4.executeUpdate();

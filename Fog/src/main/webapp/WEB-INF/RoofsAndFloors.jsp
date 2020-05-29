@@ -62,21 +62,6 @@
     </tr>
     <tr>
         <td><form action="FrontController" method="POST">
-            <label for="fcolor">Tilføj ny farve til tag:</label><br>
-            <input type="text" id="fcolor" name="color" value="">
-            <input type="hidden" name="taget" value="insertColor">
-            <input type="submit" value="Submit">
-        </form></td>
-        <td></td>
-        <td><form action="FrontController" method="POST">
-            <label for="xcolor">Fjern farve:</label><br>
-            <input type="text" id="xcolor" name="color" value="">
-            <input type="hidden" name="taget" value="removeColor">
-            <input type="submit" value="Submit">
-        </form></td>
-    </tr>
-    <tr>
-        <td><form action="FrontController" method="POST">
             <label for="froof">Tilføj ny tagtype:</label><br>
             <input type="text" id="froof" name="roof" value="">
             <input type="hidden" name="taget" value="insertRoof">
@@ -92,7 +77,7 @@
             </c:forEach>
         </select></td>
         <td><form action="FrontController" method="POST">
-            <label for="aroof">Fjern gulvtype:</label><br>
+            <label for="aroof">Fjern tagtype:</label><br>
             <input type="text" id="aroof" name="roof" value="">
             <input type="hidden" name="taget" value="removeRoof">
             <input type="submit" value="Submit">
