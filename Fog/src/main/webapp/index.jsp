@@ -71,7 +71,7 @@
             <div class="form-group mt-4">
                 Højde
                 <select required class="form-control number-input" id="height" name="height"
-                        onchange="saveToStorage('height', document.getElementById('height').value); draw('draw')">
+                        onchange="saveToStorage('height', document.getElementById('height').value - 1); draw('draw')">
                     <c:forEach var="i" items="${DimensionsFacade.getHeight()}" varStatus="Count">
                         <option value="${Count.index+1}">
                                 ${i}
@@ -84,7 +84,7 @@
             <div class="form-group mt-2">
                 Bredde
                 <select required class="form-control number-input" id="width" name="width"
-                        onchange="saveToStorage('width', document.getElementById('width').value); draw('draw')">
+                        onchange="saveToStorage('width', document.getElementById('width').value - 1); draw('draw')">
                     <c:forEach var="i" items="${DimensionsFacade.getWidth()}" varStatus="Count">
                         <option value="${Count.index+1}">
                                 ${i}
@@ -96,7 +96,7 @@
             <div class="form-group mt-2">
                 Længde
                 <select required class="form-control number-input" id="length" name="length"
-                        onchange="saveToStorage('length', document.getElementById('length').value); draw('draw')">
+                        onchange="saveToStorage('length', document.getElementById('length').value - 1); draw('draw')">
                     <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                         <option value="${Count.index+1}">
                                 ${i}
@@ -158,7 +158,7 @@
                 <div class="form-group mt-2">
                     Vinkel
                     <select required class="form-control number-input" id="slope" name="slope"
-                            onchange="saveToStorage('slope', document.getElementById('slope').value)">
+                            onchange="saveToStorage('slope', document.getElementById('slope').value - 1)">
                         <c:forEach var="i" items="${DimensionsFacade.getSlope()}" varStatus="Count">
                             <option value="${Count.index+1}">
                                     ${i}
@@ -170,7 +170,7 @@
                 <div class="form-group mt-2">
                     Tagtype
                     <select required class="form-control number-input" id="roofType" name="roofType"
-                            onchange="saveToStorage('roofType', document.getElementById('roofType').value)">
+                            onchange="saveToStorage('roofType', document.getElementById('roofType').value - 1)">
                         <c:forEach var="i" items="${DimensionsFacade.getAllRoof()}" varStatus="Count">
                             <option value="${Count.index+1}">
                                     ${i}
@@ -191,7 +191,7 @@
                 <div class="form-group mt-2">
                     Længde
                     <select required class="form-control number-input" id="shedLength" name="shedLength"
-                            onchange="saveToStorage('shedLength', document.getElementById('shedLength').value); draw('draw')">
+                            onchange="saveToStorage('shedLength', document.getElementById('shedLength').value - 1); draw('draw')">
                         <c:forEach var="i" items="${DimensionsFacade.getLength()}" varStatus="Count">
                             <option value="${Count.index+1}">
                                     ${i}
@@ -217,7 +217,7 @@
                 <div class="form-group mt-2">
                     Beklædningstype
                     <select required class="form-control number-input" id="shedWood" name="shedLength"
-                            onchange="saveToStorage('shedWood', document.getElementById('shedWood').value)">
+                            onchange="saveToStorage('shedWood', document.getElementById('shedWood').value - 1)">
                         <c:forEach var="i" items="${DimensionsFacade.getAllWoodPanels()}" varStatus="Count">
                             <option value="${Count.index+1}">
                                     ${i}
@@ -229,7 +229,7 @@
                 <div class="form-group mt-2">
                     Gulvtype
                     <select required class="form-control number-input" id="shedFloor" name="shedFloor"
-                            onchange="saveToStorage('shedFloor', document.getElementById('shedFloor').value)">
+                            onchange="saveToStorage('shedFloor', document.getElementById('shedFloor').value - 1)">
                         <c:forEach var="i" items="${DimensionsFacade.getAllFlooring()}" varStatus="Count">
                             <option value="${Count.index+1}">
                                     ${i}
