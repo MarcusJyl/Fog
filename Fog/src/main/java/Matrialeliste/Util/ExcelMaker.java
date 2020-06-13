@@ -81,11 +81,9 @@ public class ExcelMaker {
                     row.createCell(0).setCellValue(wood.getName());
                     row.createCell(1).setCellValue((int) entry.getValue());
                     row.createCell(2).setCellValue(wood.getLængde());
-                    row.createCell(3).setCellValue(MaterialsListFunc.getDescription(
-                            MaterialsListFunc.getAllWoodInfo((int) entry.getKey()).getProduktId()));
+                    row.createCell(3).setCellValue(MaterialsListFunc.getDescription(MaterialsListFunc.getAllWoodInfo((int) entry.getKey()).getProduktId()));
                     row.createCell(4).setCellValue((int) entry.getKey());
-                    row.createCell(5).setCellValue(wood.getMeterpris() * w.getAmount().getAmount() *
-                            (w.getAmount().getLength() / 100));
+                    row.createCell(5).setCellValue(wood.getMeterpris() * w.getAmount().getAmount() * (w.getAmount().getLength() / 100));
                     i++;
                 }
             }

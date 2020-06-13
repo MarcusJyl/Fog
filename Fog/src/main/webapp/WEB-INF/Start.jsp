@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="admin/Style.css">
 </head>
 
-<h1> Velkommen til Fogs administrationsside</h1>
+<h1>Velkommen til Fogs administrationsside</h1>
 
 <table>
 
@@ -24,7 +24,7 @@
             <label>Rediger basale længder:</label><br>
             <input type="hidden" name="taget" value="returnBasicMeasurements">
             <input type="submit" value="Submit">
-        </form></td>>
+        </form></td>
     </tr>
     <tr>
         <td><form action="FrontController" method="post">

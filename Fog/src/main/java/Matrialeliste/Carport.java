@@ -101,10 +101,7 @@ public class Carport {
             beslag.add(new Stalddørsgreb());
             beslag.add(new THængsel());
             beslag.add(vinkelbeslag);
-
-
         } else {
-
             woods.add(sternCarport = new SternCarport(length)); //sternSidder brættet der gør man ikke kan se ind i spærne
             woods.add(new Rem(length)); //rem hvis tag er fladt
             woods.add(new BearingPostVerCarport(length, heigth)); //bearingPosts
